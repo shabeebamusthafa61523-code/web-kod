@@ -1,0 +1,304 @@
+import React, { useEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import {
+  Smartphone, Zap, Layers, Cpu, CheckCircle2,
+  ArrowRight, Layout, Rocket, Star, Award, Users
+} from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import Navbart from '../../components/Navbart';
+import Footert from '../../components/Footert';
+
+const AppDevelopment = () => {
+  const { scrollYProgress } = useScroll();
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
+  const navigate = useNavigate();
+
+  const handleApplyClick = () => {
+    navigate('/contact');
+    window.scrollTo(0, 0);
+  };
+
+  /* ---------------- GRID ANIMATION (NO CSS FILE) ---------------- */
+  const gridStyle = {
+    backgroundImage: `
+      linear-gradient(to right, rgba(183, 211, 51, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(68, 45, 131, 0.08) 1px, transparent 1px)
+    `,
+    backgroundSize: "60px 60px",
+    animation: "gridMove 12s linear infinite"
+  };
+
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
+      @keyframes gridMove {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-60px); }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
+  const steps = [
+    {
+      title: "Flutter Basics",
+      icon: <Layout />,
+      items: ["Dart Programming", "Async/Await", "Widgets", "Provider"]
+    },
+    {
+      title: "App Development",
+      icon: <Smartphone />,
+      items: ["Navigation", "REST APIs", "SQLite & Hive", "Real Apps"]
+    },
+    {
+      title: "Firebase & Testing",
+      icon: <Zap />,
+      items: ["Auth & Firestore", "Push Notifications", "Testing", "Optimization"]
+    },
+    {
+      title: "Advanced Topics",
+      icon: <Layers />,
+      items: ["Bloc/Riverpod", "Animations", "CI/CD", "Publishing"]
+    }
+  ];
+
+  const careerPaths = [
+    { role: "Mobile Developer", salary: "₹8-15L", icon: <Smartphone /> },
+    { role: "Flutter Engineer", salary: "₹10-18L", icon: <Zap /> },
+    { role: "UI/UX Designer", salary: "₹7-14L", icon: <Layout /> },
+    { role: "Full Stack Dev", salary: "₹12-25L", icon: <Cpu /> },
+    { role: "Tech Lead", salary: "₹18-35L", icon: <Award /> },
+    { role: "Product Designer", salary: "₹9-16L", icon: <Layers /> }
+  ];
+
+  return (
+    <div>
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+
+      {/* 🌌 NEON GRID BACKGROUND */}
+      <div className="fixed inset-0 -z-30 pointer-events-none bg-black">
+
+        <div
+          style={gridStyle}
+          className="absolute inset-0 opacity-20"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+      </div>
+
+      {/* 💜 FLOATING GLOW ORBS */}
+      <div className="fixed inset-0 -z-20 pointer-events-none">
+        <motion.div
+          style={{ y: backgroundY }}
+          className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-[#442D83]/20 blur-[140px] rounded-full"
+        />
+        <motion.div
+          style={{ y: backgroundY }}
+          className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#B7D333]/10 blur-[140px] rounded-full"
+        />
+      </div>
+
+      {/* HERO */}
+      <section className="pt-32 pb-24 text-center px-6 relative z-10">
+
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-10 backdrop-blur-xl">
+          <Star size={14} className="text-[#B7D333]" />
+          <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400">
+            Next-Gen Mobile Academy
+          </span>
+        </div>
+
+        <h1 className="text-6xl md:text-8xl font-black leading-[1.05] mb-8">
+          <span className="text-[#442D83]">Master </span>
+          <span className="text-[#B7D333]">Flutter App</span><br />
+          <span className="text-white">Development</span>
+        </h1>
+
+        <p className="max-w-2xl mx-auto text-gray-400 text-lg mb-10">
+          Build high-performance apps with Flutter using a single codebase.
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-5">
+
+        <button
+  onClick={handleApplyClick}
+  className="mt-6 px-5 py-3 rounded-full 
+  border border-white/20 
+  bg-white/10 backdrop-blur-xl 
+  shadow-lg shadow-black/30
+  flex items-center gap-3 
+  text-sm font-semibold 
+  tracking-[0.25em] hover:tracking-[0.35em] 
+  transition-all duration-500 
+  hover:scale-105 hover:bg-white/15 
+  hover:border-white/30 
+  self-start"
+>
+  <span className="text-[#b7d333] font-bold">APPLY NOW</span>
+  <span className="text-white transition-transform duration-500 group-hover:translate-x-1">
+    →
+  </span>
+</button>
+     <a
+  href="/brochure.pdf"
+  className="mt-6 px-5 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm flex items-center gap-3 text-sm font-semibold tracking-[0.25em] hover:tracking-[0.35em] transition-all duration-500 hover:scale-100 self-start"
+>
+  <span className="text-gray-200">Download Brochure</span>
+  
+</a>
+
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section className="px-6 py-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        {[
+          { title: "Cross Platform", desc: "iOS + Android + Web", icon: <Rocket /> },
+          { title: "Native Speed", desc: "Smooth performance", icon: <Smartphone /> },
+          { title: "Mentorship", desc: "1:1 Expert guidance", icon: <Users /> }
+        ].map((f, i) => (
+          <div
+            key={i}
+            className="
+              relative overflow-hidden
+              bg-white/5 border border-white/10
+              backdrop-blur-2xl
+              rounded-3xl p-8
+              transition-all duration-500
+              hover:scale-[1.03] hover:-translate-y-2
+              hover:border-[#B7D333]/40
+              hover:shadow-[0_0_40px_rgba(183,211,51,0.15)]
+              group
+            "
+          >
+            <div className="
+              absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
+              bg-gradient-to-br from-[#442D83]/10 via-transparent to-[#B7D333]/10
+              pointer-events-none
+            " />
+
+            <div className="text-[#B7D333] mb-4">{f.icon}</div>
+            <h3 className="text-xl font-bold mb-2">{f.title}</h3>
+            <p className="text-gray-400 text-sm">{f.desc}</p>
+          </div>
+        ))}
+
+      </section>
+
+      {/* CURRICULUM */}
+      <section className="px-6 py-24 max-w-6xl mx-auto">
+
+        <h2 className="text-4xl font-black text-center mb-16 text-[#442D83]">
+          Learning Path
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-10">
+
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              className="
+                relative overflow-hidden
+                bg-white/5 border border-white/10
+                backdrop-blur-2xl
+                rounded-3xl p-8
+                transition-all duration-500
+                hover:scale-[1.03] hover:-translate-y-2
+                hover:border-[#B7D333]/40
+                hover:shadow-[0_0_40px_rgba(183,211,51,0.15)]
+                group
+              "
+            >
+
+              <div className="flex items-center gap-4 mb-6 text-[#B7D333]">
+                {step.icon}
+                <h3 className="text-xl font-bold text-white">{step.title}</h3>
+              </div>
+
+              <ul className="space-y-3">
+                {step.items.map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-gray-400 text-sm">
+                    <CheckCircle2 className="text-[#B7D333] w-4 h-4" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+          ))}
+
+        </div>
+      </section>
+
+      {/* CAREERS */}
+      <section className="px-6 py-24 max-w-6xl mx-auto">
+
+        <h2 className="text-4xl font-black text-center mb-16 text-[#B7D333]">
+          Career Outcomes
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+
+          {careerPaths.map((c, i) => (
+            <div
+              key={i}
+              className="
+                bg-white/5 border border-white/10
+                backdrop-blur-2xl
+                rounded-3xl p-8
+                hover:scale-[1.03] hover:-translate-y-2
+                transition-all duration-500
+              "
+            >
+              <div className="text-[#442D83] mb-4">{c.icon}</div>
+              <h3 className="font-bold mb-2">{c.role}</h3>
+              <p className="text-[#B7D333] font-black text-xl">{c.salary}</p>
+            </div>
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* CTA */}
+      <section className="px-6 pb-24">
+
+        <div className="
+          bg-gradient-to-r from-[#442D83]/25 to-[#B7D333]/10
+          border border-white/10
+          rounded-[3rem] p-16 text-center
+          backdrop-blur-2xl
+        ">
+
+          <h2 className="text-5xl font-black mb-6">
+            Start Your Journey
+          </h2>
+
+          <p className="text-gray-400 mb-10">
+            Limited seats available for next batch
+          </p>
+
+        <button
+  onClick={() => navigate(card.route)}
+  className="mt-6 mx-auto px-3 py-2 rounded-full border border-[#b7d333]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-sm font-semibold tracking-[0.25em] text-[#b7d333] hover:text-white hover:tracking-[0.35em] transition-all duration-500 hover:scale-105"
+>
+  <span>ENROLL NOW</span>
+  <span className="group-hover:translate-x-1 transition-transform duration-500">
+    →
+  </span>
+</button>
+
+        </div>
+
+      </section>
+
+    </div>
+    </div>
+  );
+};
+
+export default AppDevelopment;

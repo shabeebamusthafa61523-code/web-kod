@@ -1,3 +1,5 @@
+import Herro from "./Herro";
+
 export default function Hero() {
   const menu = [
     'DESIGN PRINCIPLES',
@@ -84,6 +86,7 @@ export default function Hero() {
         </div>
       </div>
     </div>
+     
     </div>
   );
 }

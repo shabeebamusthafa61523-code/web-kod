@@ -13,15 +13,14 @@ export default function Services() {
   {
     title: "OUR SERVICES",
     description:
-      "Learn MongoDB, Express, React, and Node.js to build modern web applications.",
-    path: "/mern-stack",
+      "We craft powerful brands identities, We manage and scale your presence by reaching you to the right audience.Every campaign is built with clear goal.We help your business get discovered organically through search engines.",
+    path: "/servicedetails",
   },
 ];
 
   return (
-    <div className="bg-black">
-    
-       <div className="text-center pt-28 bg-black" >
+   <div className="bg-[url('/bgb.png')] bg-cover bg-center bg-no-repeat">
+       <div className="text-center pt-28 " >
         <h2 className="text-3xl sm:text-5xl font-light tracking-[0.35em] uppercase">
           <span className="text-[#b7d333]" >Learn</span>
           <span className="text-white">.</span>
@@ -30,7 +29,7 @@ export default function Services() {
           <span className="text-[#b7d333]">Earn</span>
         </h2>
       </div>
-    <div className="min-h-screen bg-black flex items-center justify-center p-10">
+    <div className="min-h-screen  flex items-center justify-center p-10">
       
       <div className="flex gap-8 flex-wrap justify-center">
         {cards.map((card, i) => (

@@ -2,55 +2,72 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function CourseDetails() {
+export default function ServiceDetails() {
   const navigate = useNavigate();
 
   const cards = [
     {
-      title: "App Development",
-      route: "/ad",
+      title: "Branding & Identity",
       description:
-        "Learn to create native iOS and Android apps with Flutter and React Native.",
+        "We craft powerful brand identities that go beyond just visuals. From defining your brand positioning to designing a cohesive visual language, we ensure your business stands out with clarity, consistency, and purpose. Whether you’re launching something new or rebranding, we build identities that people remember.",
       logo: "/logo3.jpeg",
     },
     {
-      title: "Software Development",
-      route: "/sd",
+      title: "Social Media Growth",
       description:
-        "Master HTML, CSS, JavaScript, React, and backend technologies for modern web apps.",
+        "Your social media should do more than just exist — it should grow your business. We manage and scale your presence across platforms like Instagram, Facebook, and LinkedIn through strategic content, consistent execution, and performance tracking. Our focus is on building engagement, increasing reach, and turning followers into customers.",
       logo: "/logo3.jpeg",
     },
     {
-      title: "Graphic Designing",
-      route: "/gd",
+      title: "Performance Marketing",
       description:
-        "Develop skills in visual design, UI/UX, branding, and industry standard design software.",
+        "We run data-driven advertising campaigns designed to generate real results. From Meta ads to Google campaigns, we focus on reaching the right audience, optimizing conversions, and maximizing your return on investment. Every campaign is built with a clear goal — leads, sales, or brand visibility.",
       logo: "/logo3.jpeg",
     },
     {
-      title: "Digital Marketing",
-      route: "/dm",
+      title: "Content Creation & Production",
       description:
-        "Learn SEO, social media marketing, content creation, and analytics for effective digital campaigns.",
+        "Content is the backbone of modern marketing, and we make sure yours stands out. From ideation to execution, we produce high-quality videos, creatives, and brand content that capture attention and drive engagement. Our approach combines creativity with strategy to deliver content that performs.",
+      logo: "/logo3.jpeg",
+    },
+    {
+      title: "Website & E-Commerce Development",
+      description:
+          "Your website is your digital storefront, and we make sure it performs like one. We design and develop modern, user-friendly websites and e-commerce platforms that are optimized for conversions, speed, and user experience. Whether it’s a business website or a Shopify store, we build with growth in mind.",
+      logo: "/logo3.jpeg",
+    },
+    {
+      title: "SEO & Organic Growth",
+      description:
+        "Content is the backbone of modern marketing, and we make sure yours stands out. From ideation to execution, we produce high-quality videos, creatives, and brand content that capture attention and drive engagement. Our approach combines creativity with strategy to deliver content that performs.",
+      logo: "/logo3.jpeg",
+    },
+    {
+      title: "Creative & Design Services",
+      description:
+       "Strong visuals create strong impressions. We design impactful creatives for social media, advertisements, and branding materials that align with your identity and communicate your message effectively. Every design is crafted to capture attention and enhance brand recall.",
+      logo: "/logo3.jpeg",
+    },
+    {
+      title: "Growth Strategy & Consultation",
+      description:
+           "We don’t just execute — we guide. Our strategy and consulting services are designed to give your business a clear direction for growth. From market analysis to funnel planning, we help you make smarter decisions and build scalable systems that support long-term success.",
+      logo: "/logo3.jpeg",
+    },
+    {
+      title: "Personal Branding",
+      description:
+         "In today’s digital world, people connect with people. We help founders, professionals, and creators build a strong personal brand that establishes authority and trust. From content direction to platform strategy, we position you as a leader in your space.",
+      logo: "/logo3.jpeg",
+    },
+    {
+      title: "Sales & Lead Systems",
+      description:
+       "Generating leads is only half the job — converting them is what matters. We design and implement systems that streamline your sales process, including CRM setups, automation, and WhatsApp or email funnels. Our goal is to turn interest into consistent revenue.",
       logo: "/logo3.jpeg",
     },
    
   ];
-
-  // Categorize cards
-  const developmentCards = cards.filter(
-    (card) =>
-      card.title !== "Graphic Designing" &&
-      card.title !== "Digital Marketing"
-  );
-
-  const designingCards = cards.filter(
-    (card) => card.title === "Graphic Designing"
-  );
-
-  const marketingCards = cards.filter(
-    (card) => card.title === "Digital Marketing"
-  );
 
   // Reusable renderer
   const renderCards = (cardList) =>
@@ -104,16 +121,6 @@ export default function CourseDetails() {
               {card.description}
             </p>
 
-            {/* Button */}
-            <button
-              onClick={() => navigate(card.route)}
-              className="mt-6 px-3 py-2 rounded-full border border-[#b7d333]/40 bg-black/30 backdrop-blur-sm flex items-center gap-3 text-sm font-semibold tracking-[0.25em] hover:tracking-[0.35em] transition-all duration-500 hover:scale-105 self-start"
-            >
-              <span className="text-[#b7d333]">EXPLORE</span>
-              <span className="text-white group-hover:translate-x-1 transition-transform duration-500">
-                →
-              </span>
-            </button>
           </div>
         </motion.div>
       );
@@ -157,35 +164,11 @@ export default function CourseDetails() {
         <div className="absolute w-[500px] h-[500px] bg-[#442d82]/20 rounded-full blur-[120px] blob2 bottom-[-200px] right-[-150px]" />
         <div className="absolute w-[400px] h-[400px] bg-white/5 rounded-full blur-[120px] blob3 top-[40%] left-[40%]" />
       </div>
-
-      {/* Sections */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* Development */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">Development</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {renderCards(developmentCards)}
-          </div>
-        </div>
-
-        {/* Designing */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">Designing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {renderCards(designingCards)}
-          </div>
-        </div>
-
-        {/* Marketing */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">Marketing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {renderCards(marketingCards)}
-          </div>
-        </div>
-
-      </div>
+        <div className="max-w-5xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {renderCards(cards)}
+  </div>
+</div>
     </motion.div>
   );
 }

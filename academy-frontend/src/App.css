@@ -1,5 +1,5 @@
-* {
-  cursor: none !important;
+body {
+  cursor: auto;
 }
 .counter {
   font-size: 16px;

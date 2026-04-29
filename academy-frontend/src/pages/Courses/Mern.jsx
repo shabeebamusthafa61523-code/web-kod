@@ -23,7 +23,7 @@ const Mern = () => {
 
   /* 🌟 UNIFIED CARD STYLE (same as AppDevelopment) */
   const cardStyle =
-    "relative overflow-hidden bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl p-8 transition-all duration-500 hover:scale-[1.03] hover:-translate-y-2 hover:border-[#B7D333]/40 hover:shadow-[0_0_40px_rgba(183,211,51,0.15)] group";
+    "relative overflow-hidden bg-white/5 border border-white/10 backdrop-blur-2xl rounded-3xl p-8 transition-all duration-500 hover:scale-[1.03] hover:-translate-y-2 hover:border-[#c4ec0d]/40 hover:shadow-[0_0_40px_rgba(183,211,51,0.15)] group";
 
   const path = [
     {
@@ -77,15 +77,15 @@ const Mern = () => {
       <section className="pt-32 pb-24 text-center px-6 relative z-10">
 
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-10 backdrop-blur-xl">
-          <Star size={14} className="text-[#B7D333]" />
+          <Star size={14} className="text-[#c4ec0d]" />
           <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400">
             Full Stack Engineering Program
           </span>
         </div>
 
         <h1 className="text-6xl md:text-8xl font-black mb-8 leading-[1.05]">
-          <span className="text-[#442D83]">Master </span>
-          <span className="text-[#B7D333]">MERN Stack</span><br />
+          <span className="text-[#5b21b6]">Master </span>
+          <span className="text-[#c4ec0d]">MERN Stack</span><br />
           <span className="text-white">Development</span>
         </h1>
 
@@ -113,7 +113,7 @@ const Mern = () => {
               hover:border-white/30
             "
           >
-            <span className="text-[#B7D333] font-bold">APPLY NOW</span>
+            <span className="text-[#c4ec0d] font-bold">APPLY NOW</span>
             <ArrowRight />
           </button>
 
@@ -146,8 +146,8 @@ const Mern = () => {
           { title: "Certification", desc: "Industry recognized program", icon: <Award /> }
         ].map((f, i) => (
           <div key={i} className={cardStyle}>
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#442D83]/10 to-[#B7D333]/10" />
-            <div className="text-[#B7D333] mb-4">{f.icon}</div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#5b21b6]/10 to-[#c4ec0d]/10" />
+            <div className="text-[#c4ec0d] mb-4">{f.icon}</div>
             <h3 className="text-xl font-bold mb-2">{f.title}</h3>
             <p className="text-gray-400 text-sm">{f.desc}</p>
           </div>
@@ -158,7 +158,7 @@ const Mern = () => {
       {/* CURRICULUM */}
       <section className="px-6 py-24 max-w-6xl mx-auto">
 
-        <h2 className="text-4xl font-black text-center mb-16 text-[#B7D333]">
+        <h2 className="text-4xl font-black text-center mb-16 text-[#c4ec0d]">
           Structured Learning Path
         </h2>
 
@@ -167,7 +167,7 @@ const Mern = () => {
           {path.map((item, i) => (
             <div key={i} className={cardStyle}>
 
-              <div className="flex items-center gap-4 mb-6 text-[#B7D333]">
+              <div className="flex items-center gap-4 mb-6 text-[#c4ec0d]">
                 {item.icon}
                 <h3 className="text-xl font-bold text-white">{item.title}</h3>
               </div>
@@ -175,7 +175,7 @@ const Mern = () => {
               <ul className="space-y-3">
                 {item.items.map((p, j) => (
                   <li key={j} className="flex items-center gap-3 text-gray-400 text-sm">
-                    <CheckCircle2 className="text-[#B7D333]" />
+                    <CheckCircle2 className="text-[#c4ec0d]" />
                     {p}
                   </li>
                 ))}
@@ -190,7 +190,7 @@ const Mern = () => {
       {/* CAREERS */}
       <section className="px-6 py-24 max-w-6xl mx-auto">
 
-        <h2 className="text-4xl font-black text-center mb-16 text-[#442D83]">
+        <h2 className="text-4xl font-black text-center mb-16 text-[#5b21b6]">
           Career Outcomes
         </h2>
 
@@ -198,9 +198,9 @@ const Mern = () => {
 
           {careers.map((c, i) => (
             <div key={i} className={cardStyle}>
-              <div className="text-[#442D83] mb-4">{c.icon}</div>
+              <div className="text-[#5b21b6] mb-4">{c.icon}</div>
               <h3 className="font-bold mb-2">{c.role}</h3>
-              <p className="text-[#B7D333] font-black text-xl">{c.salary}</p>
+              <p className="text-[#c4ec0d] font-black text-xl">{c.salary}</p>
             </div>
           ))}
 
@@ -212,7 +212,7 @@ const Mern = () => {
       <section className="px-6 pb-24">
 
         <div className="
-          bg-gradient-to-r from-[#442D83]/25 to-[#B7D333]/10
+          bg-gradient-to-r from-[#5b21b6]/25 to-[#c4ec0d]/10
           border border-white/10
           rounded-[3rem] p-16 text-center
           backdrop-blur-2xl
@@ -228,7 +228,7 @@ const Mern = () => {
 
          <button
   onClick={() => navigate(card.route)}
-  className="mt-6 mx-auto px-3 py-2 rounded-full border border-[#b7d333]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-sm font-semibold tracking-[0.25em] text-[#b7d333] hover:text-white hover:tracking-[0.35em] transition-all duration-500 hover:scale-105"
+  className="mt-6 mx-auto px-3 py-2 rounded-full border border-[#c4ec0d]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-sm font-semibold tracking-[0.25em] text-[#c4ec0d] hover:text-white hover:tracking-[0.35em] transition-all duration-500 hover:scale-105"
 >
   <span>ENROLL NOW</span>
   <span className="group-hover:translate-x-1 transition-transform duration-500">

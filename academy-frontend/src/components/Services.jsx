@@ -25,11 +25,11 @@ export default function Services() {
       {/* Heading */}
       <div className="text-center pt-28 px-4">
         <h2 className="text-3xl sm:text-5xl font-light tracking-normal sm:tracking-[0.35em] uppercase">
-          <span className="text-[#b7d333]">Learn</span>
+          <span className="text-[#c4ec0d]">Learn</span>
           <span className="text-white">.</span>
-          <span className="text-[#442d82]">Build</span>
+          <span className="text-[#5b21b6]">Build</span>
           <span className="text-white">.</span>
-          <span className="text-[#b7d333]">Earn</span>
+          <span className="text-[#c4ec0d]">Earn</span>
         </h2>
       </div>
 
@@ -42,7 +42,7 @@ export default function Services() {
               key={i}
               className="group relative w-full max-w-[300px] h-[360px] rounded-2xl p-[1px] 
               bg-transparent
-              hover:bg-gradient-to-br hover:from-[#b7d333]/60 hover:via-[#442d82]/60 hover:to-[#b7d333]/40
+              hover:bg-gradient-to-br hover:from-[#c4ec0d]/60 hover:via-[#5b21b6]/60 hover:to-[#c4ec0d]/40
               shadow-[0_0_60px_rgba(153,211,51,0.03)] transition-all duration-500"
             >
               {/* Inner Card */}
@@ -73,14 +73,14 @@ export default function Services() {
                 <button
                   onClick={() => navigate(card.path)}
                   className="relative z-10 mt-6 px-3 py-2 rounded-full
-                  border border-[#b7d333]/40
+                  border border-[#c4ec0d]/40
                   bg-black/30 backdrop-blur-sm
                   flex items-center gap-3
                   text-sm font-semibold tracking-[0.25em]
                   hover:tracking-[0.35em]
                   transition-all duration-500 hover:scale-105"
                 >
-                  <span className="text-[#b7d333]">SEE MORE</span>
+                  <span className="text-[#c4ec0d]">SEE MORE</span>
                   <span className="text-white transition-transform duration-500 group-hover:translate-x-1">
                     →
                   </span>

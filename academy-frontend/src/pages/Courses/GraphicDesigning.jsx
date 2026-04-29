@@ -118,7 +118,7 @@ const GraphicDesigning = () => {
   hover:border-white/30 
   self-start"
 >
-  <span className="text-[#b7d333] font-bold">APPLY NOW</span>
+  <span className="text-[#c4ec0d] font-bold">APPLY NOW</span>
   <span className="text-white transition-transform duration-500 group-hover:translate-x-1">
     →
   </span>
@@ -217,7 +217,7 @@ const GraphicDesigning = () => {
 
                      <button
   onClick={() => navigate(card.route)}
-  className="mt-6 mx-auto px-3 py-2 rounded-full border border-[#b7d333]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-sm font-semibold tracking-[0.25em] text-[#b7d333] hover:text-white hover:tracking-[0.35em] transition-all duration-500 hover:scale-105"
+  className="mt-6 mx-auto px-3 py-2 rounded-full border border-[#c4ec0d]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-sm font-semibold tracking-[0.25em] text-[#c4ec0d] hover:text-white hover:tracking-[0.35em] transition-all duration-500 hover:scale-105"
 >
   <span>ENROLL NOW</span>
   <span className="group-hover:translate-x-1 transition-transform duration-500">

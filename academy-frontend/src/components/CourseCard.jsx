@@ -84,10 +84,10 @@ export default function CourseCard() {
                   {/* Button */}
                   <button className="group mt-auto self-start font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 flex items-center">
                     <span>
-                      <span className="text-[#b7d333] transition-colors duration-300 group-hover:text-[#442d82]">
+                      <span className="text-[#c4ec0d] transition-colors duration-300 group-hover:text-[#5b21b6]">
                         EX
                       </span>
-                      <span className="text-[#442d82] transition-colors duration-300 group-hover:text-[#b7d333]">
+                      <span className="text-[#5b21b6] transition-colors duration-300 group-hover:text-[#b7d333]">
                         PLORE
                       </span>
                     </span>

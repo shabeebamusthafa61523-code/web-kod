@@ -11,7 +11,7 @@ const AboutUs = () => {
         </h2>
 
         {/* Gradient underline using your colors */}
-        <div className="w-24 h-1 mx-auto mb-10 rounded-full bg-gradient-to-r from-[#b7d333] to-[#442d82]"></div>
+        <div className="w-24 h-1 mx-auto mb-10 rounded-full bg-gradient-to-r from-[#c4ec0d] to-[#5b21b6]"></div>
 
         {/* Content */}
         <p className="text-lg leading-relaxed mb-6">
@@ -30,8 +30,8 @@ const AboutUs = () => {
 
         <p className="text-lg leading-relaxed">
           KOD.BRAND isn't just a name — it's a symbol of{" "}
-          <span className="text-[#b7d333] font-semibold">freshness</span> in{" "}
-          <span className="text-[#442d82] font-semibold">learning</span>, built with
+          <span className="text-[#c4ec0d] font-semibold">freshness</span> in{" "}
+          <span className="text-[#5b21b6] font-semibold">learning</span>, built with
           heart, ambition, and the belief that every student deserves more than
           just a degree classroom.
         </p>

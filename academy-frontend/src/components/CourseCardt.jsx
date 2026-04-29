@@ -36,7 +36,7 @@ export default function CourseCardt() {
         <h2 className="text-3xl sm:text-5xl font-light tracking-[0.35em] uppercase">
           <span className="text-[#b7d333]">Learn</span>
           <span className="text-white">.</span>
-          <span className="text-[#442d82]">Build</span>
+          <span className="text-[#5b21b6]">Build</span>
           <span className="text-white">.</span>
           <span className="text-[#b7d333]">Earn</span>
         </h2><br/>

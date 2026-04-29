@@ -83,7 +83,7 @@ const Contact = () => {
             value={form.from_name}
             onChange={handleChange}
             required
-            className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#b7d333] focus:ring-1 focus:ring-[#b7d333]"
+            className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#c4ec0d] focus:ring-1 focus:ring-[#c4ec0d]"
           />
 
           {/* EMAIL */}
@@ -94,7 +94,7 @@ const Contact = () => {
             value={form.from_email}
             onChange={handleChange}
             required
-            className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#b7d333] focus:ring-1 focus:ring-[#b7d333]"
+            className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#c4ec0d] focus:ring-1 focus:ring-[#c4ec0d]"
           />
 
           {/* PHONE + DROPDOWN */}
@@ -106,7 +106,7 @@ const Contact = () => {
               placeholder="Phone Number"
               value={form.phone}
               onChange={handleChange}
-              className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#b7d333] focus:ring-1 focus:ring-[#b7d333]"
+              className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#c4ec0d] focus:ring-1 focus:ring-[#c4ec0d]"
             />
 
             {/* 🔥 RESPONSIVE DROPDOWN */}
@@ -115,7 +115,7 @@ const Contact = () => {
                 name="program"
                 value={form.program}
                 onChange={handleChange}
-              className="w-full p-4 bg-[#121212] border border-[#442d82] rounded-lg text-white appearance-none cursor-pointer focus:outline-none focus:border-[#b7d333] focus:ring-1 focus:ring-[#b7d333] transition"
+              className="w-full p-4 bg-[#121212] border border-[#5b21b6] rounded-lg text-white appearance-none cursor-pointer focus:outline-none focus:border-[#c4ec0d] focus:ring-1 focus:ring-[#c4ec0d] transition"
               >
                 <option value="">Interested Program</option>
                 <option>For Enquiries</option>
@@ -140,12 +140,12 @@ const Contact = () => {
             value={form.message}
             onChange={handleChange}
             required
-            className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#b7d333] focus:ring-1 focus:ring-[#b7d333]"
+            className="w-full p-3 sm:p-4 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#c4ec0d] focus:ring-1 focus:ring-[#c4ec0d]"
           />
 
           {/* STATUS */}
           {status === "success" && (
-            <p className="text-center text-[#b7d333] text-xs sm:text-sm tracking-widest">
+            <p className="text-center text-[#c4ec0d] text-xs sm:text-sm tracking-widest">
               ✅ Message sent successfully!
             </p>
           )}
@@ -160,7 +160,7 @@ const Contact = () => {
           <motion.button
             type="submit"
             disabled={status === "sending"}
-            className="mt-4 sm:mt-6 px-6 py-3 w-full rounded-full border border-[#b7d333]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-[#b7d333] transition-all duration-500 hover:scale-105 disabled:opacity-50"
+            className="mt-4 sm:mt-6 px-6 py-3 w-full rounded-full border border-[#c4ec0d]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-[#c4ec0d] transition-all duration-500 hover:scale-105 disabled:opacity-50"
           >
             <span>{status === "sending" ? "SENDING..." : "SEND MESSAGE"}</span>
             <span className="text-white">→</span>

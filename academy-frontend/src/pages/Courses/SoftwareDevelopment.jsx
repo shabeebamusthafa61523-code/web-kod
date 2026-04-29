@@ -53,7 +53,7 @@ export default function PremiumCards() {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="relative group rounded-2xl p-[1px] bg-gradient-to-br from-[#2a2a2a] via-[#333] to-[#111] hover:from-[#b7d333] hover:via-[#8fa92a] hover:to-[#442d82] transition duration-500"
+              className="relative group rounded-2xl p-[1px] bg-gradient-to-br from-[#2a2a2a] via-[#333] to-[#111] hover:from-[#c4ec0d] hover:via-[#8fa92a] hover:to-[#5b21b6] transition duration-500"
             >
               <div className="h-full min-h-[320px] w-full rounded-2xl bg-black p-6 flex flex-col justify-between shadow-xl group-hover:shadow-2xl transition duration-500">
                 <div>
@@ -68,14 +68,14 @@ export default function PremiumCards() {
                 <button
                   onClick={() => navigate(card.path)}
                   className="relative z-10 mt-6 px-3 py-2 rounded-full
-                  border border-[#b7d333]/40
+                  border border-[#c4ec0d]/40
                   bg-black/30 backdrop-blur-sm
                   flex items-center gap-3
                   text-sm font-semibold tracking-[0.25em]
                   hover:tracking-[0.35em]
                   transition-all duration-500 hover:scale-105"
                 >
-                  <span className="text-[#b7d333]">SEE MORE</span>
+                  <span className="text-[#c4ec0d]">SEE MORE</span>
                   <span className="text-white transition-transform duration-500 group-hover:translate-x-1">
                     →
                   </span>
@@ -83,7 +83,7 @@ export default function PremiumCards() {
               </div>
 
               {/* Glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-40 blur-2xl bg-gradient-to-br from-[#b7d333] via-[#8fa92a] to-[#442d82] transition duration-500"></div>
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-40 blur-2xl bg-gradient-to-br from-[#c4ec0d] via-[#8fa92a] to-[#5b21b6] transition duration-500"></div>
             </div>
           ))}
         </div>

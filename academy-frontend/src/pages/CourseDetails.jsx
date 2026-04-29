@@ -68,7 +68,7 @@ export default function CourseDetails() {
           whileHover={{ scale: 1.03 }}
           className={`group rounded-2xl p-[1px] ${
             isSpecial
-              ? "bg-gradient-to-br from-[#b7d333]/60 via-[#442d82]/60 to-[#b7d333]/40 shadow-[0_0_60px_rgba(183,211,51,0.15)]"
+              ? "bg-gradient-to-br from-[#c4ec0d]/60 via-[#5b21b6]/60 to-[#c4ec0d]/40 shadow-[0_0_60px_rgba(183,211,51,0.15)]"
               : "bg-gradient-to-br from-[#1a1a1a] via-[#0f0f0f] to-[#1a1a1a]"
           }`}
         >
@@ -107,9 +107,9 @@ export default function CourseDetails() {
             {/* Button */}
             <button
               onClick={() => navigate(card.route)}
-              className="mt-6 px-3 py-2 rounded-full border border-[#b7d333]/40 bg-black/30 backdrop-blur-sm flex items-center gap-3 text-sm font-semibold tracking-[0.25em] hover:tracking-[0.35em] transition-all duration-500 hover:scale-105 self-start"
+              className="mt-6 px-3 py-2 rounded-full border border-[#c4ec0d]/40 bg-black/30 backdrop-blur-sm flex items-center gap-3 text-sm font-semibold tracking-[0.25em] hover:tracking-[0.35em] transition-all duration-500 hover:scale-105 self-start"
             >
-              <span className="text-[#b7d333]">EXPLORE</span>
+              <span className="text-[#c4ec0d]">EXPLORE</span>
               <span className="text-white group-hover:translate-x-1 transition-transform duration-500">
                 →
               </span>
@@ -153,8 +153,8 @@ export default function CourseDetails() {
 
       {/* Background blobs */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[600px] h-[600px] bg-[#b7d333]/10 rounded-full blur-[120px] blob1 top-[-200px] left-[-150px]" />
-        <div className="absolute w-[500px] h-[500px] bg-[#442d82]/20 rounded-full blur-[120px] blob2 bottom-[-200px] right-[-150px]" />
+        <div className="absolute w-[600px] h-[600px] bg-[#c4ec0d]/10 rounded-full blur-[120px] blob1 top-[-200px] left-[-150px]" />
+        <div className="absolute w-[500px] h-[500px] bg-[#5b21b6]/20 rounded-full blur-[120px] blob2 bottom-[-200px] right-[-150px]" />
         <div className="absolute w-[400px] h-[400px] bg-white/5 rounded-full blur-[120px] blob3 top-[40%] left-[40%]" />
       </div>
 

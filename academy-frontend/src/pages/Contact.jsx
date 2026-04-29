@@ -55,7 +55,7 @@ const Contact = () => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen flex items-center justify-center bg-black px-4 sm:px-6 pt-24 sm:pt-28 pb-20"
+      className="min-h-screen flex items-center justify-center bg-black px-4 sm:px-6 pt-24 sm:pt-28 pb-30"
     >
       <motion.div
         initial="hidden"
@@ -115,7 +115,7 @@ const Contact = () => {
                 name="program"
                 value={form.program}
                 onChange={handleChange}
-                className="w-full p-3 sm:p-4 pr-10 sm:pr-12 text-sm sm:text-base bg-[#121212] border border-gray-700 rounded-lg text-white appearance-none cursor-pointer focus:outline-none focus:border-[#b7d333] focus:ring-1 focus:ring-[#b7d333]"
+              className="w-full p-4 bg-[#121212] border border-[#442d82] rounded-lg text-white appearance-none cursor-pointer focus:outline-none focus:border-[#b7d333] focus:ring-1 focus:ring-[#b7d333] transition"
               >
                 <option value="">Interested Program</option>
                 <option>For Enquiries</option>

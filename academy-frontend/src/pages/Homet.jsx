@@ -10,7 +10,6 @@ const images = ["/new.png", "/new.png", "/new.png"];
 const overlays = ["bg-black/40", "bg-black/20", "bg-black/0"];
 const navLinks = ["Home", "Services", "About Us", "Contact"];
 
-// 🔥 Reveal animation
 function RevealSection({ children, delay = 0 }) {
   return (
     <motion.div
@@ -27,10 +26,8 @@ function RevealSection({ children, delay = 0 }) {
 export default function Homet() {
   const [index, setIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
   const [showLogo, setShowLogo] = useState(false);
 
   const homeRef = useRef(null);
@@ -51,7 +48,6 @@ export default function Homet() {
     setMenuOpen(false);
   };
 
-  // 🔥 HERO IMAGE SCROLL EFFECT
   useEffect(() => {
     const totalSteps = images.length;
 
@@ -76,7 +72,6 @@ export default function Homet() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🔥 NAVBAR SHOW/HIDE
   useEffect(() => {
     const handleScrollDirection = () => {
       const currentScrollY = window.scrollY;
@@ -94,7 +89,6 @@ export default function Homet() {
     return () => window.removeEventListener("scroll", handleScrollDirection);
   }, [lastScrollY]);
 
-  // 🔥 SHOW LOGO AFTER HERO
   useEffect(() => {
     const handleScroll = () => {
       if (!heroRef.current) return;
@@ -112,21 +106,17 @@ export default function Homet() {
   }, []);
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-x-hidden">
 
-      {/* 🔥 NAVBAR */}
+      {/* NAVBAR */}
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
-        animate={{
-          y: showNav ? 0 : -100,
-          opacity: showNav ? 1 : 0,
-        }}
+        animate={{ y: showNav ? 0 : -100, opacity: showNav ? 1 : 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className="fixed top-0 left-0 w-full z-50 backdrop-blur-[2px]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5 relative flex items-center">
 
-          {/* LOGO */}
           <motion.div
             className="cursor-pointer z-10"
             onClick={() => scrollToSection(homeRef)}
@@ -136,15 +126,11 @@ export default function Homet() {
               scale: showLogo ? 1 : 0.98,
               filter: showLogo ? "blur(0px)" : "blur(6px)",
             }}
-            transition={{
-              duration: 0.9,
-              ease: [0.25, 0.8, 0.25, 1],
-            }}
+            transition={{ duration: 0.9, ease: [0.25, 0.8, 0.25, 1] }}
           >
             <img src="/logo2.png" alt="logo" className="h-8 sm:h-10 w-auto" />
           </motion.div>
 
-          {/* NAV LINKS */}
           <ul className="hidden md:flex items-center gap-6 lg:gap-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
             {navLinks.map((link, i) => (
               <li
@@ -171,7 +157,6 @@ export default function Homet() {
             ))}
           </ul>
 
-          {/* MOBILE MENU BUTTON */}
           <div className="md:hidden ml-auto z-10">
             <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl">
               ☰
@@ -179,7 +164,6 @@ export default function Homet() {
           </div>
         </div>
 
-        {/* MOBILE MENU */}
         {menuOpen && (
           <div className="md:hidden bg-black/95 backdrop-blur-md text-center py-6 space-y-6">
             {navLinks.map((link, i) => (
@@ -215,18 +199,18 @@ export default function Homet() {
         </style>
       </motion.nav>
 
-      {/* 🔥 HERO SECTION */}
+      {/* HERO SECTION */}
       <div
         ref={homeRef}
         className="h-[120vh] sm:h-[130vh] md:h-[200vh] lg:h-[260vh] relative"
       >
         <div className="sticky top-0 md:top-10 h-screen flex justify-center items-center">
-          <div className="relative w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-4xl h-screen overflow-hidden">
+          <div className="relative w-full max-w-[100vw] sm:max-w-[90vw] md:max-w-4xl h-screen overflow-hidden">
 
             <img
               src={images[index]}
               alt="hero"
-              className="absolute inset-0 w-full h-full object-contain md:object-contain object-center md:scale-106 bg-black"
+              className="absolute inset-0 w-full h-full object-contain object-center bg-black"
             />
 
             <div className={`absolute inset-0 ${overlays[index]}`} />
@@ -234,27 +218,24 @@ export default function Homet() {
         </div>
       </div>
 
-      {/* HERO CONTENT */}
       <div ref={heroRef}>
         <Hero />
       </div>
 
-      {/* SERVICES */}
       <RevealSection delay={0.2}>
         <div ref={coursesRef} className="px-4 sm:px-6 md:px-12">
           <Services />
         </div>
       </RevealSection>
 
-      {/* ABOUT */}
       <div ref={aboutRef} className="px-4 sm:px-6 md:px-12">
         <AboutUs />
       </div>
 
-      {/* CONTACT */}
       <div ref={contactRef} className="px-4 sm:px-6 md:px-12">
         <Contact />
       </div>
+
     </div>
   );
 }

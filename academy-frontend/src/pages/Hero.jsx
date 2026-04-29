@@ -1,4 +1,3 @@
-import Herro from "./Herro";
 
 export default function Hero() {
   const menu = [

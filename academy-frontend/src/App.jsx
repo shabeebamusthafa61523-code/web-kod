@@ -23,7 +23,6 @@ import Reactfrontend from "./pages/Courses/Reactfrontend";
 import Nodebackend from "./pages/Courses/Nodebackend";
 import Pythonbackend from "./pages/Courses/Pythonbackend";
 import ServiceDetails from "./pages/ServiceDetails";
-import Herro from "./pages/Herro";
 
 /* ✅ NEW: Layout component */
 function Layout() {
@@ -54,7 +53,6 @@ function Layout() {
         <Route path="/re" element={<Reactfrontend />} />
         <Route path="/node" element={<Nodebackend />} />
         <Route path="/python" element={<Pythonbackend />} />
-        <Route path="/he" element={<Herro />} />
       </Routes>
 
       <Footert />

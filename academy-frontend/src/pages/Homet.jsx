@@ -6,17 +6,21 @@ import Contact from "./Contact";
 import AboutUs from "./AboutUs";
 import Services from "../components/Services";
 
-const images = ["/new.png", "/new.png", "/new.png"];
+const images = ["/neww.jpeg", "/neww.jpeg", "/neww.jpeg"];
 const overlays = ["bg-black/40", "bg-black/20", "bg-black/0"];
 const navLinks = ["Home", "Services", "About Us", "Contact"];
 
-// 🔥 Reveal animation
-function RevealSection({ children, delay = 0 }) {
+// 🔥 Reveal animation (UPDATED ONLY HERE)
+function RevealSection({ children, delay = 0, enabled }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 80, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
+      initial={{ opacity: 0, y: 80, scale: 0.98, filter: "blur(20px)" }}
+      whileInView={
+        enabled
+          ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+          : {}
+      }
+      viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut", delay }}
     >
       {children}
@@ -32,6 +36,9 @@ export default function Homet() {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const [showLogo, setShowLogo] = useState(false);
+
+  // 🔥 NEW STATE
+  const [passedHero, setPassedHero] = useState(false);
 
   const homeRef = useRef(null);
   const heroRef = useRef(null);
@@ -51,24 +58,20 @@ export default function Homet() {
     setMenuOpen(false);
   };
 
-  // 🔥 HERO IMAGE SCROLL EFFECT
-useEffect(() => {
+  // 🔥 HERO IMAGE SCROLL EFFECT (UNCHANGED)
+ useEffect(() => {
   const totalSteps = images.length;
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
-    // 👇 MUCH smaller scroll range per image
-    const isMobile = window.innerWidth < 768;
+    const heroHeight =
+      heroRef.current?.offsetHeight || window.innerHeight * 2.5;
 
-    const sectionHeight = window.innerHeight * (isMobile ? 1.2 : 2.5);
+    // 🔥 map scroll ONLY inside hero section
+    const progress = Math.min(scrollY / heroHeight, 0.999);
 
-    const stepHeight = sectionHeight / totalSteps;
-
-    const newIndex = Math.min(
-      totalSteps - 1,
-      Math.floor(scrollY / stepHeight)
-    );
+    const newIndex = Math.floor(progress * totalSteps);
 
     setIndex(newIndex);
   };
@@ -97,7 +100,7 @@ useEffect(() => {
     return () => window.removeEventListener("scroll", handleScrollDirection);
   }, [lastScrollY]);
 
-  // 🔥 SHOW LOGO AFTER HERO SECTION (FIXED)
+  // 🔥 SHOW LOGO AFTER HERO (UNCHANGED)
   useEffect(() => {
     const handleScroll = () => {
       if (!heroRef.current) return;
@@ -114,10 +117,29 @@ useEffect(() => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <div className="bg-black text-white">
+  // 🔥 NEW: ENABLE ANIMATION ONLY AFTER HERO
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
 
-      {/* 🔥 NAVBAR (UNCHANGED — GRADIENT + ANIMATION PRESERVED) */}
+      const heroBottom =
+        heroRef.current.offsetTop + heroRef.current.offsetHeight;
+
+      if (window.scrollY > heroBottom - window.innerHeight * 0.4) {
+        setPassedHero(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="text-white">
+
+      {/* 🔥 NAVBAR (UNCHANGED) */}
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
         animate={{
@@ -125,11 +147,10 @@ useEffect(() => {
           opacity: showNav ? 1 : 0,
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="fixed top-0 left-0 w-full z-50 backdrop-blur-[2px]"
+        className="fixed top-0 left-0 w-full z-50 backdrop-blur-[3px]"
       >
         <div className="max-w-7xl mx-auto px-6 py-5 relative flex items-center">
 
-          {/* LOGO (SMOOTH FADE-IN UPDATED) */}
           <motion.div
             className="cursor-pointer z-10"
             onClick={() => scrollToSection(homeRef)}
@@ -148,13 +169,12 @@ useEffect(() => {
             <img src="/logo2.png" alt="logo" className="h-10 w-auto" />
           </motion.div>
 
-          {/* NAV LINKS (UNCHANGED ANIMATION) */}
           <ul className="hidden md:flex items-center space-x-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
             {navLinks.map((link, i) => (
               <li
                 key={i}
                 onClick={() => handleNavClick(link)}
-                className="relative cursor-pointer group text-lg tracking-wide"
+                className="relative cursor-pointer group text-md tracking-wide"
               >
                 <span
                   className="inline-block"
@@ -175,7 +195,6 @@ useEffect(() => {
             ))}
           </ul>
 
-          {/* MOBILE MENU BUTTON */}
           <div className="md:hidden ml-auto z-10">
             <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl">
               ☰
@@ -183,7 +202,6 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* MOBILE MENU (UNCHANGED GRADIENT) */}
         {menuOpen && (
           <div className="md:hidden bg-black/90 text-center py-6 space-y-6">
             {navLinks.map((link, i) => (
@@ -219,40 +237,48 @@ useEffect(() => {
         </style>
       </motion.nav>
 
-      {/* 🔥 HERO SECTION (MOBILE FIX ONLY) */}
-           <div ref={homeRef} className="h-[140vh] relative md:h-[300vh]">
-             <div className="sticky top-0 h-[110vh] flex justify-center items-center">
-           <div className="relative w-screen md:w-full md:max-w-4xl h-[110vh] overflow-hidden">
-               <img
-  src={images[index]}
-  alt="hero"
-  className="absolute inset-0 w-full h-full object-contain md:object-cover object-center bg-black"
-/>
-
+      {/* 🔥 HERO IMAGE SECTION (UNCHANGED) */}
+      <div ref={homeRef} className="h-[140vh] bg-black relative md:h-[110vh]">
+        <div className="sticky top-0 h-[110vh] flex justify-center items-center">
+          <div className="relative w-screen md:w-full md:max-w-4xl h-[110vh] overflow-hidden">
+            <img
+              src={images[index]}
+              alt="hero"
+              className="absolute inset-0 w-full h-full object-contain md:object-cover object-center bg-black"
+            />
             <div className={`absolute inset-0 ${overlays[index]}`} />
           </div>
+        </div>
+      </div>
+
+
+        <div className="relative z-10">
+            <RevealSection delay={0.2} enabled={passedHero}>
+          <div ref={heroRef}>
+            <Hero />
+          </div>
+                    </RevealSection>
+
+
+          <RevealSection delay={0.2} enabled={passedHero}>
+            <div ref={coursesRef}>
+              <Services />
+            </div>
+          </RevealSection>
+
+          <RevealSection delay={0.3} enabled={passedHero}>
+            <div ref={aboutRef}>
+              <AboutUs />
+            </div>
+          </RevealSection>
+
+          <RevealSection delay={0.3} enabled={passedHero}>
+            <div ref={contactRef}>
+              <Contact />
+            </div>
+          </RevealSection>
 
         </div>
       </div>
-      {/* HERO SECTION REFERENCE */}
-      <div ref={heroRef}>
-        <Hero />
-      </div>
-
-      <RevealSection delay={0.2}>
-        <div ref={coursesRef}>
-          <Services />
-        </div>
-      </RevealSection>
-
-      <div ref={aboutRef}>
-        <AboutUs />
-      </div>
-
-      <div ref={contactRef}>
-        <Contact />
-      </div>
-
-    </div>
   );
 }

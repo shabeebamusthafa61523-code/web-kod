@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Services() {
   const navigate = useNavigate();
@@ -20,11 +21,10 @@ export default function Services() {
   ];
 
   return (
-    <div className="bg-[url('/bgb.png')] bg-cover bg-center bg-no-repeat overflow-x-hidden">
-      
+    <div className="relative z-10 bg-cover bg-center bg-no-repeat overflow-x-hidden">
       {/* Heading */}
-      <div className="text-center pt-28 px-4">
-        <h2 className="text-3xl sm:text-5xl font-light tracking-normal sm:tracking-[0.35em] uppercase">
+      <div className="text-center pt-28 px-4 pb-38">
+        <h2 className="text-2xl sm:text-4xl font-light tracking-normal sm:tracking-[0.35em] uppercase ">
           <span className="text-[#c4ec0d]">Learn</span>
           <span className="text-white">.</span>
           <span className="text-[#5b21b6]">Build</span>
@@ -32,7 +32,12 @@ export default function Services() {
           <span className="text-[#c4ec0d]">Earn</span>
         </h2>
       </div>
-
+          <h1
+          className="font-geist text-white text-[80px] leading-[1.05] tracking-[-0.04em] text-[#111] mb-12"
+        >
+          Shaping <span className="font-instrument-serif italic text-[100px]">agencies</span>{" "}<br/>
+          of tomorrow
+        </h1><br/>
       {/* Cards Section */}
       <div className="min-h-screen flex items-center justify-center px-4 sm:px-10 py-10">
         <div className="flex flex-wrap gap-8 justify-center">
@@ -40,8 +45,8 @@ export default function Services() {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="group relative w-full max-w-[300px] h-[360px] rounded-2xl p-[1px] 
-              bg-transparent
+              className="group relative w-full max-w-[300px] h-[390px] rounded-2xl p-[1px] 
+              bg-transparent  bg-white/4 backdrop-blur-sm 
               hover:bg-gradient-to-br hover:from-[#c4ec0d]/60 hover:via-[#5b21b6]/60 hover:to-[#c4ec0d]/40
               shadow-[0_0_60px_rgba(153,211,51,0.03)] transition-all duration-500"
             >
@@ -64,7 +69,7 @@ export default function Services() {
                     {card.title}
                   </h2>
 
-                  <p className="text-sm opacity-80 leading-relaxed px-2">
+                  <p className="text-sm  opacity-80 leading-relaxed px-2 text-start">
                     {card.description}
                   </p>
                 </div>
@@ -90,7 +95,9 @@ export default function Services() {
           ))}
 
         </div>
+        
       </div>
+       
     </div>
   );
 }

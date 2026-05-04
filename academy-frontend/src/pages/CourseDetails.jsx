@@ -125,7 +125,7 @@ export default function CourseDetails() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -40 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
-      className="min-h-screen w-full bg-black py-20 pt-38 px-6 text-white relative overflow-hidden"
+      className="min-h-screen w-full  py-20 pt-38 px-6 text-white relative overflow-hidden"
     >
       {/* Background styles */}
       <style>{`

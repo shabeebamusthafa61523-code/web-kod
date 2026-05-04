@@ -1,3 +1,6 @@
+import Homet from "./Homet";
+
+
 export default function Hero() {
   const menu = [
     'DESIGN PRINCIPLES',
@@ -5,33 +8,36 @@ export default function Hero() {
     'MARKETING IDEAS',
     'FULL-STACK',
   ];
-
+  
+                 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center p-6">
-      <div className="w-full max-w-7xl rounded-[2rem] overflow-hidden bg-black shadow-2xl">
+    <div>
+      
+
+      
+    <div className="min-h-screen text-white flex items-center justify-center p-6">
+      <div className="w-full max-w-7xl rounded-[2rem]  overflow-hidden shadow-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-6 sm:p-8 lg:p-14">
 
           {/* Left typography block */}
-          <div className="space-y-0 leading-none text-center lg:text-left">
-            <h1
-              style={{ fontFamily: "YourFont" }}
-              className="text-[3rem] sm:text-[5rem] lg:text-[7rem] tracking-wide"
-            >
-              TECH & DESIGN
-            </h1>
+            <div className="space-y-0 w-[120%] leading-none bg-[linear-gradient(144.5deg,white_50%,rgba(0,0,0,0)_115%)] bg-clip-text text-transparent">
+           <h1
+        style={{ fontFamily: "YourFont" }}
+          className="text-[4rem] sm:text-[5rem] lg:text-[7rem] tracking-wide">
+  TECH & DESIGN</h1>
 
-            <h2
-              style={{ fontFamily: "YourFont" }}
-              className="text-[3rem] sm:text-[5rem] lg:text-[7rem] -mt-2"
-            >
-              ACADEMY
-            </h2>
+<h2
+  style={{ fontFamily: "YourFont" }}
+  className="text-[4rem] sm:text-[5rem] lg:text-[7rem] -mt-3"
+>
+  ACADEMY
+</h2>
           </div>
 
           {/* Right visual card */}
           <div className="relative group [perspective:1200px] flex justify-center lg:justify-end">
 
-            <div className="relative h-[280px] sm:h-[320px] lg:h-[420px] w-full max-w-[420px] lg:max-w-none bg-black overflow-hidden shadow-2xl">
+            <div className="relative h-[280px] sm:h-[320px] lg:h-[420px] w-full max-w-[420px] lg:max-w-none  overflow-hidden shadow-2xl">
 
               {/* grid */}
               <div
@@ -107,6 +113,7 @@ export default function Hero() {
 
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
-  { name: "About", path: "/au" },
+  { name: "AboutUs", path: "/au" },
   { name: "Contact", path: "/cu" }
 ];
 
@@ -35,7 +35,7 @@ const Navbart = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 backdrop-blur-[2px] transition-transform duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 backdrop-blur-[3px] transition-transform duration-500 ${
         showNav ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -52,7 +52,7 @@ const Navbart = () => {
             <li
               key={i}
               onClick={() => navigate(link.path)}
-              className="relative cursor-pointer group text-lg tracking-wide"
+              className="relative cursor-pointer group text-md tracking-wide"
             >
               <span
                 className="inline-block"

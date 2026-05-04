@@ -51,12 +51,24 @@ const Contact = () => {
   };
 
   return (
+    <div className="relative z-10 pt-22">
+     <motion.h2
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+          className="text-2xl max-w-4xl mx-auto text-start sm:text-2xl  text-white text-start"
+        >
+          Contact Us
+        </motion.h2>
+              <div className="max-w-4xl mx-auto ">
+                   <div className=" w-29 h-[1px]  rounded-full bg-white/50 "></div>
+
+            </div>
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen flex items-center justify-center bg-black px-4 sm:px-6 pt-24 sm:pt-28 pb-30"
+      className="min-h-screen flex items-center justify-center  px-4 sm:px-6 pt-14 sm:pt-14 pb-30"
     >
+      
       <motion.div
         initial="hidden"
         animate="visible"
@@ -64,14 +76,9 @@ const Contact = () => {
           hidden: {},
           visible: { transition: { staggerChildren: 0.12 } },
         }}
-        className="w-full max-w-4xl bg-[#0d0d0d] border border-gray-800 rounded-2xl p-5 sm:p-8 shadow-[0_0_40px_rgba(68,45,130,0.3)]"
+        className="w-full max-w-4xl bg-transparent  bg-white/4 backdrop-blur-sm  rounded-2xl p-5 sm:p-8 "
       >
-        <motion.h2
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          className="text-2xl sm:text-3xl font-semibold text-white mb-6 text-center"
-        >
-          Contact Us
-        </motion.h2>
+       
 
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
 
@@ -169,6 +176,7 @@ const Contact = () => {
         </form>
       </motion.div>
     </motion.div>
+    </div>
   );
 };
 

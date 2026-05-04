@@ -23,6 +23,9 @@ import Reactfrontend from "./pages/Courses/Reactfrontend";
 import Nodebackend from "./pages/Courses/Nodebackend";
 import Pythonbackend from "./pages/Courses/Pythonbackend";
 import ServiceDetails from "./pages/ServiceDetails";
+import Heero from "./pages/Courses/Heero";
+import Homev from "./pages/Homev";
+import Hero from "./pages/Hero";
 
 /* ✅ NEW: Layout component */
 function Layout() {
@@ -30,6 +33,18 @@ function Layout() {
 
   return (
     <>
+    <div className="app-wrapper">
+
+      {/* ✅ Background Video */}
+      <video
+        className="bg-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/bgv.mp4" type="video/mp4" />
+      </video>
       {location.pathname !== "/" && <Navbart />}
 
       <Routes>
@@ -37,6 +52,7 @@ function Layout() {
         <Route path="/n" element={<Navbar />} />
         <Route path="/h" element={<Home />} />
         <Route path="/" element={<Homet />} />
+        <Route path="/hee" element={<Hero/>} />
         <Route path="/hmm" element={<Homett />} />
         <Route path="/cd" element={<CourseDetails />} />
         <Route path="/servicedetails" element={<ServiceDetails />} />
@@ -53,9 +69,11 @@ function Layout() {
         <Route path="/re" element={<Reactfrontend />} />
         <Route path="/node" element={<Nodebackend />} />
         <Route path="/python" element={<Pythonbackend />} />
+        <Route path="/hhh" element={<Homev />} />
       </Routes>
 
       <Footert />
+      </div>
     </>
   );
 }

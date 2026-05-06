@@ -1,174 +1,153 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { 
+  Megaphone, 
+  Target, 
+  Search, 
+  PenTool, 
+  Palette, 
+  Code2, 
+  Rocket, 
+  BarChart3 
+} from "lucide-react";
 
-export default function ServiceDetails() {
-  const navigate = useNavigate();
+const ServiceCard = ({ service, index }) => {
+  const cardRef = useRef(null);
 
-  const cards = [
-    {
-      title: "Branding & Identity",
-      description:
-        "We craft powerful brand identities that go beyond just visuals. From defining your brand positioning to designing a cohesive visual language, we ensure your business stands out with clarity, consistency, and purpose. Whether you’re launching something new or rebranding, we build identities that people remember.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Social Media Growth",
-      description:
-        "Your social media should do more than just exist — it should grow your business. We manage and scale your presence across platforms like Instagram, Facebook, and LinkedIn through strategic content, consistent execution, and performance tracking. Our focus is on building engagement, increasing reach, and turning followers into customers.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Performance Marketing",
-      description:
-        "We run data-driven advertising campaigns designed to generate real results. From Meta ads to Google campaigns, we focus on reaching the right audience, optimizing conversions, and maximizing your return on investment. Every campaign is built with a clear goal — leads, sales, or brand visibility.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Content Creation & Production",
-      description:
-        "Content is the backbone of modern marketing, and we make sure yours stands out. From ideation to execution, we produce high-quality videos, creatives, and brand content that capture attention and drive engagement. Our approach combines creativity with strategy to deliver content that performs.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Website & E-Commerce Development",
-      description:
-          "Your website is your digital storefront, and we make sure it performs like one. We design and develop modern, user-friendly websites and e-commerce platforms that are optimized for conversions, speed, and user experience. Whether it’s a business website or a Shopify store, we build with growth in mind.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "SEO & Organic Growth",
-      description:
-        "Content is the backbone of modern marketing, and we make sure yours stands out. From ideation to execution, we produce high-quality videos, creatives, and brand content that capture attention and drive engagement. Our approach combines creativity with strategy to deliver content that performs.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Creative & Design Services",
-      description:
-       "Strong visuals create strong impressions. We design impactful creatives for social media, advertisements, and branding materials that align with your identity and communicate your message effectively. Every design is crafted to capture attention and enhance brand recall.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Growth Strategy & Consultation",
-      description:
-           "We don’t just execute — we guide. Our strategy and consulting services are designed to give your business a clear direction for growth. From market analysis to funnel planning, we help you make smarter decisions and build scalable systems that support long-term success.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Personal Branding",
-      description:
-         "In today’s digital world, people connect with people. We help founders, professionals, and creators build a strong personal brand that establishes authority and trust. From content direction to platform strategy, we position you as a leader in your space.",
-      logo: "/logo3.jpeg",
-    },
-    {
-      title: "Sales & Lead Systems",
-      description:
-       "Generating leads is only half the job — converting them is what matters. We design and implement systems that streamline your sales process, including CRM setups, automation, and WhatsApp or email funnels. Our goal is to turn interest into consistent revenue.",
-      logo: "/logo3.jpeg",
-    },
-   
-  ];
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-  // Reusable renderer
-  const renderCards = (cardList) =>
-    cardList.map((card, i) => {
-      const isSpecial = i % 3 === 0;
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
 
-      return (
-        <motion.div
-          key={i}
-          variants={{
-            hidden: { opacity: 0, y: 30, scale: 0.95 },
-            visible: { opacity: 1, y: 0, scale: 1 },
-          }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          whileHover={{ scale: 1.03 }}
-          className={`group rounded-2xl p-[1px] ${
-            isSpecial
-              ? "bg-gradient-to-br from-[#c4ec0d]/60 via-[#5b21b6]/60 to-[#c4ec0d]/40 shadow-[0_0_60px_rgba(183,211,51,0.15)]"
-              : "bg-gradient-to-br from-[#1a1a1a] via-[#0f0f0f] to-[#1a1a1a]"
-          }`}
-        >
-          <div
-            className={`rounded-2xl p-6 h-full flex flex-col transition-all duration-500 group-hover:-translate-y-2 ${
-              isSpecial
-                ? "bg-gradient-to-br from-[#1a1a1a] via-[#0d0d0d] to-[#1b1230]"
-                : "bg-[#0b0b0b]"
-            } group-hover:shadow-[0_0_40px_rgba(68,45,130,0.25)]`}
-          >
-            {/* Logo */}
-            <div className="w-14 h-14 rounded-xl bg-black border border-white/10 flex items-center justify-center mb-5">
-              <img
-                src={card.logo}
-                alt={card.title}
-                className={`object-contain ${
-                  isSpecial ? "w-10 h-10" : "w-8 h-8"
-                }`}
-              />
-            </div>
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
-            {/* Title */}
-            <h3
-              className={`font-semibold tracking-wide text-white ${
-                isSpecial ? "text-2xl mb-4" : "text-2xl mb-4"
-              }`}
-            >
-              {card.title}
-            </h3>
+  const handleMouseMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
 
-            {/* Description */}
-            <p className="text-sm text-gray-400 leading-6 flex-1">
-              {card.description}
-            </p>
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
 
-          </div>
-        </motion.div>
-      );
-    });
+    x.set(xPct);
+    y.set(yPct);
+
+    cardRef.current.style.setProperty("--mouse-x", `${mouseX}px`);
+    cardRef.current.style.setProperty("--mouse-y", `${mouseY}px`);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -40 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
-      className="min-h-screen w-full bg-black py-20 pt-38 px-6 text-white relative overflow-hidden"
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.8, ease: "easeOut" }}
+      className="relative h-full group"
     >
-      {/* Background styles */}
-      <style>{`
-        @keyframes blob1 {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(80px, -60px) scale(1.1); }
-          66% { transform: translate(-60px, 40px) scale(0.9); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        @keyframes blob2 {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(-70px, 50px) scale(1.2); }
-          66% { transform: translate(60px, -40px) scale(0.95); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        @keyframes blob3 {
-          0% { transform: translate(0px, 0px) scale(1); }
-          50% { transform: translate(40px, 30px) scale(1.1); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .blob1 { animation: blob1 18s infinite; }
-        .blob2 { animation: blob2 22s infinite; }
-        .blob3 { animation: blob3 20s infinite; }
-      `}</style>
+      <div className="absolute -inset-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]" />
+      
+      <div className="relative h-full overflow-hidden bg-zinc-900/40 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 transition-all duration-500 group-hover:border-white/20 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]">
+        
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(255,255,255,0.08),transparent_60%)]" />
 
-      {/* Background blobs */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[600px] h-[600px] bg-[#c4ec0d]/10 rounded-full blur-[120px] blob1 top-[-200px] left-[-150px]" />
-        <div className="absolute w-[500px] h-[500px] bg-[#5b21b6]/20 rounded-full blur-[120px] blob2 bottom-[-200px] right-[-150px]" />
-        <div className="absolute w-[400px] h-[400px] bg-white/5 rounded-full blur-[120px] blob3 top-[40%] left-[40%]" />
+        <div className="relative mb-8 flex justify-center" style={{ transform: "translateZ(50px)" }}>
+          <motion.div 
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: index * 0.3 }}
+            className="w-20 h-20 rounded-[2rem] flex items-center justify-center shadow-2xl relative z-10"
+            style={{ 
+              backgroundColor: `${service.color}15`, 
+              border: `1px solid ${service.color}40`,
+              color: service.color
+            }}
+          >
+            {service.icon}
+            <div className="absolute inset-0 rounded-[2rem] blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500" style={{ backgroundColor: service.color }} />
+          </motion.div>
+        </div>
+
+        <div style={{ transform: "translateZ(30px)" }}>
+          <h3 className="text-center text-white font-bold text-sm tracking-[0.2em] uppercase mb-8 group-hover:text-white transition-colors">
+            {service.title}
+          </h3>
+
+          <ul className="space-y-4">
+            {service.items.map((item, i) => (
+              <motion.li 
+                key={i}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * i + index * 0.1 }}
+                className="flex items-center gap-3 group/item"
+              >
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: service.color }} />
+                <span className="text-zinc-400 text-xs font-medium tracking-wide group-hover/item:text-white transition-colors duration-300">
+                  {item}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="absolute -bottom-6 -right-2 text-9xl font-black text-white/[0.03] select-none pointer-events-none transition-transform duration-700 group-hover:scale-110">
+          {index + 1}
+        </div>
       </div>
-        <div className="max-w-5xl mx-auto">
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {renderCards(cards)}
-  </div>
-</div>
     </motion.div>
+  );
+};
+
+export default function ServiceDetails() {
+  // Auto-scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const cards = [
+    { title: "Social Media Marketing", icon: <Megaphone size={32} />, color: "#c4ec0d", items: ["Account Management", "Content Creation", "Daily Posting", "Community Engagement", "Growth & Branding"] },
+    { title: "Paid Advertising", icon: <Target size={32} />, color: "#5b21b6", items: ["Meta (Ads Manager)", "Google Search & Display", "YouTube Video Ads", "Ad Campaign Strategy", "ROAS Optimization"] },
+    { title: "SEO Optimization", icon: <Search size={32} />, color: "#c4ec0d", items: ["On-Page SEO", "Technical Audit", "Keyword Research", "Authority Building", "Performance Reporting"] },
+    { title: "Content Marketing", icon: <PenTool size={32} />, color: "#5b21b6", items: ["Blog & Article Writing", "Website Copywriting", "SEO-Driven Content", "Creative Strategy", "Sales Copywriting"] },
+    { title: "Graphic Designing", icon: <Palette size={32} />, color: "#c4ec0d", items: ["Social Media Visuals", "Brand Identity Design", "Marketing Collaterals", "UI/UX Assets", "Custom Illustrations"] },
+    { title: "Website Development", icon: <Code2 size={32} />, color: "#5b21b6", items: ["Business Ecosystems", "E-Commerce Solutions", "High-Converting Landers", "Maintenance & Hosting", "Speed Optimization"] },
+    { title: "Lead Generation", icon: <Rocket size={32} />, color: "#c4ec0d", items: ["B2B/B2C Campaigns", "Sales Funnel Architecture", "Conversion Optimization", "CRM Automation", "Lead Qualification"] },
+    { title: "Analytics & Reporting", icon: <BarChart3 size={32} />, color: "#5b21b6", items: ["Pixel/GTM Tracking", "In-depth Data Analysis", "Monthly ROI Insights", "Attribution Modeling", "Strategic Consulting"] },
+  ];
+
+  return (
+    <section className="min-h-screen w-full bg-transparent py-24 px-6 relative overflow-hidden font-sans">
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-24"
+        >
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-4">
+            CORE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4ec0d] to-[#5b21b6]">SERVICES</span>
+          </h2>
+          <p className="text-zinc-500 tracking-[0.3em] uppercase text-xs font-bold ">Scalable Digital Solutions</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {cards.map((service, idx) => (
+            <ServiceCard key={idx} service={service} index={idx} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

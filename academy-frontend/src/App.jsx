@@ -26,6 +26,7 @@ import ServiceDetails from "./pages/ServiceDetails";
 import Heero from "./pages/Courses/Heero";
 import Homev from "./pages/Homev";
 import Hero from "./pages/Hero";
+import Vision from "./pages/Vision";
 
 /* ✅ NEW: Layout component */
 function Layout() {
@@ -70,6 +71,7 @@ function Layout() {
         <Route path="/node" element={<Nodebackend />} />
         <Route path="/python" element={<Pythonbackend />} />
         <Route path="/hhh" element={<Homev />} />
+        <Route path="/vision" element={<Vision />} />
       </Routes>
 
       <Footert />

@@ -169,13 +169,13 @@ const VisionPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               className="mb-10"
             >
-              <h2 className="text-[#c4ec0d] font-black uppercase tracking-widest text-sm mb-2">
+              {/* <h2 className="text-[#c4ec0d] font-black uppercase tracking-widest text-sm mb-2">
                 Target Goals
-              </h2>
-              <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
+              </h2> */}
+              <h1 className="text-5xl md:text-7xl font-black text-white leading-tight pt-2">
                 OUR{" "}
                 <span className="text-purple-500 underline decoration-[#c4ec0d]">
-                  OBJECTIVE
+                  OBJECTIVES
                 </span>
               </h1>
             </motion.div>

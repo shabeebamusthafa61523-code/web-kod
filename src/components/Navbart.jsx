@@ -45,7 +45,7 @@ const Navbart = () => {
 
         {/* LOGO */}
         <div onClick={() => navigate("/")} className="cursor-pointer">
-          <img src="/logo2.png" alt="logo" className="h-10 w-auto" />
+          <img src="/logo2.png" alt="logo" className="h-15 w-auto" />
         </div>
 
         {/* DESKTOP NAV */}

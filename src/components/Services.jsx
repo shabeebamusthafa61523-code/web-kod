@@ -55,7 +55,7 @@ export default function Services() {
   whileInView="visible"
   viewport={{ once: true }}
   /* Increased gap and vertical margin */
-  className="flex items-center gap-4 md:gap-8 mb-10 md:mb-16"
+  className="flex items-center gap-4 md:gap-8 mb-8 md:mb-10 mt-8 pt-10"
 >
   {["Learn", "•", "Build", "•", "Earn"].map((text, index) => (
     <motion.span 

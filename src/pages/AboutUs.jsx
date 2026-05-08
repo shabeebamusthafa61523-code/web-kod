@@ -29,7 +29,18 @@ const AboutUs = () => {
       }
     }
   };
+ const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
   return (
     <>
     <motion.section
@@ -57,19 +68,30 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-4 mb-8 md:ml-80"
-            >
-              <span className="text-[#c4ec0d] text-xs sm:text-sm md:text-lg font-bold tracking-[0.2em] sm:tracking-[0.4em] uppercase">Discovery</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
-              <span className="text-[#5b21b6] text-xs sm:text-sm md:text-lg font-bold tracking-[0.2em] sm:tracking-[0.4em] uppercase">Design</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
-              <span className="text-[#c4ec0d] text-xs sm:text-sm md:text-lg font-bold tracking-[0.2em] sm:tracking-[0.4em] uppercase">Delivery</span>
-            </motion.div>
-
+           <motion.div 
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  /* Reduced mobile gap from 4 to 2 */
+  className="flex items-center justify-center gap-2 md:gap-8 mb-8 md:mb-10 mt-8 md:pt-0 pt-15 px-2"
+>
+  {["Discovery", "•", "Design", "•", "Delivery"].map((text, index) => (
+    <motion.span 
+      key={index}
+      variants={itemVariants}
+      className={`${
+        /* Scaled down dot for mobile (w-1 h-1) */
+        text === "•" ? "w-1 h-1 md:w-3 md:h-3 rounded-full bg-white/30 mx-1 md:mx-2" : 
+        /* Reduced mobile text to xs and tracking to tightest [0.1em] */
+        (index === 0 || index === 4 ? "text-[#c4ec0d]" : "text-[#5b21b6]") + 
+        " text-[13px] md:text-xl font-black tracking-[0.1em] md:tracking-[0.4em] uppercase whitespace-nowrap"
+      }`}
+    >
+      {text === "•" ? "" : text}
+    </motion.span>
+  ))}
+</motion.div>
             <div className="text-center flex flex-col items-center">
               <motion.h1
                 initial={{ opacity: 0, scale: 0.95 }}

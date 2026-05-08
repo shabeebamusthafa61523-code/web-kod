@@ -47,8 +47,8 @@ function Layout() {
       >
         <source src="/bgv.mp4" type="video/mp4" />
       </video>
-      {location.pathname !== "/" && <Navbart />}
-
+      {/* {location.pathname !== "/" && <Navbart />} */}
+<Navbart/>
       <Routes>
         <Route path="/f" element={<Footer />} />
         <Route path="/n" element={<Navbar />} />

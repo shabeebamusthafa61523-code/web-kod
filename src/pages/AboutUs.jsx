@@ -97,7 +97,7 @@ const AboutUs = () => {
             >
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-light leading-[1.2] md:leading-[1.1] mb-6 md:mb-8">
                 Born from a dream <br className="hidden lg:block"/>
-                shared by <span className="text-[#5b21b6] italic">four friends.</span>
+                shared by <span className="text-[#5b21b6] italic">three friends.</span>
               </h2>
               <div className="h-[1px] w-2/3 bg-gradient-to-r from-[#c4ec0d] to-transparent opacity-50" />
             </motion.div>

@@ -9,10 +9,11 @@ import Vision from "./Vision";
 import FeaturesGrid from "../components/FeaturesGrid";
 import BoardMembers from "../components/BoardMembers";
 import LogoReveal from "./LogoReveal";
+import Portfolio from "./Portfolio";
 
 const images = ["/neww.jpeg", "/neww.jpeg", "/neww.jpeg"];
 const overlays = ["bg-black/40", "bg-black/20", "bg-black/0"];
-const navLinks = ["Home", "Services","Vision", "About Us", "Contact"];
+const navLinks = ["Home", "Services","Vision", "About Us", "Contact","Portfolio"];
 
 // 🔥 Reveal animation (UPDATED ONLY HERE)
 function RevealSection({ children, delay = 0, enabled }) {
@@ -49,6 +50,7 @@ export default function Homet() {
   const coursesRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
+  const PortfolioRef = useRef(null);
 
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -60,6 +62,7 @@ export default function Homet() {
     if (link === "Vision") window.location.href = "/vision";
     if (link === "About Us") scrollToSection(aboutRef);
     if (link === "Contact") scrollToSection(contactRef);
+    if (link === "Portfolio") scrollToSection(PortfolioRef);
     setMenuOpen(false);
   };
 
@@ -174,7 +177,7 @@ export default function Homet() {
             <img src="/logo2.png" alt="logo" className="h-10 w-auto" />
           </motion.div>
 
-          <ul className="hidden md:flex items-center space-x-12 font-semibold absolute left-1/2 transform -translate-x-1/2">
+          <ul className="hidden md:flex items-center space-x-12 font-semibold absolute left-1/2 transform -translate-x-1/2 ">
             {navLinks.map((link, i) => (
               <li
                 key={i}

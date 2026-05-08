@@ -53,8 +53,8 @@ function Layout() {
         <Route path="/f" element={<Footer />} />
         <Route path="/n" element={<Navbar />} />
         <Route path="/h" element={<Home />} />
-        <Route path="/Home" element={<Homet />} />
-        <Route path="/" element={<Portfolio />} />
+        <Route path="/" element={<Homet />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/hee" element={<Hero/>} />
         <Route path="/hmm" element={<Homett />} />
         <Route path="/cd" element={<CourseDetails />} />

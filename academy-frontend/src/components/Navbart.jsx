@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
+  { name: "Vision", path: "/vision" },
   { name: "AboutUs", path: "/au" },
-  { name: "Contact", path: "/cu" }
+  { name: "Contact", path: "/cu" },
+  { name: "Portfolio", path: "/portfolio" }
 ];
 
 const Navbart = () => {

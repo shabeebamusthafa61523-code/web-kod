@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import Navbart from "../components/Navbart";
 
 // ── Tokens ─────────────────────────────────────────────────────────────────
 const C = {
@@ -62,6 +63,7 @@ const devCards = [
 export default function Portfolio() {
   return (
     <div className="relative z-10 " >
+      <Navbart/>
     <div style={{ background: C.black, color: C.white, fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif" }}>
 
       {/* Google Fonts */}

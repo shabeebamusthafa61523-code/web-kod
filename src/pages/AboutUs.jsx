@@ -79,7 +79,7 @@ const AboutUs = () => {
                 className="text-white text-4xl sm:text-6xl md:text-8xl font-medium tracking-tight leading-[1.1] md:leading-[0.9] max-w-4xl mx-auto"
               >
                 Reshaping  
-                <span className="italic font-serif text-[#c4ec0d] "> education</span> <br className="hidden sm:block" />
+                <span className="italic font-monospace text-[#c4ec0d] "> education</span> <br className="hidden sm:block" />
                 for the bold
               </motion.h1>
             </div>

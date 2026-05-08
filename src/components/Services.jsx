@@ -49,26 +49,30 @@ export default function Services() {
 
       {/* Hero Section */}
       <div className="relative pt-8 md:pt-10 pb-16 md:pb-24 px-6 flex flex-col items-center text-center">
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10"
-        >
-          {["Learn", "•", "Build", "•", "Earn"].map((text, index) => (
-            <motion.span 
-              key={index}
-              variants={itemVariants}
-              className={`${text === "•" ? "w-1 h-1 rounded-full bg-white/20" : 
-                (index === 0 || index === 4 ? "text-[#c4ec0d]" : "text-[#5b21b6]") + 
-                " text-[10px] md:text-sm font-bold tracking-[0.3em] md:tracking-[0.5em] uppercase"}`}
-            >
-              {text === "•" ? "" : text}
-            </motion.span>
-          ))}
-        </motion.div>
-
+       <motion.div 
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  /* Increased gap and vertical margin */
+  className="flex items-center gap-4 md:gap-8 mb-10 md:mb-16"
+>
+  {["Learn", "•", "Build", "•", "Earn"].map((text, index) => (
+    <motion.span 
+      key={index}
+      variants={itemVariants}
+      className={`${
+        /* Increased dot size from w-1 to w-2/3 and margin */
+        text === "•" ? "w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/30 mx-2" : 
+        /* Increased font sizes: mobile text-sm to text-lg | desktop text-sm to text-2xl */
+        (index === 0 || index === 4 ? "text-[#c4ec0d]" : "text-[#5b21b6]") + 
+        " text-sm md:text-2xl font-black tracking-[0.3em] md:tracking-[0.4em] uppercase"
+      }`}
+    >
+      {text === "•" ? "" : text}
+    </motion.span>
+  ))}
+</motion.div>
         <motion.h1 
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -76,7 +80,7 @@ export default function Services() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-white text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter leading-[1.1] md:leading-[0.9] max-w-5xl"
         >
-          Shaping <span className="italic font-serif text-[#c4ec0d]">agencies</span> <br className="hidden sm:block" />
+          Shaping <span className="italic font-monospace text-[#c4ec0d]">agencies</span> <br className="hidden sm:block" />
           of tomorrow
         </motion.h1>
       </div>

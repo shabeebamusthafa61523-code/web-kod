@@ -7,8 +7,8 @@ const members = [
   { id: "01", name: "MOHAMED JASIM.P", role: "Executive Board" },
   { id: "02", name: "SHIHAB PALAN PADIYAN", role: "Executive Board" },
   { id: "03", name: "ABDUL SABEER .P", role: "Executive Board" },
-  { id: "04", name: "HASHIR", role: "Executive Board" },
-  { id: "05", name: "HAWAS", role: "Executive Board" },
+  { id: "04", name: "HASHIR SAHAL", role: "Executive Board" },
+  { id: "05", name: "HAVAS AHAMMED", role: "Executive Board" },
   { id: "06", name: "MOHAMED", role: "Executive Board" },
 ];
 

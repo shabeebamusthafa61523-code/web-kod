@@ -9,7 +9,7 @@ const members = [
   { id: "03", name: "ABDUL SABEER .P", role: "Executive Board" },
   { id: "04", name: "HASHIR SAHAL", role: "Executive Board" },
   { id: "05", name: "HAVAS AHAMMED", role: "Executive Board" },
-  { id: "06", name: "MOHAMED", role: "Executive Board" },
+  { id: "06", name: "MOHAMMED ABDUL RASHEED", role: "Executive Board" },
 ];
 
 export default function BoardMembers() {

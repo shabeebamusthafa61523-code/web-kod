@@ -133,7 +133,7 @@ const AboutUs = () => {
             >
               <div className="space-y-4 md:space-y-6">
                 <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
-                  KOD.BRAND Academy was born out of a powerful dream shared by four friends during our college days — a dream to reshape education into something <span className="text-white italic">more meaningful, joyful, and accessible.</span>
+                  KOD.BRAND Academy was born out of a powerful dream shared by three friends during our college days — a dream to reshape education into something <span className="text-white italic">more meaningful, joyful, and accessible.</span>
                 </p>
                 <p className="text-base sm:text-lg text-gray-400 leading-relaxed font-light">
                   We weren't just students; we were passionate changemakers who believed learning should inspire, not exhaust. What started as casual conversations grew into a mission: a space where students discover real-world skills through practical, industry-relevant education.

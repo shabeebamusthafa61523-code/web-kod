@@ -5,13 +5,14 @@ import Footert from "../components/Footert";
 import Contact from "./Contact";
 import AboutUs from "./AboutUs";
 import Services from "../components/Services";
+import Vision from "./Vision";
 import FeaturesGrid from "../components/FeaturesGrid";
 import BoardMembers from "../components/BoardMembers";
 import LogoReveal from "./LogoReveal";
 
 const images = ["/neww.jpeg", "/neww.jpeg", "/neww.jpeg"];
 const overlays = ["bg-black/40", "bg-black/20", "bg-black/0"];
-const navLinks = ["Home", "Services", "About Us", "Contact"];
+const navLinks = ["Home", "Services","Vision", "About Us", "Contact"];
 
 // 🔥 Reveal animation (UPDATED ONLY HERE)
 function RevealSection({ children, delay = 0, enabled }) {
@@ -56,6 +57,7 @@ export default function Homet() {
   const handleNavClick = (link) => {
     if (link === "Home") scrollToSection(homeRef);
     if (link === "Services") scrollToSection(coursesRef);
+    if (link === "Vision") window.location.href = "/vision";
     if (link === "About Us") scrollToSection(aboutRef);
     if (link === "Contact") scrollToSection(contactRef);
     setMenuOpen(false);

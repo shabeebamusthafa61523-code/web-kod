@@ -14,18 +14,16 @@ import {
   Box,
   Feather,
 } from "lucide-react";
+import { motion } from "framer-motion"; // Added for smooth animations
 import Particles from "./Particles";
-import CourseCardt from "../components/CourseCardt";
 
 export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-
     const x = (e.clientX - rect.left - rect.width / 2) / 40;
     const y = (e.clientY - rect.top - rect.height / 2) / 40;
-
     setMousePos({ x, y });
   };
 
@@ -34,106 +32,137 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
+      
+      {/* 🎥 THEME LAYER: Video & Animated Glows */}
+      <div className="fixed inset-0 z-0">
+        <video 
+          autoPlay muted loop playsInline 
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source src="/your-background-video.mp4" type="video/mp4" />
+        </video>
+        {/* Dark Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
+        
+        {/* Animated Glow Blobs (The "Vision" Aesthetic) */}
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute top-10 left-10 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[120px]" 
+        />
+        <motion.div 
+          animate={{ scale: [1.2, 1, 1.2], x: [0, -30, 0] }}
+          transition={{ duration: 15, repeat: Infinity }}
+          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-teal-600/10 rounded-full blur-[150px]" 
+        />
+      </div>
 
       {/* HERO SECTION */}
       <section
         onMouseMove={handleMouseMove}
         onMouseLeave={resetMouse}
-        className="relative mx-auto grid min-h-[85vh] max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 lg:grid-cols-2"
+        className="relative z-10 mx-auto grid min-h-[90vh] max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 lg:grid-cols-2"
       >
-        {/* LEFT SIDE: Visual Card */}
-        <div className="relative">
+        {/* LEFT SIDE: Visual Card with 3D Tilt */}
+        <div className="relative order-2 lg:order-1">
           <div
-            className="absolute -top-[120px] sm:-top-[160px] lg:-top-[270px] left-4 sm:left-8 lg:left-12 z-[60] w-[110%] sm:w-[120%] lg:w-[130%] transition-transform duration-200 ease-out will-change-transform"
+            className="relative z-[60] w-full transition-transform duration-200 ease-out will-change-transform"
             style={{
               transform: `
                 translate(${mousePos.x}px, ${mousePos.y}px)
-                rotateY(${mousePos.x / 3}deg)
-                rotateX(${-mousePos.y / 3}deg)
+                rotateY(${mousePos.x / 2}deg)
+                rotateX(${-mousePos.y / 2}deg)
               `,
               transformStyle: "preserve-3d",
             }}
           >
-            <div className="rounded-[2rem] p-6">
+            <div className="rounded-[2.5rem] bg-white/5 border border-white/10 p-4 backdrop-blur-2xl shadow-2xl">
               <img
                 src="/logo2.png"
                 alt="Hero showcase"
-                className="h-[320px] sm:h-[420px] lg:h-[520px] w-full object-contain"
+                className="h-[300px] sm:h-[400px] lg:h-[500px] w-full object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.4)]"
               />
             </div>
           </div>
-
-          {/* Spacer */}
-          <div className="h-[420px] sm:h-[520px] lg:h-[620px]"></div>
-        </div>
-
-        {/* FLOATING ICONS (desktop only) */}
-        <div className="absolute left-0 top-0 w-full lg:w-[60%] h-full hidden lg:block overflow-hidden">
-          {[
-            { icon: Code2, top: 470, left: 190, duration: 4 },
-            { icon: Palette, top: 700, left: 80, duration: 5 },
-            { icon: PenTool, top: 650, left: 180, duration: 4.8 },
-            { icon: Globe, top: 540, left: 310, duration: 5.2 },
-            { icon: Layers3, top: 720, left: 410, duration: 5.5 },
-            { icon: Cpu, top: 500, left: 30, duration: 6 },
-            { icon: Server, top: 620, left: 370, duration: 6.2 },
-            { icon: Terminal, top: 580, left: 120, duration: 5.8 },
-            { icon: Monitor, top: 340, left: 140, duration: 6.5 },
-            { icon: Box, top: 420, left: 320, duration: 5.3 },
-            { icon: Feather, top: 480, left: 480, duration: 5.7 },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="absolute rounded-full bg-white/60 p-3 backdrop-blur-md"
-              style={{
-                top: `${item.top}px`,
-                left: `${item.left}px`,
-                animation: `floatSlow ${item.duration}s ease-in-out infinite`,
-              }}
-            >
-              <item.icon className="h-7 w-7 text-slate-300" />
-            </div>
-          ))}
         </div>
 
         {/* RIGHT SIDE: CONTENT */}
-        <div className="relative z-10 mt-24 lg:mt-[320px]">
-          <p className="group relative mb-6 inline-flex items-center overflow-hidden rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-700 shadow-lg backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5">
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-200 via-fuchsia-100 to-sky-100 opacity-80"></span>
-            <span className="absolute inset-[1px] rounded-full bg-white/80"></span>
-            <span className="relative z-10 tracking-wide">
+        <div className="relative z-20 order-1 lg:order-2 lg:pl-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="group relative mb-8 inline-flex items-center overflow-hidden rounded-full px-6 py-2 text-xs sm:text-sm font-bold text-white shadow-2xl border border-white/10"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-600/40 to-teal-500/40 opacity-50 transition-opacity group-hover:opacity-100"></span>
+            <span className="relative z-10 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-teal-400 animate-pulse"></span>
               ✨ Premium IT & Creative Learning Platform
             </span>
-          </p>
+          </motion.div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-slate-900">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tighter">
             Build Your Future In
-            <span className="block bg-gradient-to-r from-slate-700 via-slate-500 to-slate-800 bg-clip-text text-transparent">
-              Tech, Design & Marketing
+            <span className="block bg-gradient-to-r from-purple-400 via-teal-300 to-white bg-clip-text text-transparent">
+              Tech & Design
             </span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base sm:text-lg leading-7 sm:leading-8 text-slate-600">
-            Join our community of innovators and learn skills that drive the
-            future of technology. Experience interactive learning like never
-            before.
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-400">
+            Join a community of elite innovators. Master the skills of tomorrow 
+            through a system-driven learning path designed for results.
           </p>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+             <button className="px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl shadow-lg shadow-purple-500/30 transition-all transform hover:-translate-y-1">
+               Start Learning
+             </button>
+             <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 backdrop-blur-md transition-all">
+               View Courses
+             </button>
+          </div>
         </div>
       </section>
 
-      <Particles />
-      <CourseCard />
+      {/* FLOATING ICONS (Layered behind Hero Content) */}
+      <div className="absolute inset-0 z-0 hidden lg:block overflow-hidden pointer-events-none">
+        {[
+          { icon: Code2, top: 20, left: 10, duration: 4 },
+          { icon: Palette, top: 70, left: 20, duration: 5 },
+          { icon: Cpu, top: 40, left: 45, duration: 6 },
+          { icon: Globe, top: 80, left: 40, duration: 5.2 },
+          { icon: Terminal, top: 15, left: 85, duration: 5.8 },
+        ].map((item, idx) => (
+          <div
+            key={idx}
+            className="absolute rounded-2xl bg-white/5 p-4 border border-white/10 backdrop-blur-xl opacity-20"
+            style={{
+              top: `${item.top}%`,
+              left: `${item.left}%`,
+              animation: `floatSlow ${item.duration}s ease-in-out infinite`,
+            }}
+          >
+            <item.icon className="h-8 w-8 text-white" />
+          </div>
+        ))}
+      </div>
 
-      {/* FLOAT ANIMATION */}
-      <style>{`
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-12px); }
-        }
-      `}</style>
+      {/* SECTIONS */}
+      <div className="relative z-10 bg-black/50 backdrop-blur-sm">
+        <Particles />
+        <div className="py-20">
+          <CourseCard />
+        </div>
+      </div>
 
       <Footer />
+
+      <style>{`
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+      `}</style>
     </div>
   );
 }

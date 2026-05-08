@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'YourFont';
+  src: url('./fonts/Excon-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  font-family: "giest", sans-serif;  
+}

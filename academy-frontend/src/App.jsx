@@ -27,6 +27,7 @@ import Heero from "./pages/Courses/Heero";
 import Homev from "./pages/Homev";
 import Hero from "./pages/Hero";
 import Vision from "./pages/Vision";
+import Portfolio from "./pages/Portfolio";
 
 /* ✅ NEW: Layout component */
 function Layout() {
@@ -52,7 +53,8 @@ function Layout() {
         <Route path="/f" element={<Footer />} />
         <Route path="/n" element={<Navbar />} />
         <Route path="/h" element={<Home />} />
-        <Route path="/" element={<Homet />} />
+        <Route path="/Home" element={<Homet />} />
+        <Route path="/" element={<Portfolio />} />
         <Route path="/hee" element={<Hero/>} />
         <Route path="/hmm" element={<Homett />} />
         <Route path="/cd" element={<CourseDetails />} />

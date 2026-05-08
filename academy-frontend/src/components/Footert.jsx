@@ -3,7 +3,7 @@ import React from "react";
 const Footert = () => {
   return (
     <footer
-      className="relative z-10 w-full text-gray-300 py-12 sm:py-16 font-medium"
+      className="relative z-10 w-full  text-gray-300 py-12 sm:py-16 font-medium"
       style={{
         backgroundImage: `
           linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.68)),

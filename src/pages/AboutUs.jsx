@@ -43,6 +43,7 @@ const AboutUs = () => {
   };
   return (
     <>
+    
     <motion.section
       ref={containerRef}
       className="relative z-10 bg-transparent min-h-screen overflow-hidden selection:bg-[#c4ec0d] selection:text-black font-geist text-white"

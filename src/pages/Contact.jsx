@@ -2,7 +2,9 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-const Contact = () => {
+const 
+
+Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
     from_name: "",

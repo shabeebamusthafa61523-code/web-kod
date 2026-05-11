@@ -28,6 +28,7 @@ import Homev from "./pages/Homev";
 import Hero from "./pages/Hero";
 import Vision from "./pages/Vision";
 import Portfolio from "./pages/Portfolio";
+import Background from "./components/Background";
 
 /* ✅ NEW: Layout component */
 function Layout() {
@@ -47,6 +48,8 @@ function Layout() {
       >
         <source src="/bgv.mp4" type="video/mp4" />
       </video>
+            <Background videoOpacity={0.5} gridOpacity={0.02} />
+
       {/* {location.pathname !== "/" && <Navbart />} */}
 <Navbart/>
       <Routes>
@@ -85,6 +88,7 @@ function Layout() {
 /* ✅ CLEAN App */
 function App() {
   return (
+    
     <BrowserRouter>
       <Layout />
     </BrowserRouter>

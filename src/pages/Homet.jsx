@@ -9,6 +9,7 @@ import Vision from "./Vision";
 import FeaturesGrid from "../components/FeaturesGrid";
 import BoardMembers from "../components/BoardMembers";
 import Portfolio from "./Portfolio";
+import Background from "../components/Background";
 
 const images = ["/neww.jpeg", "/neww.jpeg", "/neww.jpeg"];
 const overlays = ["bg-black/40", "bg-black/20", "bg-black/0"];
@@ -75,7 +76,7 @@ export default function Homet() {
 
   return (
     <div className="text-white bg-black">
-      
+      <Background videoOpacity={0.5} gridOpacity={0.02} />
       {/* 🔥 HERO IMAGE SECTION */}
       <div ref={homeRef} className="h-[110vh] bg-black relative md:h-[110vh]">
         <div className="sticky top-0 h-[110vh] flex justify-center items-center">

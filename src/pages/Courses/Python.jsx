@@ -17,7 +17,7 @@ const Python = () => {
   }, []);
 
   const handleApplyClick = () => {
-    navigate('/contact');
+    navigate('/cu');
     window.scrollTo(0, 0);
   };
 
@@ -118,7 +118,7 @@ const Python = () => {
           </button>
 
           <a
-            href="/brochure.pdf"
+            href="/kb python brochure.pdf"
             className="
               px-5 py-3 rounded-full
               border border-white/10

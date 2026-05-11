@@ -1,15 +1,44 @@
 <!doctype html>
 <html lang="en">
   <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Archivo+Black&family=Boldonse&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Poppins:wght@400;500;600;700&family=Sekuya&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Archivo+Black&family=Boldonse&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Poppins:wght@400;500;600;700&family=Sekuya&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
-<meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.jpeg" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KodBrand</title>
+
+    <link id="favicon" rel="icon" type="image/png" href="/favicon (1).png" />
+
+    <script>
+      function handleColorSchemeChange(e) {
+        const favicon = document.getElementById('favicon');
+        if (!favicon) return;
+
+        // Use a unique version string to force a cache refresh
+        const v = "?v=" + new Date().getTime(); 
+
+        if (e.matches) {
+          // DARK MODE: use favicon2.png
+          favicon.href = '/favicon (1).png' + v; 
+          favicon.type = 'image/png';
+        } else {
+          // LIGHT MODE: use favicon (1).png
+          favicon.href = '/favicon2.png' + v; 
+          favicon.type = 'image/png';
+        }
+      }
+
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      // Execute immediately now that the element exists above
+      handleColorSchemeChange(darkModeMediaQuery);
+
+      // Listen for changes
+      darkModeMediaQuery.addEventListener('change', handleColorSchemeChange);
+    </script>
   </head>
   <body>
     <div id="root"></div>

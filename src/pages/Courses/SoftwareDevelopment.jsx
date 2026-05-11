@@ -2,18 +2,18 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const cards = [
-    {
-    title: "React",
-    description:
-      "React is a JavaScript library for building fast, interactive user interfaces for web applications.",
-    path: "/re",
-  },
-  {
-    title: "Node",
-    description:
-      "Node.js is a powerful backend runtime for building scalable server-side applications.",
-    path: "/node",
-  },
+  //   {
+  //   title: "React",
+  //   description:
+  //     "React is a JavaScript library for building fast, interactive user interfaces for web applications.",
+  //   path: "/re",
+  // },
+  // {
+  //   title: "Node",
+  //   description:
+  //     "Node.js is a powerful backend runtime for building scalable server-side applications.",
+  //   path: "/node",
+  // },
   
   {
     title: "Python",
@@ -27,18 +27,18 @@ const cards = [
       "The MERN Stack is a full-stack development framework that enables you to build modern, scalable web applications using a single language—JavaScript.",
     path: "/mr",
   },
-  {
-    title: "React + Python",
-    description:
-      "React + Python is a powerful full-stack combination that blends backend strength with dynamic frontend UI.",
-    path: "/py",
-  },
-  {
-    title: "Flutter + Python",
-    description:
-      "Flutter and Python together allow you to build cross-platform apps with strong backend support.",
-    path: "/fl",
-  },
+  // {
+  //   title: "React + Python",
+  //   description:
+  //     "React + Python is a powerful full-stack combination that blends backend strength with dynamic frontend UI.",
+  //   path: "/py",
+  // },
+  // {
+  //   title: "Flutter + Python",
+  //   description:
+  //     "Flutter and Python together allow you to build cross-platform apps with strong backend support.",
+  //   path: "/fl",
+  // },
 
 ];
 

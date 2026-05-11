@@ -20,7 +20,7 @@ const GraphicDesigning = () => {
   }, []);
 
   const handleApplyClick = () => {
-    navigate('/contact');
+    navigate('/cu');
     window.scrollTo(0, 0);
   };
 
@@ -124,7 +124,8 @@ const GraphicDesigning = () => {
   </span>
 </button>
      <a
-  href="/brochure.pdf"
+  href="/gd br copy.pdf"
+  download="Graphic_Designing_Brochure.pdf"
   className="mt-6 px-5 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm flex items-center gap-3 text-sm font-semibold tracking-[0.25em] hover:tracking-[0.35em] transition-all duration-500 hover:scale-100 self-start"
 >
   <span className="text-gray-200">Download Brochure</span>

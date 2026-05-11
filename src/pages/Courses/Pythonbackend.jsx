@@ -20,7 +20,7 @@ const Pythonbackend = () => {
   }, []);
 
   const handleApplyClick = () => {
-    navigate('/contact');
+    navigate('/cu');
     window.scrollTo(0, 0);
   };
 

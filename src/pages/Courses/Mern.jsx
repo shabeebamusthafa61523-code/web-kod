@@ -17,7 +17,7 @@ const Mern = () => {
   }, []);
 
   const handleApplyClick = () => {
-    navigate('/contact');
+    navigate('/cu');
     window.scrollTo(0, 0);
   };
 
@@ -118,7 +118,8 @@ const Mern = () => {
           </button>
 
           <a
-            href="/brochure.pdf"
+            href="/mern copy.pdf"
+            download="MERN_Stack_Brochure.pdf"
             className="
               px-5 py-3 rounded-full
               border border-white/10

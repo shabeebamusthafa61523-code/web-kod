@@ -287,24 +287,24 @@ const VisionPage = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-5xl md:text-7xl font-black text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white text-center md:text-left">
             PROGRAM <span className="text-[#a8d832]">STRUCTURE</span>
           </h2>
-          <p className="text-gray-500 text-xs tracking-[0.4em] uppercase mt-4">
+          <p className="text-gray-500 text-[10px] md:text-xs tracking-[0.4em] uppercase mt-4 text-center md:text-left">
             Step-by-step transformation
           </p>
         </motion.div>
 
         {/* STAIRCASE - Ported from Final Outcome */}
-        <div className="relative h-[550px] w-full max-w-3xl flex items-center justify-center mt-10 lg:mt-0 mx-auto">
+        <div className="relative flex flex-col md:block md:h-[550px] w-full max-w-3xl mt-12 lg:mt-0 mx-auto gap-6 px-4 md:px-0">
           {/* Connecting Glowing Line */}
           <motion.div
             initial={{ height: 0 }}
             whileInView={{ height: '85%' }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute bottom-10 left-[20%] md:left-[30%] w-1 bg-gradient-to-t from-purple-600 via-cyan-400 to-[#a8d832] rounded-full blur-[3px]"
+            className="hidden md:block absolute bottom-10 left-[20%] md:left-[30%] w-1 bg-gradient-to-t from-purple-600 via-cyan-400 to-[#a8d832] rounded-full blur-[3px]"
           />
-          <div className="absolute bottom-10 left-[20%] md:left-[30%] w-[2px] h-[85%] bg-gradient-to-t from-purple-600 via-cyan-400 to-[#a8d832] rounded-full opacity-50" />
+          <div className="hidden md:block absolute bottom-10 left-[20%] md:left-[30%] w-[2px] h-[85%] bg-gradient-to-t from-purple-600 via-cyan-400 to-[#a8d832] rounded-full opacity-50" />
 
           {[
             { level: 1, title: "Basics & Foundation", color: "from-purple-700 to-purple-500", border: "border-purple-500/30", textClass: "text-white" },
@@ -316,14 +316,14 @@ const VisionPage = () => {
               initial={{ opacity: 0, x: 30, y: 30 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.18 }}
-              className={`absolute w-[80%] md:w-[70%] p-5 md:p-6 rounded-2xl border ${step.border} bg-gradient-to-r ${step.color} shadow-[0_15px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl group hover:-translate-y-3 transition-all duration-300`}
-              style={{ bottom: `${idx * 25 + 5}%`, left: `${idx * 15}%`, zIndex: 10 + idx }}
+              className={`relative md:absolute w-full md:w-[70%] p-5 md:p-6 rounded-2xl border ${step.border} bg-gradient-to-r ${step.color} shadow-[0_15px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl group hover:-translate-y-3 transition-all duration-300 md:bottom-[var(--stair-bottom)] md:left-[var(--stair-left)] z-10`}
+              style={{ '--stair-bottom': `${idx * 25 + 5}%`, '--stair-left': `${idx * 15}%` }}
             >
-              <div className="flex items-center gap-4 md:gap-5">
-                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/20 shadow-inner font-black text-xl group-hover:scale-110 transition-transform ${step.textClass ? 'bg-black/20 border-black/20 text-black' : 'text-white'}`}>
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-5 text-center md:text-left">
+                <div className={`w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/20 shadow-inner font-black text-xl group-hover:scale-110 transition-transform flex-shrink-0 ${step.textClass ? 'bg-black/20 border-black/20 text-black' : 'text-white'}`}>
                   0{step.level}
                 </div>
-                <div>
+                <div className="flex flex-col items-center md:items-start">
                   <div className={`text-[10px] md:text-xs font-black uppercase tracking-widest opacity-70 mb-1 ${step.textClass || 'text-white'}`}>Level 0{step.level}</div>
                   <div className={`font-bold text-lg md:text-xl leading-tight ${step.textClass || 'text-white'}`}>{step.title}</div>
                 </div>
@@ -369,7 +369,7 @@ const VisionPage = () => {
         </div>
 
         {/* BOTTOM BADGES */}
-        <div className="mt-20 grid grid-cols-3 gap-6 max-w-2xl w-full">
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl w-full mx-auto px-4 md:px-0">
 
           {/* STEP BY STEP */}
           <div className="group bg-white/5 border border-white/10 rounded-xl p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-[#a8d832]/40 hover:shadow-[0_0_20px_rgba(168,216,50,0.15)]">
@@ -428,19 +428,19 @@ const VisionPage = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
+          className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left"
         >
           <div>
             <h2 className="text-[#a8d832] font-black text-5xl md:text-7xl mb-2">
               Level 1 —
             </h2>
-            <h3 className="text-white text-3xl md:text-5xl font-light">
+            <h3 className="text-white text-3xl md:text-5xl font-light text-center md:text-left">
               Basics & Foundation
             </h3>
           </div>
-          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)]">
-            <FaCalendarAlt className="text-2xl" />
-            <div>
+          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)] w-full md:w-auto">
+            <FaCalendarAlt className="text-2xl flex-shrink-0" />
+            <div className="text-left">
               <p className="text-[10px] uppercase font-black leading-none">
                 Duration
               </p>
@@ -462,13 +462,13 @@ const VisionPage = () => {
               Focus
             </h4>
             <ul className="space-y-4 text-white/80">
-              <li className="flex items-center gap-3">
+              <li className="flex items-center justify-center md:justify-start gap-3">
                 <FaLaptopCode className="text-[#a8d832]" /> Digital Basics
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center justify-center md:justify-start gap-3">
                 <FaComments className="text-[#a8d832]" /> Communication
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center justify-center md:justify-start gap-3">
                 <FaCogs className="text-[#a8d832]" /> Agency Workflow
               </li>
             </ul>
@@ -540,8 +540,8 @@ const VisionPage = () => {
               {
                 icon: (
                   <div className="flex gap-1 text-xs">
-                    <FaFacebook />
-                    <FaInstagram />
+                    <FaFacebook className="text-[#1877F2]" />
+                    <FaInstagram className="text-[#E1306C]" />
                   </div>
                 ),
                 label: "Social Media Growth",
@@ -630,18 +630,18 @@ const VisionPage = () => {
       ═══════════════════════════════════════ */}
       <section className="relative z-10 py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
           <div>
-            <h2 className="text-[#a8d832] font-black text-5xl md:text-7xl mb-2 uppercase italic">
+            <h2 className="text-[#a8d832] font-black text-5xl md:text-7xl mb-2 uppercase italic text-center md:text-left">
               Level 2 —
             </h2>
-            <h3 className="text-white text-3xl md:text-5xl font-light">
+            <h3 className="text-white text-3xl md:text-5xl font-light text-center md:text-left">
               Kod.Pro Skills
             </h3>
           </div>
-          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)]">
-            <FaCalendarAlt className="text-2xl" />
-            <div>
+          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)] w-full md:w-auto">
+            <FaCalendarAlt className="text-2xl flex-shrink-0" />
+            <div className="text-left">
               <p className="text-[10px] uppercase font-black leading-none">
                 Duration
               </p>
@@ -657,16 +657,16 @@ const VisionPage = () => {
               Focus
             </h4>
             <ul className="space-y-6">
-              <li className="flex items-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
-                <FaGraduationCap className="text-[#a8d832] text-2xl" /> Advanced
+              <li className="flex flex-col items-center text-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
+                <FaGraduationCap className="text-[#a8d832] text-2xl flex-shrink-0" /> Advanced
                 Skills
               </li>
-              <li className="flex items-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
-                <FaUserTie className="text-[#a8d832] text-2xl" /> Client
+              <li className="flex flex-col items-center text-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
+                <FaUserTie className="text-[#a8d832] text-2xl flex-shrink-0" /> Client
                 Handling
               </li>
-              <li className="flex items-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
-                <FaBriefcase className="text-[#a8d832] text-2xl" /> Real
+              <li className="flex flex-col items-center text-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
+                <FaBriefcase className="text-[#a8d832] text-2xl flex-shrink-0" /> Real
                 Projects
               </li>
             </ul>
@@ -709,8 +709,8 @@ const VisionPage = () => {
         {/* Branding Block */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16 bg-white/5 p-10 rounded-[3rem] border border-white/10">
           <div>
-            <h2 className="text-4xl font-black text-white">KOD.Pro</h2>
-            <p className="text-[#a8d832] font-bold">by KOD.brand</p>
+            <h2 className="text-4xl font-black text-white text-center lg:text-left">KOD.Pro</h2>
+            <p className="text-[#a8d832] font-bold text-center lg:text-left">by KOD.brand</p>
           </div>
           <div className="text-center space-y-4">
             <div className="inline-block bg-[#a8d832] text-black font-black px-6 py-1 rounded-full text-sm uppercase">
@@ -725,10 +725,10 @@ const VisionPage = () => {
             </p>
           </div>
           <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-            <h4 className="text-white font-bold text-xs uppercase mb-4 flex items-center gap-2">
+            <h4 className="text-white font-bold text-xs uppercase mb-4 flex items-center justify-center lg:justify-start gap-2">
               <FaStar className="text-[#a8d832]" /> L2 Benefits
             </h4>
-            <ul className="text-[11px] text-gray-300 space-y-2">
+            <ul className="text-[11px] text-gray-300 space-y-2 text-center lg:text-left">
               <li>• Advanced Marketing & Analytics</li>
               <li>• Real-World Project Work</li>
               <li>• Industry Tools & Workshops</li>
@@ -860,7 +860,7 @@ const VisionPage = () => {
         {/* Marketing & Design L2 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div className="bg-gradient-to-br from-green-900/20 to-black p-8 rounded-[2rem] border border-green-500/20">
-            <h4 className="text-green-400 font-bold mb-6 flex items-center gap-2 text-xl">
+            <h4 className="text-green-400 font-bold mb-6 flex items-center justify-center md:justify-start gap-2 text-xl">
               <FaBullhorn /> Digital Marketing — L2
             </h4>
             <div className="grid grid-cols-2 gap-4 text-xs text-gray-300">
@@ -898,7 +898,7 @@ const VisionPage = () => {
           </div>
 
           <div className="bg-gradient-to-br from-purple-900/20 to-black p-8 rounded-[2rem] border border-purple-500/20">
-            <h4 className="text-purple-400 font-bold mb-6 flex items-center gap-2 text-xl">
+            <h4 className="text-purple-400 font-bold mb-6 flex items-center justify-center md:justify-start gap-2 text-xl">
               <FaPalette /> Graphic Design — L2
             </h4>
             <div className="grid grid-cols-2 gap-4 text-xs text-gray-300">
@@ -970,16 +970,16 @@ const VisionPage = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6"
+          className="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-6 text-center md:text-left"
         >
           <div>
             <span className="inline-block px-4 py-1 rounded-full bg-[#a8d832]/20 text-[#a8d832] text-xs font-bold mb-4 uppercase border border-[#a8d832]/30">Phase 03</span>
             <h2 className="text-4xl md:text-5xl font-black text-white">LEVEL 3 - <span className="text-purple-500">AGENCY MANAGEMENT</span></h2>
             <p className="text-xl text-gray-400 font-medium mt-4 max-w-3xl">Master the complete system to build, manage & scale your own agency with structure, automation & clarity.</p>
           </div>
-          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)]">
-            <FaCalendarAlt className="text-2xl" />
-            <div>
+          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)] w-full md:w-auto">
+            <FaCalendarAlt className="text-2xl flex-shrink-0" />
+            <div className="text-left">
               <p className="text-[10px] uppercase font-black leading-none">
                 Duration
               </p>
@@ -988,9 +988,9 @@ const VisionPage = () => {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16 items-stretch">
           {/* Grid Column 1 (Focus Areas) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/10 lg:col-span-1 hover:border-[#a8d832]/30 transition-colors">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/10 lg:col-span-1 hover:border-[#a8d832]/30 transition-colors h-full">
             <h3 className="text-xl font-black text-purple-400 mb-6 uppercase tracking-wider">Focus Areas</h3>
             <ul className="space-y-6">
               {[
@@ -1010,7 +1010,7 @@ const VisionPage = () => {
           </motion.div>
 
           {/* Grid Column 2 (Outcome) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-br from-purple-900/40 to-[#a8d832]/10 text-white p-8 rounded-3xl shadow-2xl lg:col-span-1 flex flex-col justify-center items-center text-center relative overflow-hidden border border-white/10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-br from-purple-900/40 to-[#a8d832]/10 text-white p-8 rounded-3xl shadow-2xl lg:col-span-1 flex flex-col justify-center items-center text-center relative overflow-hidden border border-white/10 h-full">
             <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#a8d832]/20 blur-[50px] rounded-full" />
             <div className="w-24 h-24 bg-black/40 border border-white/10 rounded-full flex items-center justify-center mb-6 backdrop-blur-md">
               <Rocket className="w-12 h-12 text-[#a8d832]" />
@@ -1024,17 +1024,19 @@ const VisionPage = () => {
           </motion.div>
 
           {/* Add-On Courses Section */}
-          <div className="lg:col-span-1 space-y-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-6 rounded-3xl shadow-lg border border-purple-500/20 relative overflow-hidden group hover:border-purple-500/50 transition-colors">
+          <div className="lg:col-span-1 h-full flex flex-col">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-6 rounded-3xl shadow-lg border border-purple-500/20 relative overflow-hidden group hover:border-purple-500/50 transition-colors flex-grow flex flex-col text-center md:text-left">
               <div className="absolute top-0 left-0 w-1 h-full bg-purple-500 group-hover:w-2 transition-all"></div>
-              <span className="text-[10px] font-black bg-purple-500/20 text-purple-300 px-2 py-1 rounded-md uppercase mb-3 inline-block">15 Days - Add-on Course</span>
-              <h4 className="font-bold text-lg text-white mb-4">System Management Implementation</h4>
-              <div className="space-y-2 mb-4">
+              <div className="w-full">
+                <span className="text-[10px] font-black bg-purple-500/20 text-purple-300 px-3 py-1.5 rounded-md uppercase mb-4 inline-block mx-auto md:mx-0">15 Days - Add-on Course</span>
+              </div>
+              <h4 className="font-bold text-lg text-white mb-5">System Management Implementation</h4>
+              <div className="space-y-3 mt-auto">
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">What You'll Learn:</p>
-                <ul className="text-sm text-gray-300 space-y-2">
-                  <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-purple-400" /> Framework & Workflow</li>
-                  <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-purple-400" /> Tools & Setup</li>
-                  <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-purple-400" /> Team Management</li>
+                <ul className="text-sm text-gray-300 space-y-3 flex flex-col items-center md:items-start">
+                  <li className="flex items-center gap-3 text-left"><CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0" /> Framework & Workflow</li>
+                  <li className="flex items-center gap-3 text-left"><CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0" /> Tools & Setup</li>
+                  <li className="flex items-center gap-3 text-left"><CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0" /> Team Management</li>
                 </ul>
               </div>
             </motion.div>
@@ -1211,61 +1213,114 @@ const VisionPage = () => {
         </div>
 
         {/* PART D: Your L3 Journey & Gains */}
-        <div className="bg-white/5 border border-white/10 rounded-[40px] p-8 md:p-12 backdrop-blur-md">
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
-            <div className="lg:col-span-2">
-              <h3 className="text-2xl font-black text-white mb-8">Your L3 Journey</h3>
-              <div className="overflow-hidden relative w-full pb-4">
+        <div className="bg-white/5 border border-white/10 rounded-[40px] p-6 md:p-12 backdrop-blur-md overflow-hidden">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+
+            {/* ── LEFT: Journey ── */}
+            <div className="flex-1 min-w-0">
+              <h3 className="text-xl md:text-2xl font-black text-white mb-6 flex items-center gap-2">
+                <Rocket className="text-[#a8d832] w-5 h-5" /> Your L3 Journey
+              </h3>
+
+              {/* Number badges */}
+              <div className="flex items-center justify-between mb-4 gap-1">
+                {[1,2,3,4,5,6].map((num, i) => (
+                  <div key={i} className="flex-1 flex items-center justify-center">
+                    <motion.div
+                      animate={{ scale: [1, 1.25, 1], opacity: [0.35, 1, 0.35] }}
+                      transition={{ duration: 1.2, repeat: Infinity, delay: i * 1.3, repeatDelay: 5 * 1.3, ease: "easeInOut" }}
+                      className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-black text-xs md:text-sm ${
+                        i === 5
+                          ? "bg-purple-500 text-white shadow-[0_0_15px_rgba(168,85,247,0.8)]"
+                          : "bg-[#a8d832] text-black shadow-[0_0_10px_rgba(168,216,50,0.5)]"
+                      }`}
+                    >{num}</motion.div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Progress bar */}
+              <div className="relative h-1 mb-3 rounded-full bg-white/10 overflow-hidden">
                 <motion.div
-                  className="flex w-max items-center gap-3 md:gap-6"
-                  animate={{ x: ["0%", "-50%"] }}
-                  transition={{ ease: "linear", duration: 15, repeat: Infinity }}
-                >
-                  {[
-                    "Choose Vision", "Build System", "Implement", "Find Clients", "Scale", "Lead",
-                    "Choose Vision", "Build System", "Implement", "Find Clients", "Scale", "Lead"
-                  ].map((step, i) => (
-                    <div key={i} className="flex items-center gap-3 md:gap-6 flex-shrink-0">
-                      <motion.div
-                        whileHover={{ y: -5 }}
-                        className="relative z-10 w-[130px] bg-black rounded-2xl p-4 text-center shadow-md border border-white/10 hover:border-[#a8d832]/50 transition-colors"
-                      >
-                        <div className="w-8 h-8 rounded-full bg-[#a8d832] text-black font-black flex items-center justify-center mx-auto mb-3 text-sm shadow-[0_0_15px_rgba(168,216,50,0.4)]">
-                          {(i % 6) + 1}
-                        </div>
-                        <span className="font-bold text-gray-300 text-[10px] tracking-wider uppercase">{step}</span>
-                      </motion.div>
-                      <ArrowRight className="text-[#a8d832]/50 w-5 h-5 flex-shrink-0" />
-                    </div>
-                  ))}
-                </motion.div>
+                  className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#a8d832] to-purple-500"
+                  animate={{ width: ["0%", "100%", "0%"] }}
+                  transition={{ duration: 7.8, repeat: Infinity, ease: "linear" }}
+                />
+              </div>
+
+              {/* Label strip */}
+              <div className="flex justify-between mb-5">
+                {["Choose Vision","Build System","Implement","Find Clients","Scale","Lead"].map((lbl, i) => (
+                  <motion.span
+                    key={i}
+                    animate={{ opacity: [0.25, 1, 0.25] }}
+                    transition={{ duration: 1.2, repeat: Infinity, delay: i * 1.3, repeatDelay: 5 * 1.3 }}
+                    className={`text-[7px] md:text-[9px] font-bold uppercase tracking-wide text-center flex-1 leading-tight px-0.5 ${
+                      i === 5 ? "text-purple-400" : "text-gray-500"
+                    }`}
+                  >{lbl}</motion.span>
+                ))}
+              </div>
+
+              {/* Active step spotlight */}
+              <div className="relative h-[120px] overflow-hidden rounded-2xl">
+                {[
+                  { num:1, label:"Choose Vision",  isLast:false },
+                  { num:2, label:"Build System",   isLast:false },
+                  { num:3, label:"Implement",      isLast:false },
+                  { num:4, label:"Find Clients",   isLast:false },
+                  { num:5, label:"Scale",          isLast:false },
+                  { num:6, label:"Lead",           isLast:true  },
+                ].map((s, i) => (
+                  <motion.div
+                    key={i}
+                    className={`absolute inset-0 flex flex-col items-center justify-center rounded-2xl border px-4 text-center ${
+                      s.isLast
+                        ? "bg-gradient-to-br from-purple-900/80 to-black border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.4)]"
+                        : "bg-black/60 border-white/10"
+                    }`}
+                    animate={{ opacity: [0, 1, 1, 0], y: [16, 0, 0, -16] }}
+                    transition={{ duration: 1.3, times: [0, 0.15, 0.85, 1], repeat: Infinity, delay: i * 1.3, repeatDelay: 5 * 1.3, ease: "easeInOut" }}
+                  >
+                    <div className={`w-9 h-9 rounded-full font-black flex items-center justify-center mb-2 text-sm ${
+                      s.isLast
+                        ? "bg-purple-500 text-white shadow-[0_0_12px_rgba(168,85,247,0.8)]"
+                        : "bg-[#a8d832] text-black shadow-[0_0_12px_rgba(168,216,50,0.5)]"
+                    }`}>{s.num}</div>
+                    <p className={`font-black text-base md:text-lg tracking-wide uppercase ${s.isLast ? "text-white" : "text-gray-200"}`}>{s.label}</p>
+                    {s.isLast && <span className="mt-1 text-purple-300 text-[10px] font-bold uppercase tracking-widest">✦ Final Destination</span>}
+                  </motion.div>
+                ))}
               </div>
             </div>
 
-            <div className="bg-black/50 rounded-3xl p-8 shadow-xl border border-[#a8d832]/20 backdrop-blur-sm">
-              <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
-                <Trophy className="text-[#a8d832]" /> L3 Gains
+            {/* ── RIGHT: L3 Gains ── */}
+            <div className="lg:w-[300px] bg-black/50 rounded-3xl p-6 md:p-8 shadow-xl border border-[#a8d832]/20 backdrop-blur-sm flex flex-col justify-center">
+              <h3 className="text-lg md:text-xl font-black text-white mb-6 flex items-center gap-2">
+                <Trophy className="text-[#a8d832] w-5 h-5 flex-shrink-0" /> L3 Gains
               </h3>
-              <motion.ul variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="space-y-5">
+              <motion.ul variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="space-y-4">
                 {[
-                  { icon: <DollarSign />, text: "High Income Potential" },
-                  { icon: <Briefcase />, text: "Brand Ownership" },
-                  { icon: <Clock />, text: "Time & Location Freedom" },
-                  { icon: <Award />, text: "Build a Legacy" }
+                  { icon: <DollarSign className="w-5 h-5" />, text: "High Income Potential" },
+                  { icon: <Briefcase className="w-5 h-5" />, text: "Brand Ownership" },
+                  { icon: <Clock className="w-5 h-5" />, text: "Time & Location Freedom" },
+                  { icon: <Award className="w-5 h-5" />, text: "Build a Legacy" },
                 ].map((gain, i) => (
                   <motion.li variants={itemVariants} key={i} className="flex items-center gap-4">
-                    <div className="text-[#a8d832] bg-[#a8d832]/10 p-2 rounded-lg border border-[#a8d832]/20">{gain.icon}</div>
-                    <span className="font-semibold text-gray-300">{gain.text}</span>
+                    <div className="text-[#a8d832] bg-[#a8d832]/10 p-2.5 rounded-xl border border-[#a8d832]/20 flex-shrink-0">{gain.icon}</div>
+                    <span className="font-semibold text-gray-200 leading-tight text-sm md:text-base">{gain.text}</span>
                   </motion.li>
                 ))}
               </motion.ul>
             </div>
+
           </div>
         </div>
+
         {/* PROMOTIONAL BANNER: Stock Market Add-On Program */}
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mt-24 mb-10 w-full bg-black/40 backdrop-blur-xl rounded-[40px] overflow-hidden shadow-[0_0_50px_rgba(147,51,234,0.15)] relative flex flex-col md:flex-row border border-white/10">
           {/* Left Content */}
-          <div className="p-10 md:p-14 lg:w-[60%] relative z-10 flex flex-col justify-between pb-28 md:pb-14">
+          <div className="p-10 md:p-14 lg:w-[60%] relative z-10 flex flex-col justify-between pb-28 md:pb-14 items-center text-center md:items-start md:text-left">
             <div>
               <div className="text-white font-black text-xl tracking-tighter mb-8">
                 KOD<span className="text-[#a8d832]">.</span>brand
@@ -1274,33 +1329,33 @@ const VisionPage = () => {
               <h2 className="text-5xl md:text-6xl font-black mb-4 uppercase leading-none tracking-tight">
                 <span className="text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">Add-On</span> <span className="text-[#a8d832] drop-shadow-[0_0_15px_rgba(168,216,50,0.4)]">Program</span>
               </h2>
-              <p className="text-gray-400 font-medium text-lg md:text-xl max-w-lg mb-10">
+              <p className="text-gray-400 font-medium text-lg md:text-xl max-w-lg mb-10 mx-auto md:mx-0">
                 Master the art of trading with strategy, tools & discipline.
               </p>
 
               {/* Feature List */}
-              <div className="space-y-5 mb-10">
+              <div className="space-y-5 mb-10 w-full">
                 {[
                   { icon: <CandlestickChart className="w-5 h-5 text-purple-400" />, text: "Swing Trading (NSE / BSE)" },
                   { icon: <Briefcase className="w-5 h-5 text-purple-400" />, text: "Zerodha Setup" },
                   { icon: <TrendingUp className="w-5 h-5 text-purple-400" />, text: "VCP Strategy" },
                   { icon: <ShieldCheck className="w-5 h-5 text-purple-400" />, text: "Risk Awareness" },
                 ].map((feat, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-purple-900/30 border border-purple-500/20 flex items-center justify-center shadow-md">
+                  <div key={i} className="flex items-center gap-4 justify-center md:justify-start w-full">
+                    <div className="w-10 h-10 rounded-xl bg-purple-900/30 border border-purple-500/20 flex items-center justify-center shadow-md flex-shrink-0">
                       {feat.icon}
                     </div>
-                    <span className="text-white font-bold text-lg">{feat.text}</span>
+                    <span className="text-white font-bold text-lg text-left">{feat.text}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Call to Action */}
-            <div>
-              <div className="inline-flex items-center gap-4 bg-gradient-to-r from-[#a8d832] to-[#8db529] text-black px-8 py-4 rounded-full font-black text-xl shadow-[0_10px_30px_rgba(168,216,50,0.2)] hover:scale-105 transition-transform cursor-pointer border border-[#a8d832]/50">
-                <Gift className="w-8 h-8 text-black" />
-                <span>FREE for <span className="text-black underline decoration-4 underline-offset-4">Level 3 Students</span></span>
+            <div className="flex justify-center md:justify-start w-full">
+              <div className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#a8d832] to-[#8db529] text-black px-8 py-4 rounded-full font-black text-xl shadow-[0_10px_30px_rgba(168,216,50,0.2)] hover:scale-105 transition-transform cursor-pointer border border-[#a8d832]/50 text-center flex-col sm:flex-row w-full sm:w-auto">
+                <Gift className="w-6 h-6 text-black sm:w-8 sm:h-8" />
+                <span>FREE for <span className="text-black underline decoration-4 underline-offset-4">Level 3</span></span>
               </div>
             </div>
           </div>

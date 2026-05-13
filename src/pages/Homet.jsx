@@ -127,7 +127,7 @@ useEffect(() => {
     </video>
 
     {/* OVERLAY */}
-    <div className="absolute inset-0 w-full h-full bg-black/40 md:bg-black/20 z-[22]" /> 
+    {/* <div className="absolute inset-0 w-full h-full bg-black/40 md:bg-black/20 z-[22]" />  */}
     {/* Overlay must be higher than the video (z-[21]) to darken it */}
   </div>
 

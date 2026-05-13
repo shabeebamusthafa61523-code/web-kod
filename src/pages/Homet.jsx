@@ -12,7 +12,7 @@ import LogoReveal from "./LogoReveal";
 import Portfolio from "./Portfolio";
 
 const videoUrl = "/web int.mp4"; 
-const navLinks = ["Home", "Services","Vision", "About Us", "Contact","Portfolio"];
+
 
 function RevealSection({ children, delay = 0, enabled }) {
   return (
@@ -49,15 +49,7 @@ export default function Homet() {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleNavClick = (link) => {
-    if (link === "Home") scrollToSection(homeRef);
-    if (link === "Services") scrollToSection(coursesRef);
-    if (link === "Vision") window.location.href = "/vision";
-    if (link === "About Us") scrollToSection(aboutRef);
-    if (link === "Contact") scrollToSection(contactRef);
-    if (link === "Portfolio") scrollToSection(PortfolioRef);
-    setMenuOpen(false);
-  };
+ 
 
   useEffect(() => {
     const handleScrollDirection = () => {
@@ -109,72 +101,7 @@ useEffect(() => {
 }, []);
   return (
     <div className="text-white">
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{
-          y: showNav ? 0 : -100,
-          opacity: showNav ? 1 : 0,
-        }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="fixed top-0 left-0 w-full z-50 backdrop-blur-[3px]"
-      >
-        <div className="max-w-7xl mx-auto px-6 py-5 relative flex items-center">
-          <motion.div
-            className="cursor-pointer z-10"
-            onClick={() => scrollToSection(homeRef)}
-            initial={false}
-            animate={{
-              opacity: showLogo ? 1 : 0,
-              y: showLogo ? 0 : -8,
-              scale: showLogo ? 1 : 0.98,
-              filter: showLogo ? "blur(0px)" : "blur(6px)",
-            }}
-            transition={{
-              duration: 0.9,
-              ease: [0.25, 0.8, 0.25, 1],
-            }}
-          >
-            <img src="/logo2.png" alt="logo" className="h-10 w-auto" />
-          </motion.div>
-
-          <ul className="hidden md:flex items-center space-x-12 font-semibold absolute left-1/2 transform -translate-x-1/2 ">
-            {navLinks.map((link, i) => (
-              <li
-                key={i}
-                onClick={() => handleNavClick(link)}
-                className="relative cursor-pointer group text-md tracking-wide"
-              >
-                <span
-                  className="inline-block silver-flow-text"
-                >
-                  {link}
-                </span>
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-gray-500 via-gray-200 to-gray-400 transition-all duration-300 group-hover:w-full" />
-              </li>
-            ))}
-          </ul>
-
-          <div className="md:hidden ml-auto z-10">
-            <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl">
-              ☰
-            </button>
-          </div>
-        </div>
-
-        {menuOpen && (
-          <div className="md:hidden bg-black/90 text-center py-6 space-y-6">
-            {navLinks.map((link, i) => (
-              <div
-                key={i}
-                onClick={() => handleNavClick(link)}
-                className="text-lg cursor-pointer"
-              >
-                <span className="silver-flow-text">{link}</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </motion.nav>
+     
 
       {/* <div ref={homeRef} className="relative w-full h-[100svh] overflow-hidden bg-black flex items-center justify-center"> */}
   

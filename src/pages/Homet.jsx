@@ -107,13 +107,16 @@ useEffect(() => {
   
   {/* VIDEO CONTAINER */}
  {/* 1. Remove the 'flex items-center justify-center' from this wrapper to let content fill space naturally */}
-<div ref={homeRef} className="relative w-full h-[100svh] overflow-hidden bg-black">
+<div 
+  ref={homeRef} 
+  className="relative w-full h-[100svh] overflow-hidden bg-black z-[20]" // Added z-[20] to elevate the entire block
+>
   
-  {/* 2. Remove the md:w-[90%] and md:h-[85vh] to go edge-to-edge */}
-  <div className="relative z-0 w-full h-full md:rounded-none overflow-hidden">
+  {/* VIDEO CONTAINER */}
+  <div className="relative z-[21] w-full h-full md:rounded-none overflow-hidden"> 
+    {/* Increased to z-[21] to stay above the wrapper */}
     <video
       autoPlay
-      
       muted
       playsInline
       key={isMobile ? "mobile-video" : "desktop-video"} 
@@ -123,26 +126,20 @@ useEffect(() => {
       Your browser does not support the video tag.
     </video>
 
-    {/* 3. This overlay will now be pinned to the true edges of the browser */}
-    <div className="absolute inset-0 w-full h-full bg-black/40 md:bg-black/20 z-[1]" />
+    {/* OVERLAY */}
+    <div className="absolute inset-0 w-full h-full bg-black/40 md:bg-black/20 z-[22]" /> 
+    {/* Overlay must be higher than the video (z-[21]) to darken it */}
   </div>
 
-  {/* ... rest of your kinetic elements and scroll indicator ... */}
-
-  {/* KINETIC DECORATIVE ELEMENTS (Glows) */}
-  <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
+  {/* KINETIC DECORATIVE ELEMENTS */}
+  {/* If you want these BEHIND the video, set z to [5]. If you want them ON TOP, set z to [30] */}
+  <div className="absolute inset-0 z-[10] pointer-events-none overflow-hidden">
     <motion.div
       animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
       transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       className="absolute -top-10 -left-10 w-64 h-64 md:w-96 md:h-96 bg-[#5b21b6] rounded-full blur-[80px] md:blur-[120px]"
     />
-    <motion.div
-      animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute bottom-10 right-0 w-48 h-48 md:w-80 md:h-80 bg-[#c4ec0d]/10 rounded-full blur-[60px] md:blur-[100px]"
-    />
   </div>
-
   {/* SCROLL INDICATOR */}
   <motion.div 
     initial={{ opacity: 0 }}

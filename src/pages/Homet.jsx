@@ -113,7 +113,7 @@ useEffect(() => {
   <div className="relative z-0 w-full h-full md:rounded-none overflow-hidden">
     <video
       autoPlay
-      loop
+      
       muted
       playsInline
       key={isMobile ? "mobile-video" : "desktop-video"} 

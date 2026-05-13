@@ -48,7 +48,7 @@ function Layout() {
       >
         <source src="/bgv.mp4" type="video/mp4" />
       </video>
-            <Background videoOpacity={0.5} gridOpacity={0.02} />
+            {/* <Background videoOpacity={0.5} gridOpacity={0.02} /> */}
 
       {/* {location.pathname !== "/" && <Navbart />} */}
 <Navbart/>

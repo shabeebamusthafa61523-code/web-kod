@@ -142,6 +142,9 @@ export default function Homet() {
         <RevealSection delay={0.3} enabled={passedHero}>
           <BoardMembers />
         </RevealSection>
+        <RevealSection delay={0.3} enabled={passedHero}>
+          <Contact />
+        </RevealSection>
       </div>
 
       {/* --- CENTER POPUP CONTACT --- */}

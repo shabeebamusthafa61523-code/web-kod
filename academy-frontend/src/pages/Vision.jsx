@@ -68,23 +68,96 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
 };
 
-const ObjectiveItem = ({ Icon, text, keyPoints }) => (
+// Portfolio-style smooth reveal
+const Reveal = ({ children, delay = 0, y = 48, className = "" }) => (
   <motion.div
-    variants={itemVariants}
-    whileHover={{ y: -6, scale: 1.02 }}
-    transition={{ type: "spring", stiffness: 300 }}
-    className="flex items-center gap-4 py-3 px-6 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm hover:bg-white/10 transition-colors"
+    className={className}
+    initial={{ opacity: 0, y }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.15 }}
+    transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
   >
-    <div className="p-2 bg-purple-600/20 rounded-full">
-      <Icon className="text-xl text-[#c4ec0d]" />
-    </div>
-    <p className="text-sm md:text-base text-white/90">
-      {text} <span className="text-[#c4ec0d]">{keyPoints}</span>
-    </p>
+    {children}
   </motion.div>
+);
+
+// Portfolio service-row style objective item
+const ObjectiveItem = ({ Icon, text, keyPoints, index = 0 }) => (
+  <Reveal delay={index * 0.09}>
+    <div
+      className="obj-row group"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1.5rem',
+        padding: '1.4rem 0',
+        borderBottom: '1px solid rgba(245,245,240,0.07)',
+        cursor: 'default',
+        transition: 'all 0.3s',
+      }}
+    >
+      {/* Number */}
+      <span
+        className="obj-num"
+        style={{
+          fontFamily: "'DM Serif Display', serif",
+          fontSize: '2.2rem',
+          color: 'rgba(245,245,240,0.08)',
+          minWidth: '3.5rem',
+          lineHeight: 1,
+          transition: 'color 0.3s',
+        }}
+      >
+        0{index + 1}
+      </span>
+      {/* Icon */}
+      <div
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: '50%',
+          background: 'rgba(245,245,240,0.05)',
+          border: '1px solid rgba(245,245,240,0.12)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0,
+          transition: 'border-color 0.3s, background 0.3s',
+        }}
+      >
+        <Icon style={{ color: 'rgba(245,245,240,0.45)', fontSize: '1rem' }} />
+      </div>
+      {/* Text */}
+      <div style={{ flex: 1 }}>
+        <p
+          style={{
+            fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
+            fontWeight: 400,
+            color: 'rgba(245,245,240,0.55)',
+            letterSpacing: '0em',
+            lineHeight: 1.5,
+          }}
+        >
+          {text}{' '}
+          <span style={{ color: '#c4ec0d', fontWeight: 600 }}>{keyPoints}</span>
+        </p>
+      </div>
+      {/* Arrow */}
+      <span
+        className="obj-arrow"
+        style={{
+          fontSize: '1rem',
+          color: 'rgba(245,245,240,0.15)',
+          transition: 'transform 0.3s, color 0.3s',
+        }}
+      >
+        →
+      </span>
+    </div>
+  </Reveal>
 );
 
 const PillarItem = ({ Icon, text }) => (
@@ -170,58 +243,84 @@ const VisionPage = () => {
       className="relative overflow-x-hidden font-sans"
       style={{ background: 'rgba(0,0,0,0.55)' }}
     >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+        .obj-row:hover .obj-num { color: rgba(245,245,240,0.22) !important; }
+        .obj-row:hover .obj-arrow { transform: translateX(5px); color: rgba(245,245,240,0.45) !important; }
+        .obj-row:hover { background: rgba(245,245,240,0.02); }
+      `}</style>
 
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SECTION 1 — VISION & OBJECTIVES
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-20">
-        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
+      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24">
+        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-10"
+              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+              style={{ marginBottom: '2rem' }}
             >
-              <h2 className="text-[#c4ec0d] font-black uppercase tracking-widest text-sm mb-2">
-                Target Goals
-              </h2>
-              <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
-                OUR{" "}
-                <span className="text-purple-500 underline decoration-[#c4ec0d]">
-                  OBJECTIVE
-                </span>
+              {/* Portfolio-style label */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.7 }}
+                style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}
+              >
+                <span style={{ width: 28, height: 1, background: '#c4ec0d', display: 'inline-block' }} />
+                <span style={{ fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: '#c4ec0d' }}>Target Goals</span>
+              </motion.div>
+              {/* Reduced, professional-size heading */}
+              <h1
+                style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: 'clamp(2.8rem, 6vw, 5.5rem)',
+                  lineHeight: 1.0,
+                  letterSpacing: '-0.02em',
+                  fontWeight: 400,
+                  color: '#f5f5f0',
+                  marginBottom: '0.15rem',
+                }}
+              >
+                OUR<br />
+                <span style={{ fontStyle: 'italic', color: '#a855f7' }}>OBJECTIVE</span>
               </h1>
+              {/* Subtle sub-label */}
+              <p style={{ fontSize: '0.82rem', color: 'rgba(245,245,240,0.35)', letterSpacing: '0.06em', marginTop: '0.75rem' }}>
+                What we're building together
+              </p>
             </motion.div>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="flex flex-col gap-4"
-            >
+            <div className="flex flex-col" style={{ borderTop: '1px solid rgba(245,245,240,0.08)' }}>
               <ObjectiveItem
                 Icon={FaRegUserCircle}
                 text="Build"
                 keyPoints="System-Oriented Professionals"
+                index={0}
               />
               <ObjectiveItem
                 Icon={FaUserTie}
                 text="Create"
                 keyPoints="Independent Agency Owners"
+                index={1}
               />
               <ObjectiveItem
                 Icon={FaCrosshairs}
                 text="Focus on"
                 keyPoints="Realistic & Result-Oriented"
+                index={2}
               />
               <ObjectiveItem
                 Icon={FaSyncAlt}
                 text="Combine"
                 keyPoints="Skills + Systems + Financial Awareness"
+                index={3}
               />
-            </motion.div>
+            </div>
           </div>
           <motion.div
             initial={{ opacity: 0, x: 40 }}

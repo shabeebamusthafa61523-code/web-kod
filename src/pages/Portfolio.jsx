@@ -177,7 +177,7 @@ export default function Portfolio() {
         Proven Results
       </p>
       <h2 style={{ 
-        fontFamily: "'DM Serif Display', serif", 
+        fontFamily: "'DM Sans", 
         fontSize: "clamp(2.5rem, 6vw, 5rem)", 
         color: C.white,
         lineHeight: 1,
@@ -203,13 +203,14 @@ export default function Portfolio() {
         <motion.div 
           key={i}
           style={{ 
-            flex: "0 0 320px", // Wider slot
-            height: "220px",  // Taller slot
+            flex: "0 0 220px", // Wider slot
+            height: "150px",  // Taller slot
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#FFFFFF", // PURE WHITE BACKGROUND FOR LOGO
-            borderRadius: "4px",    // Slight rounding to feel premium
+background: "#FFFFFF", 
+    // Added backdropBlur for a glassmorphism effect
+    backdropFilter: "blur(10px)",            borderRadius: "4px",    // Slight rounding to feel premium
             cursor: "pointer",
             position: "relative",
             overflow: "hidden",

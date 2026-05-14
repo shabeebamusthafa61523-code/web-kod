@@ -107,7 +107,7 @@ useEffect(() => {
   
   {/* VIDEO CONTAINER */}
  {/* 1. Remove the 'flex items-center justify-center' from this wrapper to let content fill space naturally */}
-{/* --- HERO VIDEO SECTION --- */}
+
 <div 
   ref={homeRef} 
   className="relative w-full h-[100svh] overflow-hidden bg-black z-[20]" // Added z-[20] to elevate the entire block
@@ -147,8 +147,10 @@ useEffect(() => {
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ delay: 2 }}
+
     className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-[40]" 
     // Set to z-[40] so it's always visible over the video and overlay
+
   >
     <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent" />
     <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-semibold">Scroll</span>

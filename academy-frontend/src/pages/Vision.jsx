@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+﻿/* eslint-disable no-unused-vars */
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -79,10 +79,10 @@ const ObjectiveItem = ({ Icon, text, keyPoints }) => (
     className="flex items-center gap-4 py-3 px-6 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm hover:bg-white/10 transition-colors"
   >
     <div className="p-2 bg-purple-600/20 rounded-full">
-      <Icon className="text-xl text-[#a8d832]" />
+      <Icon className="text-xl text-[#c4ec0d]" />
     </div>
     <p className="text-sm md:text-base text-white/90">
-      {text} <strong className="text-[#a8d832]">{keyPoints}</strong>
+      {text} <strong className="text-[#c4ec0d]">{keyPoints}</strong>
     </p>
   </motion.div>
 );
@@ -94,8 +94,8 @@ const PillarItem = ({ Icon, text }) => (
     transition={{ type: "spring", stiffness: 300 }}
     className="flex flex-col items-center gap-2 p-4 min-w-[120px]"
   >
-    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center bg-white/5 hover:border-[#a8d832] transition-colors">
-      <Icon className="text-xl text-[#a8d832]" />
+    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center bg-white/5 hover:border-[#c4ec0d] transition-colors">
+      <Icon className="text-xl text-[#c4ec0d]" />
     </div>
     <span className="text-[10px] font-black uppercase tracking-widest text-white/70 text-center">
       {text}
@@ -114,10 +114,10 @@ const TrackCard = ({
     variants={itemVariants}
     whileHover={{ y: -6, scale: 1.02 }}
     transition={{ type: "spring", stiffness: 300 }}
-    className={`bg-white/5 border ${color} rounded-3xl p-6 flex flex-col h-full hover:border-[#a8d832]/50 transition-colors cursor-pointer`}
+    className={`bg-white/5 border ${color} rounded-3xl p-6 flex flex-col h-full hover:border-[#c4ec0d]/50 transition-colors cursor-pointer`}
   >
     <div className="flex items-center gap-3 mb-6">
-      <div className="p-3 bg-[#a8d832] rounded-xl">
+      <div className="p-3 bg-[#c4ec0d] rounded-xl">
         <Icon className="text-black text-xl" />
       </div>
       <h3 className="text-white font-bold uppercase tracking-wider text-sm">
@@ -139,8 +139,8 @@ const TrackCard = ({
     </div>
     <div className="mt-8 pt-6 border-t border-white/10">
       <div className="flex items-center gap-2 mb-3">
-        <FaCheckCircle className="text-[#a8d832]" />
-        <span className="text-[#a8d832] font-bold text-[10px] uppercase">
+        <FaCheckCircle className="text-[#c4ec0d]" />
+        <span className="text-[#c4ec0d] font-bold text-[10px] uppercase">
           Expected Outcome
         </span>
       </div>
@@ -167,25 +167,13 @@ const VisionPage = () => {
   return (
     <div
       ref={targetRef}
-      className="relative bg-black overflow-x-hidden font-sans"
+      className="relative overflow-x-hidden font-sans"
+      style={{ background: 'rgba(0,0,0,0.55)' }}
     >
-      {/* BACKGROUND VIDEO */}
-      <div className="fixed inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        >
-          <source src="/bgv.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-      </div>
 
-      {/* ═══════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SECTION 1 — VISION & OBJECTIVES
-      ═══════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-20">
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
@@ -196,12 +184,12 @@ const VisionPage = () => {
               viewport={{ once: true }}
               className="mb-10"
             >
-              <h2 className="text-[#a8d832] font-black uppercase tracking-widest text-sm mb-2">
+              <h2 className="text-[#c4ec0d] font-black uppercase tracking-widest text-sm mb-2">
                 Target Goals
               </h2>
               <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
                 OUR{" "}
-                <span className="text-purple-500 underline decoration-[#a8d832]">
+                <span className="text-purple-500 underline decoration-[#c4ec0d]">
                   OBJECTIVE
                 </span>
               </h1>
@@ -246,7 +234,7 @@ const VisionPage = () => {
             <img
               src="/logo2.png"
               alt="Vision"
-              className="relative z-10 w-full max-w-sm drop-shadow-[0_0_30px_rgba(168,216,50,0.2)]"
+              className="relative z-10 w-full max-w-sm drop-shadow-[0_0_30px_rgba(196,236,13,0.2)]"
             />
           </motion.div>
         </div>
@@ -271,12 +259,12 @@ const VisionPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SECTION 2 — PROGRAM STRUCTURE (STAIRCASE)
-      ═══════════════════════════════════════ */}
-      {/* ═══════════════════════════════════════
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
     SECTION 2 — PROGRAM STRUCTURE (REAL 3D STAIRCASE)
-═══════════════════════════════════════ */}
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative z-10 min-h-screen w-full flex flex-col items-center justify-center py-28 px-6">
 
         {/* HEADER */}
@@ -288,7 +276,7 @@ const VisionPage = () => {
           className="text-center mb-24"
         >
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white text-center md:text-left">
-            PROGRAM <span className="text-[#a8d832]">STRUCTURE</span>
+            PROGRAM <span className="text-[#c4ec0d]">STRUCTURE</span>
           </h2>
           <p className="text-gray-500 text-[10px] md:text-xs tracking-[0.4em] uppercase mt-4 text-center md:text-left">
             Step-by-step transformation
@@ -302,14 +290,14 @@ const VisionPage = () => {
             initial={{ height: 0 }}
             whileInView={{ height: '85%' }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="hidden md:block absolute bottom-10 left-[20%] md:left-[30%] w-1 bg-gradient-to-t from-purple-600 via-cyan-400 to-[#a8d832] rounded-full blur-[3px]"
+            className="hidden md:block absolute bottom-10 left-[20%] md:left-[30%] w-1 bg-gradient-to-t from-purple-600 via-cyan-400 to-[#c4ec0d] rounded-full blur-[3px]"
           />
-          <div className="hidden md:block absolute bottom-10 left-[20%] md:left-[30%] w-[2px] h-[85%] bg-gradient-to-t from-purple-600 via-cyan-400 to-[#a8d832] rounded-full opacity-50" />
+          <div className="hidden md:block absolute bottom-10 left-[20%] md:left-[30%] w-[2px] h-[85%] bg-gradient-to-t from-purple-600 via-cyan-400 to-[#c4ec0d] rounded-full opacity-50" />
 
           {[
             { level: 1, title: "Basics & Foundation", color: "from-purple-700 to-purple-500", border: "border-purple-500/30", textClass: "text-white" },
             { level: 2, title: "Kod.Pro Skills", color: "from-cyan-500 to-teal-500", border: "border-cyan-400/40", textClass: "text-white" },
-            { level: 3, title: "Agency Management System", color: "from-[#a8d832] to-[#81a826]", border: "border-[#a8d832]", textClass: "text-black" }
+            { level: 3, title: "Agency Management System", color: "from-[#c4ec0d] to-[#c4ec0d]", border: "border-[#c4ec0d]", textClass: "text-black" }
           ].map((step, idx) => (
             <motion.div
               key={idx}
@@ -340,16 +328,16 @@ const VisionPage = () => {
             className="absolute top-[0%] left-[60%] md:left-[70%] z-50 flex flex-col items-center"
           >
             <div className="relative group cursor-pointer">
-              <div className="absolute inset-0 bg-[#a8d832] blur-2xl opacity-40 group-hover:opacity-70 group-hover:blur-3xl transition-all duration-500 animate-pulse" />
-              <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-b from-black to-purple-950 rounded-full border-2 border-[#a8d832] flex items-center justify-center shadow-[0_0_40px_rgba(168,216,50,0.5)] relative z-10 group-hover:scale-110 transition-transform duration-500">
-                <Target className="text-[#a8d832] w-10 h-10 md:w-12 md:h-12 drop-shadow-[0_0_10px_rgba(168,216,50,0.8)]" />
+              <div className="absolute inset-0 bg-[#c4ec0d] blur-2xl opacity-40 group-hover:opacity-70 group-hover:blur-3xl transition-all duration-500 animate-pulse" />
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-b from-black to-purple-950 rounded-full border-2 border-[#c4ec0d] flex items-center justify-center shadow-[0_0_40px_rgba(196,236,13,0.5)] relative z-10 group-hover:scale-110 transition-transform duration-500">
+                <Target className="text-[#c4ec0d] w-10 h-10 md:w-12 md:h-12 drop-shadow-[0_0_10px_rgba(196,236,13,0.8)]" />
               </div>
             </div>
             <motion.div
               animate={{ y: [0, -15, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             >
-              <ArrowUp className="text-[#a8d832] w-8 h-8 mt-4 drop-shadow-[0_0_10px_rgba(168,216,50,0.5)]" />
+              <ArrowUp className="text-[#c4ec0d] w-8 h-8 mt-4 drop-shadow-[0_0_10px_rgba(196,236,13,0.5)]" />
             </motion.div>
           </motion.div>
 
@@ -359,7 +347,7 @@ const VisionPage = () => {
               key={i}
               animate={{ y: [0, -30, 0], opacity: [0, 0.8, 0], scale: [0.5, 1.5, 0.5] }}
               transition={{ repeat: Infinity, duration: 3 + ((i * 1.5) % 2), delay: i * 0.4 }}
-              className="absolute w-2 h-2 rounded-full bg-[#a8d832] blur-[1px] z-50 pointer-events-none"
+              className="absolute w-2 h-2 rounded-full bg-[#c4ec0d] blur-[1px] z-50 pointer-events-none"
               style={{
                 bottom: `${((i * 13) % 80) + 20}%`,
                 left: `${((i * 27) % 80) + 10}%`,
@@ -372,10 +360,10 @@ const VisionPage = () => {
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl w-full mx-auto px-4 md:px-0">
 
           {/* STEP BY STEP */}
-          <div className="group bg-white/5 border border-white/10 rounded-xl p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-[#a8d832]/40 hover:shadow-[0_0_20px_rgba(168,216,50,0.15)]">
+          <div className="group bg-white/5 border border-white/10 rounded-xl p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-[#c4ec0d]/40 hover:shadow-[0_0_20px_rgba(196,236,13,0.15)]">
 
-            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-[#a8d832]/10 flex items-center justify-center">
-              <FaCrosshairs className="text-[#a8d832] text-sm" />
+            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-[#c4ec0d]/10 flex items-center justify-center">
+              <FaCrosshairs className="text-[#c4ec0d] text-sm" />
             </div>
 
             <p className="text-white text-xs font-bold uppercase tracking-wide">
@@ -387,13 +375,13 @@ const VisionPage = () => {
           </div>
 
           {/* PROGRESSIVE */}
-          <div className="group bg-white/5 border border-[#a8d832]/30 rounded-xl p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-[#a8d832]/60 hover:shadow-[0_0_25px_rgba(168,216,50,0.25)]">
+          <div className="group bg-white/5 border border-[#c4ec0d]/30 rounded-xl p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-[#c4ec0d]/60 hover:shadow-[0_0_25px_rgba(196,236,13,0.25)]">
 
-            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-[#a8d832]/10 flex items-center justify-center">
-              <FaChartLine className="text-[#a8d832] text-sm" />
+            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-[#c4ec0d]/10 flex items-center justify-center">
+              <FaChartLine className="text-[#c4ec0d] text-sm" />
             </div>
 
-            <p className="text-[#a8d832] text-xs font-bold uppercase tracking-wide">
+            <p className="text-[#c4ec0d] text-xs font-bold uppercase tracking-wide">
               Progressive
             </p>
             <p className="text-gray-500 text-[10px] mt-1">
@@ -402,10 +390,10 @@ const VisionPage = () => {
           </div>
 
           {/* REAL GROWTH */}
-          <div className="group bg-white/5 border border-white/10 rounded-xl p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-[#a8d832]/40 hover:shadow-[0_0_20px_rgba(168,216,50,0.15)]">
+          <div className="group bg-white/5 border border-white/10 rounded-xl p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-[#c4ec0d]/40 hover:shadow-[0_0_20px_rgba(196,236,13,0.15)]">
 
-            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-[#a8d832]/10 flex items-center justify-center">
-              <FaCheckCircle className="text-[#a8d832] text-sm" />
+            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-[#c4ec0d]/10 flex items-center justify-center">
+              <FaCheckCircle className="text-[#c4ec0d] text-sm" />
             </div>
 
             <p className="text-white text-xs font-bold uppercase tracking-wide">
@@ -419,9 +407,9 @@ const VisionPage = () => {
         </div>
 
       </section>
-      {/* ═══════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SECTION 3 — LEVEL 1 DETAILED (FULL)
-      ═══════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative z-10 min-h-screen py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -431,14 +419,14 @@ const VisionPage = () => {
           className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left"
         >
           <div>
-            <h2 className="text-[#a8d832] font-black text-5xl md:text-7xl mb-2">
+            <h2 className="text-[#c4ec0d] font-black text-5xl md:text-7xl mb-2">
               Level 1 —
             </h2>
             <h3 className="text-white text-3xl md:text-5xl font-light text-center md:text-left">
               Basics & Foundation
             </h3>
           </div>
-          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)] w-full md:w-auto">
+          <div className="bg-[#c4ec0d] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(196,236,13,0.4)] w-full md:w-auto">
             <FaCalendarAlt className="text-2xl flex-shrink-0" />
             <div className="text-left">
               <p className="text-[10px] uppercase font-black leading-none">
@@ -463,26 +451,26 @@ const VisionPage = () => {
             </h4>
             <ul className="space-y-4 text-white/80">
               <li className="flex items-center justify-center md:justify-start gap-3">
-                <FaLaptopCode className="text-[#a8d832]" /> Digital Basics
+                <FaLaptopCode className="text-[#c4ec0d]" /> Digital Basics
               </li>
               <li className="flex items-center justify-center md:justify-start gap-3">
-                <FaComments className="text-[#a8d832]" /> Communication
+                <FaComments className="text-[#c4ec0d]" /> Communication
               </li>
               <li className="flex items-center justify-center md:justify-start gap-3">
-                <FaCogs className="text-[#a8d832]" /> Agency Workflow
+                <FaCogs className="text-[#c4ec0d]" /> Agency Workflow
               </li>
             </ul>
           </motion.div>
           <motion.div variants={itemVariants} className="flex justify-center">
-            <div className="w-40 h-40 rounded-full border-4 border-dashed border-[#a8d832] flex flex-col items-center justify-center bg-purple-900/20 backdrop-blur-xl">
+            <div className="w-40 h-40 rounded-full border-4 border-dashed border-[#c4ec0d] flex flex-col items-center justify-center bg-purple-900/20 backdrop-blur-xl">
               <span className="text-5xl font-black text-white">01</span>
-              <span className="text-xs font-bold text-[#a8d832] uppercase">
+              <span className="text-xs font-bold text-[#c4ec0d] uppercase">
                 Level
               </span>
             </div>
           </motion.div>
           <motion.div variants={itemVariants} className="bg-white/5 p-8 rounded-3xl border border-white/10 text-center">
-            <h4 className="text-[#a8d832] font-black uppercase mb-6">
+            <h4 className="text-[#c4ec0d] font-black uppercase mb-6">
               Outcome
             </h4>
             <div className="flex flex-col items-center gap-2">
@@ -548,7 +536,7 @@ const VisionPage = () => {
                 desc: "Engagement & Content.",
               },
               {
-                icon: <FaEdit className="text-green-400" />,
+                icon: <FaEdit className="text-[#c4ec0d]" />,
                 label: "Content Creation",
                 desc: "Reels and Copywriting.",
               },
@@ -602,44 +590,44 @@ const VisionPage = () => {
         <div className="bg-white/5 rounded-full p-4 border border-white/10 hidden lg:block">
           <div className="flex justify-around items-center text-[10px] font-bold text-white uppercase tracking-tighter">
             <div className="flex items-center gap-2">
-              1. Learn Basics <FaArrowRight className="text-[#a8d832]" />
+              1. Learn Basics <FaArrowRight className="text-[#c4ec0d]" />
             </div>
             <div className="flex items-center gap-2">
-              2. Build Projects <FaArrowRight className="text-[#a8d832]" />
+              2. Build Projects <FaArrowRight className="text-[#c4ec0d]" />
             </div>
             <div className="flex items-center gap-2">
-              3. Upload & Share <FaArrowRight className="text-[#a8d832]" />
+              3. Upload & Share <FaArrowRight className="text-[#c4ec0d]" />
             </div>
             <div className="flex items-center gap-2">
-              4. Get Feedback <FaArrowRight className="text-[#a8d832]" />
+              4. Get Feedback <FaArrowRight className="text-[#c4ec0d]" />
             </div>
             <div className="flex items-center gap-2">5. Level 2 Ready</div>
           </div>
         </div>
 
-        <div className="mt-10 bg-gradient-to-r from-purple-900 to-black border-y border-[#a8d832]/30 py-4 text-center">
+        <div className="mt-10 bg-gradient-to-r from-purple-900/50 to-transparent border-y border-[#c4ec0d]/30 py-4 text-center backdrop-blur-sm">
           <p className="text-white font-black tracking-widest text-xs italic">
-            ⭐ START SMALL. LEARN SMART. GROW BIG. —{" "}
-            <span className="text-[#a8d832]">KOD.brand</span>
+            â­ START SMALL. LEARN SMART. GROW BIG. —{" "}
+            <span className="text-[#c4ec0d]">KOD.brand</span>
           </p>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SECTION 4 — LEVEL 2 DETAILED (FULL)
-      ═══════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative z-10 py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
           <div>
-            <h2 className="text-[#a8d832] font-black text-5xl md:text-7xl mb-2 uppercase italic text-center md:text-left">
+            <h2 className="text-[#c4ec0d] font-black text-5xl md:text-7xl mb-2 uppercase italic text-center md:text-left">
               Level 2 —
             </h2>
             <h3 className="text-white text-3xl md:text-5xl font-light text-center md:text-left">
               Kod.Pro Skills
             </h3>
           </div>
-          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)] w-full md:w-auto">
+          <div className="bg-[#c4ec0d] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(196,236,13,0.4)] w-full md:w-auto">
             <FaCalendarAlt className="text-2xl flex-shrink-0" />
             <div className="text-left">
               <p className="text-[10px] uppercase font-black leading-none">
@@ -658,15 +646,15 @@ const VisionPage = () => {
             </h4>
             <ul className="space-y-6">
               <li className="flex flex-col items-center text-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
-                <FaGraduationCap className="text-[#a8d832] text-2xl flex-shrink-0" /> Advanced
+                <FaGraduationCap className="text-[#c4ec0d] text-2xl flex-shrink-0" /> Advanced
                 Skills
               </li>
               <li className="flex flex-col items-center text-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
-                <FaUserTie className="text-[#a8d832] text-2xl flex-shrink-0" /> Client
+                <FaUserTie className="text-[#c4ec0d] text-2xl flex-shrink-0" /> Client
                 Handling
               </li>
               <li className="flex flex-col items-center text-center gap-4 text-white/90 font-medium bg-white/5 p-3 rounded-xl border border-white/5">
-                <FaBriefcase className="text-[#a8d832] text-2xl flex-shrink-0" /> Real
+                <FaBriefcase className="text-[#c4ec0d] text-2xl flex-shrink-0" /> Real
                 Projects
               </li>
             </ul>
@@ -674,21 +662,21 @@ const VisionPage = () => {
 
           <div className="flex justify-center order-1 lg:order-2">
             <div className="relative group">
-              <div className="absolute inset-0 bg-[#a8d832]/20 rounded-full blur-3xl group-hover:bg-[#a8d832]/40 transition-all" />
-              <div className="relative w-48 h-48 rounded-full border-4 border-dashed border-[#a8d832] flex flex-col items-center justify-center bg-black backdrop-blur-xl">
+              <div className="absolute inset-0 bg-[#c4ec0d]/20 rounded-full blur-3xl group-hover:bg-[#c4ec0d]/40 transition-all" />
+              <div className="relative w-48 h-48 rounded-full border-4 border-dashed border-[#c4ec0d] flex flex-col items-center justify-center bg-black backdrop-blur-xl">
                 <span className="text-6xl font-black text-white">02</span>
-                <span className="text-sm font-bold text-[#a8d832] uppercase tracking-widest">
+                <span className="text-sm font-bold text-[#c4ec0d] uppercase tracking-widest">
                   Level
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/5 p-8 rounded-3xl border border-[#a8d832]/30 order-3 text-center">
-            <h4 className="text-[#a8d832] font-black uppercase mb-6 border-b border-white/10 pb-4">
+          <div className="bg-white/5 p-8 rounded-3xl border border-[#c4ec0d]/30 order-3 text-center">
+            <h4 className="text-[#c4ec0d] font-black uppercase mb-6 border-b border-white/10 pb-4">
               Outcome
             </h4>
-            <FaCheckCircle className="text-5xl text-[#a8d832] mx-auto mb-4" />
+            <FaCheckCircle className="text-5xl text-[#c4ec0d] mx-auto mb-4" />
             <p className="text-2xl font-bold text-white mb-2 leading-tight">
               Job-ready + Practical Experience
             </p>
@@ -710,11 +698,11 @@ const VisionPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16 bg-white/5 p-10 rounded-[3rem] border border-white/10">
           <div>
             <h2 className="text-4xl font-black text-white text-center lg:text-left">KOD.Pro</h2>
-            <p className="text-[#a8d832] font-bold text-center lg:text-left">by KOD.brand</p>
+            <p className="text-[#c4ec0d] font-bold text-center lg:text-left">by KOD.brand</p>
           </div>
           <div className="text-center space-y-4">
-            <div className="inline-block bg-[#a8d832] text-black font-black px-6 py-1 rounded-full text-sm uppercase">
-              ★ Level 2 (PRO) ★
+            <div className="inline-block bg-[#c4ec0d] text-black font-black px-6 py-1 rounded-full text-sm uppercase">
+              â˜… Level 2 —˜…
             </div>
             <h3 className="text-2xl font-bold text-white uppercase italic">
               Get Certified. Earn. Grow.
@@ -726,7 +714,7 @@ const VisionPage = () => {
           </div>
           <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
             <h4 className="text-white font-bold text-xs uppercase mb-4 flex items-center justify-center lg:justify-start gap-2">
-              <FaStar className="text-[#a8d832]" /> L2 Benefits
+              <FaStar className="text-[#c4ec0d]" /> L2 Benefits
             </h4>
             <ul className="text-[11px] text-gray-300 space-y-2 text-center lg:text-left">
               <li>• Advanced Marketing & Analytics</li>
@@ -759,7 +747,7 @@ const VisionPage = () => {
                 desc: "Redux, Axios, REST.",
               },
               {
-                icon: <FaDatabase className="text-green-400" />,
+                icon: <FaDatabase className="text-[#c4ec0d]" />,
                 label: "State Management",
                 desc: "Managing global app states.",
               },
@@ -771,7 +759,7 @@ const VisionPage = () => {
             icon={FaNodeJs}
             items={[
               {
-                icon: <FaNodeJs className="text-green-500" />,
+                icon: <FaNodeJs className="text-[#c4ec0d]" />,
                 label: "Node & Express",
                 desc: "Building scalable servers.",
               },
@@ -793,7 +781,7 @@ const VisionPage = () => {
             icon={SiMongodb}
             items={[
               {
-                icon: <SiMongodb className="text-green-400" />,
+                icon: <SiMongodb className="text-[#c4ec0d]" />,
                 label: "Full Stack Sync",
                 desc: "Connecting Node to React.",
               },
@@ -848,7 +836,7 @@ const VisionPage = () => {
                 desc: "Scripting for efficiency.",
               },
               {
-                icon: <FaDatabase className="text-green-400" />,
+                icon: <FaDatabase className="text-[#c4ec0d]" />,
                 label: "Data Handling",
                 desc: "Complex data structures.",
               },
@@ -859,13 +847,13 @@ const VisionPage = () => {
 
         {/* Marketing & Design L2 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <div className="bg-gradient-to-br from-green-900/20 to-black p-8 rounded-[2rem] border border-green-500/20">
-            <h4 className="text-green-400 font-bold mb-6 flex items-center justify-center md:justify-start gap-2 text-xl">
+          <div className="bg-gradient-to-br from-[#c4ec0d]/10 to-black p-8 rounded-[2rem] border border-[#c4ec0d]/20">
+            <h4 className="text-[#c4ec0d] font-bold mb-6 flex items-center justify-center md:justify-start gap-2 text-xl">
               <FaBullhorn /> Digital Marketing — L2
             </h4>
             <div className="grid grid-cols-2 gap-4 text-xs text-gray-300">
               <div className="flex items-center gap-2">
-                <FaSearch className="text-green-500" /> SEO Mastery
+                <FaSearch className="text-[#c4ec0d]" /> SEO Mastery
               </div>
               <div className="flex items-center gap-2">
                 <SiGoogleads className="text-blue-500" /> Google Ads (PPC)
@@ -886,14 +874,14 @@ const VisionPage = () => {
             </div>
             <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
               <div>
-                <p className="text-[10px] text-green-400 font-bold uppercase">
+                <p className="text-[10px] text-[#c4ec0d] font-bold uppercase">
                   L2 Outcome
                 </p>
                 <p className="text-white font-bold">
                   Marketing Expert / Freelancer
                 </p>
               </div>
-              <FaAward className="text-3xl text-green-500" />
+              <FaAward className="text-3xl text-[#c4ec0d]" />
             </div>
           </div>
 
@@ -918,7 +906,7 @@ const VisionPage = () => {
                 <FaVideo className="text-blue-500" /> Motion Graphics
               </div>
               <div className="flex items-center gap-2">
-                <FaStar className="text-[#a8d832]" /> High-Paying Projects
+                <FaStar className="text-[#c4ec0d]" /> High-Paying Projects
               </div>
             </div>
             <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
@@ -934,10 +922,10 @@ const VisionPage = () => {
         </div>
 
         {/* L2 CTA */}
-        <div className="mt-16 bg-[#a8d832] p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 bg-[#c4ec0d] p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6">
             <div className="p-4 bg-black rounded-2xl">
-              <FaMoneyBillWave className="text-[#a8d832] text-3xl" />
+              <FaMoneyBillWave className="text-[#c4ec0d] text-3xl" />
             </div>
             <div>
               <h4 className="text-black font-black text-2xl uppercase">
@@ -955,15 +943,15 @@ const VisionPage = () => {
 
         <div className="mt-10 py-4 text-center">
           <p className="text-white font-black tracking-widest text-xs italic">
-            ⭐ LEVEL UP YOUR CAREER WITH{" "}
-            <span className="text-[#a8d832]">KOD.Pro</span> — POWERED BY
+            â­ LEVEL UP YOUR CAREER WITH{" "}
+            <span className="text-[#c4ec0d]">KOD.Pro</span> — POWERED BY
             KOD.brand
           </p>
         </div>
       </section>
-      {/* ═══════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SECTION 5 — LEVEL 3 DETAILED
-      ═══════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative z-10 py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
         <motion.div 
           initial={{ opacity: 0, x: -40 }}
@@ -973,11 +961,11 @@ const VisionPage = () => {
           className="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-6 text-center md:text-left"
         >
           <div>
-            <span className="inline-block px-4 py-1 rounded-full bg-[#a8d832]/20 text-[#a8d832] text-xs font-bold mb-4 uppercase border border-[#a8d832]/30">Phase 03</span>
+            <span className="inline-block px-4 py-1 rounded-full bg-[#c4ec0d]/20 text-[#c4ec0d] text-xs font-bold mb-4 uppercase border border-[#c4ec0d]/30">Phase 03</span>
             <h2 className="text-4xl md:text-5xl font-black text-white">LEVEL 3 - <span className="text-purple-500">AGENCY MANAGEMENT</span></h2>
             <p className="text-xl text-gray-400 font-medium mt-4 max-w-3xl">Master the complete system to build, manage & scale your own agency with structure, automation & clarity.</p>
           </div>
-          <div className="bg-[#a8d832] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(168,216,50,0.4)] w-full md:w-auto">
+          <div className="bg-[#c4ec0d] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(196,236,13,0.4)] w-full md:w-auto">
             <FaCalendarAlt className="text-2xl flex-shrink-0" />
             <div className="text-left">
               <p className="text-[10px] uppercase font-black leading-none">
@@ -990,13 +978,13 @@ const VisionPage = () => {
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16 items-stretch">
           {/* Grid Column 1 (Focus Areas) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/10 lg:col-span-1 hover:border-[#a8d832]/30 transition-colors h-full">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/10 lg:col-span-1 hover:border-[#c4ec0d]/30 transition-colors h-full">
             <h3 className="text-xl font-black text-purple-400 mb-6 uppercase tracking-wider">Focus Areas</h3>
             <ul className="space-y-6">
               {[
-                { icon: <Layers className="text-[#a8d832]" />, title: "SOP & Documentation", desc: "Build structured processes & standard operating procedures." },
-                { icon: <Monitor className="text-[#a8d832]" />, title: "System Implementation", desc: "Implement end-to-end agency management systems." },
-                { icon: <Bot className="text-[#a8d832]" />, title: "Automation", desc: "Automate workflows, track performance & scale with efficiency." }
+                { icon: <Layers className="text-[#c4ec0d]" />, title: "SOP & Documentation", desc: "Build structured processes & standard operating procedures." },
+                { icon: <Monitor className="text-[#c4ec0d]" />, title: "System Implementation", desc: "Implement end-to-end agency management systems." },
+                { icon: <Bot className="text-[#c4ec0d]" />, title: "Automation", desc: "Automate workflows, track performance & scale with efficiency." }
               ].map((item, i) => (
                 <li key={i} className="flex gap-4">
                   <div className="mt-1 bg-white/5 p-3 rounded-xl border border-white/10">{item.icon}</div>
@@ -1010,14 +998,14 @@ const VisionPage = () => {
           </motion.div>
 
           {/* Grid Column 2 (Outcome) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-br from-purple-900/40 to-[#a8d832]/10 text-white p-8 rounded-3xl shadow-2xl lg:col-span-1 flex flex-col justify-center items-center text-center relative overflow-hidden border border-white/10 h-full">
-            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#a8d832]/20 blur-[50px] rounded-full" />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-br from-purple-900/40 to-[#c4ec0d]/10 text-white p-8 rounded-3xl shadow-2xl lg:col-span-1 flex flex-col justify-center items-center text-center relative overflow-hidden border border-white/10 h-full">
+            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#c4ec0d]/20 blur-[50px] rounded-full" />
             <div className="w-24 h-24 bg-black/40 border border-white/10 rounded-full flex items-center justify-center mb-6 backdrop-blur-md">
-              <Rocket className="w-12 h-12 text-[#a8d832]" />
+              <Rocket className="w-12 h-12 text-[#c4ec0d]" />
             </div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-[#a8d832] mb-2">Outcome</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-[#c4ec0d] mb-2">Outcome</h3>
             <h2 className="text-3xl font-black mb-4 leading-tight text-white">Run agency independently</h2>
-            <div className="inline-block bg-[#a8d832] text-black px-6 py-2 rounded-full font-black uppercase tracking-wider mb-6">
+            <div className="inline-block bg-[#c4ec0d] text-black px-6 py-2 rounded-full font-black uppercase tracking-wider mb-6">
               (30 Days)
             </div>
             <p className="text-white/80 font-medium">Build. Manage. Scale. Lead with Systems.</p>
@@ -1050,7 +1038,7 @@ const VisionPage = () => {
         <div className="mt-24 mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              <span className="text-[#a8d832]">KOD.Pro</span> Agency Management System
+              <span className="text-[#c4ec0d]">KOD.Pro</span> Agency Management System
             </h2>
             <p className="text-gray-500 font-medium tracking-widest uppercase text-sm">by KOD.brand</p>
           </div>
@@ -1058,9 +1046,9 @@ const VisionPage = () => {
           <div className="bg-white/5 rounded-[40px] p-8 border border-white/10 shadow-inner backdrop-blur-sm">
             <div className="bg-gradient-to-r from-purple-900 to-black border border-purple-500/30 text-white text-center py-4 rounded-2xl mb-8 shadow-lg">
               <h3 className="text-xl font-black tracking-widest flex items-center justify-center gap-3">
-                <Star className="text-[#a8d832] w-5 h-5" fill="currentColor" />
+                <Star className="text-[#c4ec0d] w-5 h-5" fill="currentColor" />
                 LEVEL 3 (MASTER & LEAD)
-                <Star className="text-[#a8d832] w-5 h-5" fill="currentColor" />
+                <Star className="text-[#c4ec0d] w-5 h-5" fill="currentColor" />
               </h3>
             </div>
 
@@ -1084,9 +1072,9 @@ const VisionPage = () => {
                 {
                   title: "Advanced AI & Automation",
                   icon: <Bot className="w-8 h-8" />,
-                  color: "text-[#a8d832]",
-                  bg: "bg-[#a8d832]/10",
-                  border: "border-[#a8d832]/20",
+                  color: "text-[#c4ec0d]",
+                  bg: "bg-[#c4ec0d]/10",
+                  border: "border-[#c4ec0d]/20",
                   items: ["LLMs & Chatbots", "Workflow Automation", "Data Processing", "AI Tools Development"],
                   outcome: "AI Automation Expert"
                 },
@@ -1152,7 +1140,7 @@ const VisionPage = () => {
           {/* 10 Pillars */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 p-8 rounded-3xl shadow-xl border border-white/10 backdrop-blur-md">
             <h3 className="text-2xl font-black text-white mb-8 flex items-center gap-3">
-              <Settings className="text-[#a8d832]" /> Agency Management System
+              <Settings className="text-[#c4ec0d]" /> Agency Management System
             </h3>
             <div className="space-y-4">
               {[
@@ -1168,7 +1156,7 @@ const VisionPage = () => {
                 "Automate & Scale"
               ].map((pillar, i) => (
                 <div key={i} className="flex items-center gap-4 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 text-white font-black flex items-center justify-center text-sm border border-white/10 group-hover:bg-[#a8d832] group-hover:text-black group-hover:border-[#a8d832] transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 text-white font-black flex items-center justify-center text-sm border border-white/10 group-hover:bg-[#c4ec0d] group-hover:text-black group-hover:border-[#c4ec0d] transition-colors">
                     {i + 1}
                   </div>
                   <span className="font-semibold text-gray-300 group-hover:text-white transition-colors">{pillar}</span>
@@ -1178,10 +1166,10 @@ const VisionPage = () => {
           </motion.div>
 
           {/* The Flow */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-black/60 text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col border border-[#a8d832]/20 backdrop-blur-xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-black/60 text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col border border-[#c4ec0d]/20 backdrop-blur-xl">
             <div className="absolute top-[-20%] right-[-10%] w-[70%] h-[70%] bg-purple-900/30 blur-[80px] rounded-full pointer-events-none" />
             <h3 className="text-2xl font-black text-white mb-10 flex items-center gap-3 relative z-10">
-              <RefreshCw className="text-[#a8d832]" /> The Implementation Flow
+              <RefreshCw className="text-[#c4ec0d]" /> The Implementation Flow
             </h3>
 
             <div className="flex-grow flex flex-col justify-center relative z-10">
@@ -1198,7 +1186,7 @@ const VisionPage = () => {
                   { icon: <Users />, label: "Referral" },
                 ].map((step, i) => (
                   <div key={i} className="flex flex-col items-center text-center relative">
-                    <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-3 text-[#a8d832] border border-white/10 backdrop-blur-sm group hover:bg-[#a8d832]/10 transition-colors">
+                    <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-3 text-[#c4ec0d] border border-white/10 backdrop-blur-sm group hover:bg-[#c4ec0d]/10 transition-colors">
                       {step.icon}
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-white/70">{step.label}</span>
@@ -1216,10 +1204,10 @@ const VisionPage = () => {
         <div className="bg-white/5 border border-white/10 rounded-[40px] p-6 md:p-12 backdrop-blur-md overflow-hidden">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
 
-            {/* ── LEFT: Journey ── */}
+            {/* â”€â”€ LEFT: Journey â”€â”€ */}
             <div className="flex-1 min-w-0">
               <h3 className="text-xl md:text-2xl font-black text-white mb-6 flex items-center gap-2">
-                <Rocket className="text-[#a8d832] w-5 h-5" /> Your L3 Journey
+                <Rocket className="text-[#c4ec0d] w-5 h-5" /> Your L3 Journey
               </h3>
 
               {/* Number badges */}
@@ -1232,7 +1220,7 @@ const VisionPage = () => {
                       className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-black text-xs md:text-sm ${
                         i === 5
                           ? "bg-purple-500 text-white shadow-[0_0_15px_rgba(168,85,247,0.8)]"
-                          : "bg-[#a8d832] text-black shadow-[0_0_10px_rgba(168,216,50,0.5)]"
+                          : "bg-[#c4ec0d] text-black shadow-[0_0_10px_rgba(196,236,13,0.5)]"
                       }`}
                     >{num}</motion.div>
                   </div>
@@ -1242,7 +1230,7 @@ const VisionPage = () => {
               {/* Progress bar */}
               <div className="relative h-1 mb-3 rounded-full bg-white/10 overflow-hidden">
                 <motion.div
-                  className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#a8d832] to-purple-500"
+                  className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#c4ec0d] to-purple-500"
                   animate={{ width: ["0%", "100%", "0%"] }}
                   transition={{ duration: 7.8, repeat: Infinity, ease: "linear" }}
                 />
@@ -1285,19 +1273,19 @@ const VisionPage = () => {
                     <div className={`w-9 h-9 rounded-full font-black flex items-center justify-center mb-2 text-sm ${
                       s.isLast
                         ? "bg-purple-500 text-white shadow-[0_0_12px_rgba(168,85,247,0.8)]"
-                        : "bg-[#a8d832] text-black shadow-[0_0_12px_rgba(168,216,50,0.5)]"
+                        : "bg-[#c4ec0d] text-black shadow-[0_0_12px_rgba(196,236,13,0.5)]"
                     }`}>{s.num}</div>
                     <p className={`font-black text-base md:text-lg tracking-wide uppercase ${s.isLast ? "text-white" : "text-gray-200"}`}>{s.label}</p>
-                    {s.isLast && <span className="mt-1 text-purple-300 text-[10px] font-bold uppercase tracking-widest">✦ Final Destination</span>}
+                    {s.isLast && <span className="mt-1 text-purple-300 text-[10px] font-bold uppercase tracking-widest">âœ¦ Final Destination</span>}
                   </motion.div>
                 ))}
               </div>
             </div>
 
-            {/* ── RIGHT: L3 Gains ── */}
-            <div className="lg:w-[300px] bg-black/50 rounded-3xl p-6 md:p-8 shadow-xl border border-[#a8d832]/20 backdrop-blur-sm flex flex-col justify-center">
+            {/* â”€â”€ RIGHT: L3 Gains â”€â”€ */}
+            <div className="lg:w-[300px] bg-black/50 rounded-3xl p-6 md:p-8 shadow-xl border border-[#c4ec0d]/20 backdrop-blur-sm flex flex-col justify-center">
               <h3 className="text-lg md:text-xl font-black text-white mb-6 flex items-center gap-2">
-                <Trophy className="text-[#a8d832] w-5 h-5 flex-shrink-0" /> L3 Gains
+                <Trophy className="text-[#c4ec0d] w-5 h-5 flex-shrink-0" /> L3 Gains
               </h3>
               <motion.ul variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="space-y-4">
                 {[
@@ -1307,7 +1295,7 @@ const VisionPage = () => {
                   { icon: <Award className="w-5 h-5" />, text: "Build a Legacy" },
                 ].map((gain, i) => (
                   <motion.li variants={itemVariants} key={i} className="flex items-center gap-4">
-                    <div className="text-[#a8d832] bg-[#a8d832]/10 p-2.5 rounded-xl border border-[#a8d832]/20 flex-shrink-0">{gain.icon}</div>
+                    <div className="text-[#c4ec0d] bg-[#c4ec0d]/10 p-2.5 rounded-xl border border-[#c4ec0d]/20 flex-shrink-0">{gain.icon}</div>
                     <span className="font-semibold text-gray-200 leading-tight text-sm md:text-base">{gain.text}</span>
                   </motion.li>
                 ))}
@@ -1323,11 +1311,11 @@ const VisionPage = () => {
           <div className="p-10 md:p-14 lg:w-[60%] relative z-10 flex flex-col justify-between pb-28 md:pb-14 items-center text-center md:items-start md:text-left">
             <div>
               <div className="text-white font-black text-xl tracking-tighter mb-8">
-                KOD<span className="text-[#a8d832]">.</span>brand
+                KOD<span className="text-[#c4ec0d]">.</span>brand
               </div>
 
               <h2 className="text-5xl md:text-6xl font-black mb-4 uppercase leading-none tracking-tight">
-                <span className="text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">Add-On</span> <span className="text-[#a8d832] drop-shadow-[0_0_15px_rgba(168,216,50,0.4)]">Program</span>
+                <span className="text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">Add-On</span> <span className="text-[#c4ec0d] drop-shadow-[0_0_15px_rgba(196,236,13,0.4)]">Program</span>
               </h2>
               <p className="text-gray-400 font-medium text-lg md:text-xl max-w-lg mb-10 mx-auto md:mx-0">
                 Master the art of trading with strategy, tools & discipline.
@@ -1353,7 +1341,7 @@ const VisionPage = () => {
 
             {/* Call to Action */}
             <div className="flex justify-center md:justify-start w-full">
-              <div className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#a8d832] to-[#8db529] text-black px-8 py-4 rounded-full font-black text-xl shadow-[0_10px_30px_rgba(168,216,50,0.2)] hover:scale-105 transition-transform cursor-pointer border border-[#a8d832]/50 text-center flex-col sm:flex-row w-full sm:w-auto">
+              <div className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#c4ec0d] to-[#c4ec0d] text-black px-8 py-4 rounded-full font-black text-xl shadow-[0_10px_30px_rgba(196,236,13,0.2)] hover:scale-105 transition-transform cursor-pointer border border-[#c4ec0d]/50 text-center flex-col sm:flex-row w-full sm:w-auto">
                 <Gift className="w-6 h-6 text-black sm:w-8 sm:h-8" />
                 <span>FREE for <span className="text-black underline decoration-4 underline-offset-4">Level 3</span></span>
               </div>
@@ -1363,7 +1351,7 @@ const VisionPage = () => {
           {/* Right Visual Elements */}
           <div className="lg:w-[40%] bg-gradient-to-br from-black to-purple-950/40 relative overflow-hidden hidden md:flex flex-col items-center justify-center min-h-[400px] border-l border-white/5">
             {/* Abstract Background */}
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#a8d832 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#c4ec0d 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/20 blur-[80px] rounded-full pointer-events-none"></div>
 
             {/* High-tech Monitor */}
@@ -1378,8 +1366,8 @@ const VisionPage = () => {
               <div className="flex-1 p-4 relative flex items-end justify-between gap-3">
                 <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
                 {[40, 70, 30, 90, 60, 100].map((h, i) => (
-                  <div key={i} className="w-1/6 bg-[#a8d832]/80 rounded-t-sm relative flex justify-center z-10" style={{ height: `${h}%` }}>
-                    <div className="absolute top-[-20px] w-[2px] h-[calc(100%+40px)] bg-[#a8d832]/50"></div>
+                  <div key={i} className="w-1/6 bg-[#c4ec0d]/80 rounded-t-sm relative flex justify-center z-10" style={{ height: `${h}%` }}>
+                    <div className="absolute top-[-20px] w-[2px] h-[calc(100%+40px)] bg-[#c4ec0d]/50"></div>
                   </div>
                 ))}
               </div>
@@ -1394,10 +1382,10 @@ const VisionPage = () => {
           {/* Bottom Footer bar */}
           <div className="absolute bottom-0 left-0 w-full bg-purple-900/40 backdrop-blur-md text-white flex flex-wrap justify-between items-center py-4 px-6 md:px-14 border-t border-purple-500/30 z-30">
             {[
-              { icon: <Target className="w-4 h-4 text-[#a8d832]" />, label: "Real Market Knowledge" },
-              { icon: <LineChart className="w-4 h-4 text-[#a8d832]" />, label: "Practical Strategies" },
-              { icon: <ShieldCheck className="w-4 h-4 text-[#a8d832]" />, label: "Risk Managed Approach" },
-              { icon: <Users className="w-4 h-4 text-[#a8d832]" />, label: "Mentorship Support" },
+              { icon: <Target className="w-4 h-4 text-[#c4ec0d]" />, label: "Real Market Knowledge" },
+              { icon: <LineChart className="w-4 h-4 text-[#c4ec0d]" />, label: "Practical Strategies" },
+              { icon: <ShieldCheck className="w-4 h-4 text-[#c4ec0d]" />, label: "Risk Managed Approach" },
+              { icon: <Users className="w-4 h-4 text-[#c4ec0d]" />, label: "Mentorship Support" },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wider mb-2 md:mb-0 text-gray-300">
                 {item.icon} {item.label}
@@ -1407,13 +1395,13 @@ const VisionPage = () => {
         </motion.div>
       </section>
 
-      {/* ═══════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SECTION 6 — FINAL OUTCOME
-      ═══════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative z-10 py-28 px-6 max-w-7xl mx-auto border-t border-white/10 overflow-hidden">
         {/* Background Ambient Effects */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/20 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#a8d832]/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#c4ec0d]/5 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT SIDE: Content */}
@@ -1424,7 +1412,7 @@ const VisionPage = () => {
             viewport={{ once: true }}
             className="relative z-10"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#a8d832] text-xs font-black uppercase tracking-[0.2em] mb-8 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#c4ec0d] text-xs font-black uppercase tracking-[0.2em] mb-8 backdrop-blur-sm">
               <Sparkles className="w-4 h-4" /> Final Outcome
             </div>
 
@@ -1433,7 +1421,7 @@ const VisionPage = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 drop-shadow-[0_0_20px_rgba(168,85,247,0.3)]">Leading</span>
             </h2>
 
-            <p className="text-2xl md:text-3xl font-bold text-[#a8d832] mb-8 tracking-wide">
+            <p className="text-2xl md:text-3xl font-bold text-[#c4ec0d] mb-8 tracking-wide">
               Create. Systemize. Earn. Grow.
             </p>
 
@@ -1454,15 +1442,15 @@ const VisionPage = () => {
               initial={{ height: 0 }}
               whileInView={{ height: '85%' }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="absolute bottom-10 left-[20%] md:left-[30%] w-1 bg-gradient-to-t from-purple-600 via-purple-400 to-[#a8d832] rounded-full blur-[3px]"
+              className="absolute bottom-10 left-[20%] md:left-[30%] w-1 bg-gradient-to-t from-purple-600 via-purple-400 to-[#c4ec0d] rounded-full blur-[3px]"
             />
-            <div className="absolute bottom-10 left-[20%] md:left-[30%] w-[2px] h-[85%] bg-gradient-to-t from-purple-600 via-purple-400 to-[#a8d832] rounded-full opacity-50" />
+            <div className="absolute bottom-10 left-[20%] md:left-[30%] w-[2px] h-[85%] bg-gradient-to-t from-purple-600 via-purple-400 to-[#c4ec0d] rounded-full opacity-50" />
 
             {[
               { level: 1, title: "Financial Awareness", color: "from-purple-900/95 to-black", border: "border-purple-500/30", icon: <DollarSign className="text-purple-400" /> },
               { level: 2, title: "Earn Through Projects", color: "from-purple-800/95 to-purple-950/95", border: "border-purple-400/40", icon: <Briefcase className="text-purple-300" /> },
               { level: 3, title: "Implement SOP Systems", color: "from-purple-600/95 to-purple-800/95", border: "border-purple-300/50", icon: <Layers className="text-purple-200" /> },
-              { level: 4, title: "Build & Manage Agency", color: "from-[#a8d832]/95 to-[#81a826]/95", border: "border-[#a8d832]", icon: <Settings className="text-black" />, textClass: "text-black" }
+              { level: 4, title: "Build & Manage Agency", color: "from-[#c4ec0d]/95 to-[#c4ec0d]/95", border: "border-[#c4ec0d]", icon: <Settings className="text-black" />, textClass: "text-black" }
             ].map((step, idx) => (
               <motion.div
                 key={idx}
@@ -1493,16 +1481,16 @@ const VisionPage = () => {
               className="absolute top-[0%] left-[60%] md:left-[70%] z-50 flex flex-col items-center"
             >
               <div className="relative group cursor-pointer">
-                <div className="absolute inset-0 bg-[#a8d832] blur-2xl opacity-40 group-hover:opacity-70 group-hover:blur-3xl transition-all duration-500 animate-pulse" />
-                <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-b from-black to-purple-950 rounded-full border-2 border-[#a8d832] flex items-center justify-center shadow-[0_0_40px_rgba(168,216,50,0.5)] relative z-10 group-hover:scale-110 transition-transform duration-500">
-                  <Trophy className="text-[#a8d832] w-10 h-10 md:w-12 md:h-12 drop-shadow-[0_0_10px_rgba(168,216,50,0.8)]" />
+                <div className="absolute inset-0 bg-[#c4ec0d] blur-2xl opacity-40 group-hover:opacity-70 group-hover:blur-3xl transition-all duration-500 animate-pulse" />
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-b from-black to-purple-950 rounded-full border-2 border-[#c4ec0d] flex items-center justify-center shadow-[0_0_40px_rgba(196,236,13,0.5)] relative z-10 group-hover:scale-110 transition-transform duration-500">
+                  <Trophy className="text-[#c4ec0d] w-10 h-10 md:w-12 md:h-12 drop-shadow-[0_0_10px_rgba(196,236,13,0.8)]" />
                 </div>
               </div>
               <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               >
-                <ArrowUp className="text-[#a8d832] w-8 h-8 mt-4 drop-shadow-[0_0_10px_rgba(168,216,50,0.5)]" />
+                <ArrowUp className="text-[#c4ec0d] w-8 h-8 mt-4 drop-shadow-[0_0_10px_rgba(196,236,13,0.5)]" />
               </motion.div>
             </motion.div>
 
@@ -1512,7 +1500,7 @@ const VisionPage = () => {
                 key={i}
                 animate={{ y: [0, -30, 0], opacity: [0, 0.8, 0], scale: [0.5, 1.5, 0.5] }}
                 transition={{ repeat: Infinity, duration: 3 + ((i * 1.5) % 2), delay: i * 0.4 }}
-                className="absolute w-2 h-2 rounded-full bg-[#a8d832] blur-[1px] z-50 pointer-events-none"
+                className="absolute w-2 h-2 rounded-full bg-[#c4ec0d] blur-[1px] z-50 pointer-events-none"
                 style={{
                   bottom: `${((i * 13) % 80) + 20}%`,
                   left: `${((i * 27) % 80) + 10}%`,
@@ -1532,22 +1520,22 @@ const VisionPage = () => {
         >
           {[
             { title: "Real-World Skills", desc: "Learn what truly matters in business.", icon: <Star className="text-purple-400" /> },
-            { title: "Practical Experience", desc: "Work on live projects and real workflows.", icon: <Briefcase className="text-[#a8d832]" /> },
+            { title: "Practical Experience", desc: "Work on live projects and real workflows.", icon: <Briefcase className="text-[#c4ec0d]" /> },
             { title: "Financial Growth", desc: "Earn, invest, and scale sustainably.", icon: <LineChart className="text-purple-400" /> },
-            { title: "Long-Term Success", desc: "Build systems that continue growing.", icon: <ShieldCheck className="text-[#a8d832]" /> },
+            { title: "Long-Term Success", desc: "Build systems that continue growing.", icon: <ShieldCheck className="text-[#c4ec0d]" /> },
           ].map((card, idx) => (
             <motion.div
               key={idx}
               variants={itemVariants}
               whileHover={{ y: -6, scale: 1.02 }} 
               transition={{ type: "spring", stiffness: 300 }}
-              className="group bg-white/5 border border-white/10 p-8 rounded-[30px] backdrop-blur-md hover:bg-white/10 hover:border-[#a8d832]/40 transition-all duration-500 relative overflow-hidden"
+              className="group bg-white/5 border border-white/10 p-8 rounded-[30px] backdrop-blur-md hover:bg-white/10 hover:border-[#c4ec0d]/40 transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="w-14 h-14 rounded-2xl bg-black border border-white/10 flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-[0_10px_20px_rgba(168,216,50,0.15)] transition-all duration-300 group-hover:border-[#a8d832]/30">
+              <div className="w-14 h-14 rounded-2xl bg-black border border-white/10 flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-[0_10px_20px_rgba(196,236,13,0.15)] transition-all duration-300 group-hover:border-[#c4ec0d]/30">
                 {card.icon}
               </div>
-              <h4 className="text-white font-bold text-xl mb-3 group-hover:text-[#a8d832] transition-colors">{card.title}</h4>
+              <h4 className="text-white font-bold text-xl mb-3 group-hover:text-[#c4ec0d] transition-colors">{card.title}</h4>
               <p className="text-gray-400 text-sm leading-relaxed">{card.desc}</p>
             </motion.div>
           ))}
@@ -1555,20 +1543,20 @@ const VisionPage = () => {
       </section>
 
       {/* PART E: Footer CTA */}
-      <footer className="bg-black text-white py-16 px-6 relative overflow-hidden border-t border-white/10">
-        <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-[#a8d832]/5 blur-[120px] rounded-full pointer-events-none" />
+      <footer className="bg-black/40 backdrop-blur-md text-white py-16 px-6 relative overflow-hidden border-t border-white/10">
+        <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-[#c4ec0d]/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[50%] h-[100%] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 relative z-10">
-            <span className="inline-block px-4 py-1 rounded-full bg-white/5 text-[#a8d832] text-xs font-black mb-6 uppercase tracking-[0.3em] backdrop-blur-sm border border-white/10">
+            <span className="inline-block px-4 py-1 rounded-full bg-white/5 text-[#c4ec0d] text-xs font-black mb-6 uppercase tracking-[0.3em] backdrop-blur-sm border border-white/10">
               Not for you, learn for your future!
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight text-white">
               Become a leader. Create the future. <br />
-              <span className="text-[#a8d832] italic">KOD.Pro AMS.</span>
+              <span className="text-[#c4ec0d] italic">KOD.Pro AMS.</span>
             </h2>
-            <div className="inline-block bg-[#a8d832] text-black font-black px-10 py-4 rounded-full text-lg shadow-[0_0_30px_rgba(168,216,50,0.3)] hover:scale-105 transition-transform cursor-pointer mt-4 uppercase tracking-widest">
+            <div className="inline-block bg-[#c4ec0d] text-black font-black px-10 py-4 rounded-full text-lg shadow-[0_0_30px_rgba(196,236,13,0.3)] hover:scale-105 transition-transform cursor-pointer mt-4 uppercase tracking-widest">
               Move forward with us! <ArrowRight className="inline ml-2 mb-1" />
             </div>
           </div>
@@ -1594,7 +1582,7 @@ const VisionPage = () => {
                 key={i} 
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors group"
               >
-                <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center mx-auto mb-4 text-[#a8d832] border border-white/10 group-hover:border-[#a8d832]/50 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center mx-auto mb-4 text-[#c4ec0d] border border-white/10 group-hover:border-[#c4ec0d]/50 transition-colors">
                   {benefit.icon}
                 </div>
                 <p className="font-bold text-xs tracking-widest uppercase text-gray-400 group-hover:text-white transition-colors">{benefit.label}</p>
@@ -1605,10 +1593,10 @@ const VisionPage = () => {
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
             <div className="text-2xl font-black tracking-tighter">
               <span className="text-white">KOD</span>
-              <span className="text-[#a8d832]">.</span>
+              <span className="text-[#c4ec0d]">.</span>
               <span className="text-white">brand</span>
             </div>
-            <p className="text-gray-600 text-xs font-bold tracking-widest uppercase">© 2024 KOD.brand Academy. All rights reserved.</p>
+            <p className="text-gray-600 text-xs font-bold tracking-widest uppercase">Â© 2024 KOD.brand Academy. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -1617,3 +1605,4 @@ const VisionPage = () => {
 };
 
 export default VisionPage;
+

@@ -66,13 +66,13 @@ const AppDevelopment = () => {
   ];
 
   const careerPaths = [
-    { role: "Mobile Developer", salary: "₹8-15L", icon: <Smartphone /> },
-    { role: "Flutter Engineer", salary: "₹10-18L", icon: <Zap /> },
-    { role: "UI/UX Designer", salary: "₹7-14L", icon: <Layout /> },
-    { role: "Full Stack Dev", salary: "₹12-25L", icon: <Cpu /> },
-    { role: "Tech Lead", salary: "₹18-35L", icon: <Award /> },
-    { role: "Product Designer", salary: "₹9-16L", icon: <Layers /> }
-  ];
+  { role: "Flutter Developer", salary: "₹8-18L", icon: <Smartphone /> },
+  { role: "Cross-Platform Engineer", salary: "₹10-22L", icon: <Zap /> },
+  { role: "Mobile App Architect", salary: "₹25-45L", icon: <Layout /> },
+  { role: "Flutter Consultant", salary: "₹15-30L", icon: <Cpu /> },
+  { role: "Mobile Tech Lead", salary: "₹20-40L", icon: <Award /> },
+  { role: "Dart Specialist", salary: "₹12-25L", icon: <Layers /> }
+];
 
   return (
     <div>

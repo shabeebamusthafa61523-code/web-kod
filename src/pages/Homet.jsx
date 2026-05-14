@@ -123,12 +123,12 @@ useEffect(() => {
       key={isMobile ? "mobile-video" : "desktop-video"} 
       className="w-full h-full object-cover object-center"
     >
-      <source src={isMobile ? "/web ph.mp4" : "/web int.mp4"} type="video/mp4" />
+      <source src={isMobile ? "/web ph (2).mp4" : "/web int.mp4"} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
     {/* OVERLAY */}
-    <div className="absolute inset-0 w-full h-full bg-black/40 md:bg-black/20 z-[22]" /> 
+    {/* <div className="absolute inset-0 w-full h-full bg-black/40 md:bg-black/20 z-[22]" />  */}
     {/* Overlay must be higher than the video (z-[21]) to darken it */}
   </div>
 

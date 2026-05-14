@@ -1,12 +1,12 @@
-import React, { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import Navbart from "../components/Navbart";
+import React from "react";
+import { motion } from "framer-motion";
+// import Navbart from "../components/Navbart";
 
 // ── Tokens ─────────────────────────────────────────────────────────────────
 const C = {
   acid: "#c4ec0d",
   blue: "#2b51b6",
-  black: "transparent", // Changed to transparent
+  black: "transparent", 
   white: "#f5f5f0",
   dim: "rgba(245,245,240,0.38)",
 };
@@ -50,7 +50,7 @@ const services = [
   { title: "Development", desc: "Cohesive visual identities — from logos to full brand systems — that communicate a clear, memorable, and lasting presence." },
 ];
 
-const logos = ["/logo.jpeg", "/logo2.png", "/bgb.png", "/new.png", "/neww.jpeg"];
+const logos = ["/razain.png", "/redpex.png", "/horizone.png","/inkspire.png", "/paris cafe.png",  "/ipas-logo.png", "/brownie-bakes.png"];
 const tickerItems = ["Brand Strategy", "Visual Identity", "Motion Design", "Web Development", "3D Modeling", "Campaign Direction"];
 
 const devCards = [
@@ -61,49 +61,28 @@ const devCards = [
 
 export default function Portfolio() {
   return (
-    <div className="relative z-10 bg-transparent"> {/* Added bg-transparent */}
-      <Navbart />
+    <div className="relative z-10 bg-transparent">
+      {/* <Navbart /> */}
       <div style={{ color: C.white, fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif" }}>
 
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,500;0,900;1,300&family=DM+Serif+Display:ital@0;1&display=swap');
-
           *, *::before, *::after { box-sizing: border-box; }
-
           ::selection { background: ${C.acid}; color: #000; }
-
-          .acid { color: ${C.acid}; }
-          .blue { color: ${C.blue}; }
-
           .grain::after {
             content: '';
             position: fixed; inset: 0; pointer-events: none; z-index:-1;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-            opacity: 0.15; /* Reduced opacity to look better over other backgrounds */
+            opacity: 0.15;
           }
-
           .rule { height: 1px; background: rgba(245,245,240,0.10); }
           .svc-row { border-bottom: 1px solid rgba(245,245,240,0.08); }
           .svc-row:hover .svc-num { color: var(--hover-color, ${C.acid}); transition: color 0.3s; }
           .svc-row:hover .svc-arrow { transform: translateX(6px); color: var(--hover-color, ${C.acid}); }
 
-          .dev-card { border: 1px solid rgba(245,245,240,0.08); transition: border-color 0.4s, transform 0.4s; }
-          .dev-card:hover { border-color: ${C.acid}; transform: translateY(-6px); }
-
           @media (max-width: 1024px) {
             section { padding-left: 5vw !important; padding-right: 5vw !important; }
-            section[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 3rem !important; }
             .svc-row { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
-            section[style*="repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
-          }
-
-          @media (max-width: 640px) {
-            section:first-of-type { justify-content: center !important; padding-top: 10vh !important; }
-            section { padding-left: 5vw !important; padding-right: 5vw !important; }
-            .svc-row { padding: 1.5rem 0 !important; }
-            section[style*="repeat(5, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
-            section[style*="repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
-            h1 { line-height: 0.9 !important; }
           }
         `}</style>
 
@@ -113,17 +92,6 @@ export default function Portfolio() {
         <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 6vw 8vh", position: "relative" }}>
           <div style={{ position: "absolute", top: "30%", right: "10%", width: 560, height: 560, borderRadius: "50%", background: `radial-gradient(circle, ${C.blue}28 0%, transparent 70%)`, pointerEvents: "none" }} />
           
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-            style={{ marginBottom: "2.5rem", display: "flex", alignItems: "center", gap: "0.75rem" }}
-          >
-            {/* <span style={{ width: 32, height: 1, background: C.acid }} />
-            <span style={{ fontSize: "0.72rem", letterSpacing: "0.22em", textTransform: "uppercase", color: C.acid }}>KOD.BRAND — Est. 2025</span> */}
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -144,37 +112,25 @@ export default function Portfolio() {
           >
             We build scalable digital experiences and powerful brand identities for modern businesses.
           </motion.p>
-
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            style={{ position: "absolute", right: "6vw", bottom: "8vh", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}
-          >
-            <span style={{ fontSize: "0.62rem", letterSpacing: "0.2em", color: C.dim, writingMode: "vertical-rl" }}>SCROLL</span>
-            <div style={{ width: 1, height: 48, background: `linear-gradient(to bottom, ${C.acid}, transparent)` }} />
-          </motion.div>
         </section>
 
         <Ticker items={tickerItems} />
 
         {/* ── ABOUT ── */}
-        <section style={{ padding: "12vh 6vw", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4vw", alignItems: "center" }}>
+        <section style={{ padding: "12vh 6vw", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4vw", alignItems: "center", background: "transparent" }}>
           <Reveal>
-            <h2 style={{ fontFamily: "'Excon', serif", fontSize: "clamp(3rem, 9vw, 8rem)", lineHeight: 0.95, fontWeight: 400 }}>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(3rem, 9vw, 8rem)", lineHeight: 0.95, fontWeight: 400 }}>
               About<br /><span style={{ fontStyle: "italic", color: C.acid }}>Us</span>
             </h2>
           </Reveal>
-
           <Reveal delay={0.15}>
             <div style={{ color: C.dim, lineHeight: 1.85, fontSize: "1.05rem" }}>
-              <p style={{ marginBottom: "1.5rem" }}>
-                KOD.BRAND is a full-service digital marketing and branding agency committed to helping businesses build impactful, lasting connections with their audiences.
-              </p>
+              <p>KOD.BRAND is a full-service digital marketing and branding agency committed to helping businesses build impactful, lasting connections with their audiences.</p>
               <div style={{ marginTop: "2.5rem", display: "flex", gap: "3rem" }}>
                 {[["120+", "Brands", C.acid], ["08", "Years", C.blue], ["4", "Studios", C.acid]].map(([num, label, clr]) => (
                   <div key={label}>
-                    <div style={{ fontFamily: "'Excon', serif", fontSize: "2.5rem", color: clr }}>{num}</div>
-                    <div style={{ fontSize: "0.72rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.dim, marginTop: "0.25rem" }}>{label}</div>
+                    <div style={{ fontSize: "2.5rem", color: clr, fontWeight: 900 }}>{num}</div>
+                    <div style={{ fontSize: "0.72rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.dim }}>{label}</div>
                   </div>
                 ))}
               </div>
@@ -185,87 +141,135 @@ export default function Portfolio() {
         <div className="rule" />
 
         {/* ── SERVICES ── */}
-        <section style={{ padding: "12vh 6vw" }}>
+        <section style={{ padding: "12vh 6vw", background: "transparent" }}>
           <Reveal>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "5rem" }}>
-              <h2 style={{ fontFamily: "'Excon', serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", lineHeight: 0.95, fontWeight: 400 }}>
+              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", lineHeight: 0.95, fontWeight: 400 }}>
                 What we<br /><span style={{ fontStyle: "italic" }}>do</span>
               </h2>
-              <span style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: C.dim }}>0{services.length} services</span>
             </div>
           </Reveal>
-
           {services.map((s, i) => (
             <Reveal key={i} delay={i * 0.08}>
-              <div className="svc-row" style={{ display: "flex", alignItems: "center", gap: "2rem", padding: "2.2rem 0", cursor: "default" }}>
-                <span className="svc-num" style={{ fontFamily: "'DM Serif Display', serif", fontSize: "3.5rem", color: "rgba(245,245,240,0.12)", minWidth: "5rem", transition: "color 0.3s", "--hover-color": i % 2 === 0 ? C.acid : C.blue }}>
-                  0{i + 1}
-                </span>
+              <div className="svc-row" style={{ display: "flex", alignItems: "center", gap: "2rem", padding: "2.2rem 0" }}>
+                <span className="svc-num" style={{ fontFamily: "'DM Serif Display', serif", fontSize: "3.5rem", color: "rgba(245,245,240,0.12)", minWidth: "5rem", "--hover-color": i % 2 === 0 ? C.acid : C.blue }}>0{i + 1}</span>
                 <div style={{ flex: 1 }}>
-                  <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 500, letterSpacing: "-0.01em", marginBottom: "0.5rem" }}>{s.title}</h3>
+                  <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 500, marginBottom: "0.5rem" }}>{s.title}</h3>
                   <p style={{ color: C.dim, fontSize: "0.95rem", lineHeight: 1.7, maxWidth: 560 }}>{s.desc}</p>
                 </div>
-                <span className="svc-arrow" style={{ fontSize: "1.5rem", color: "rgba(255, 255, 255, 0.62)", transition: "transform 0.3s, color 0.3s" }}>→</span>
+                <span className="svc-arrow" style={{ fontSize: "1.5rem", transition: "0.3s" }}>→</span>
               </div>
             </Reveal>
           ))}
         </section>
 
-        {/* ── TRUSTED BY ── */}
-        <section style={{ background: `transparent`, padding: "12vh 6vw", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", bottom: 0, right: 0, width: 400, height: 400, borderRadius: "50%", background: `radial-gradient(circle, ${C.blue}15 0%, transparent 70%)`, pointerEvents: "none" }} />
-          <Reveal>
-            <div style={{ marginBottom: "5rem" }}>
-              <p style={{ fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: C.blue, marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                <span style={{ display: "inline-block", width: 24, height: 2, background: C.blue }} />
-                Our Clients
-              </p>
-              <h2 style={{ fontFamily: "'Excon', serif", fontSize: "clamp(2.5rem, 7vw, 6rem)", fontWeight: 400, lineHeight: 1 }}>
-                Trusted by <span style={{ fontStyle: "italic" }}>industry</span><br />leaders
-              </h2>
-            </div>
-          </Reveal>
+        {/* ── TRUSTED BY (UPDATED VERSION) ── */}
+     {/* ── TRUSTED BY (THEMED HIGH-CONTRAST SLIDER) ── */}
+<section style={{ 
+  padding: "12vh 0", 
+  background: "transparent", 
+  overflow: "hidden",
+  position: "relative"
+}}>
+  <div style={{ padding: "0 6vw", marginBottom: "4rem" }}>
+    <Reveal>
+      <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: C.acid, marginBottom: "1rem" }}>
+        Proven Results
+      </p>
+      <h2 style={{ 
+        fontFamily: "'DM Serif Display', serif", 
+        fontSize: "clamp(2.5rem, 6vw, 5rem)", 
+        color: C.white,
+        lineHeight: 1,
+        fontWeight: 400 
+      }}>
+        Trusted by <span style={{ fontStyle: "italic", color: C.acid }}>Industry Leaders</span>
+      </h2>
+    </Reveal>
+  </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "3rem", alignItems: "center", maxWidth: 900 }}>
-            {logos.map((logo, i) => (
-              <Reveal key={i} delay={i * 0.07}>
-                <div className="logo-item pb-26" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <img src={logo} alt={`client-${i}`} style={{ height: 52, objectFit: "contain" }} />
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
+  {/* The Slider Container */}
+  <div style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%" }}>
+    <motion.div
+      style={{ display: "flex", gap: "2rem", padding: "20px 0" }}
+      animate={{ x: ["0%", "-50%"] }} 
+      transition={{ 
+        duration: 25, 
+        repeat: Infinity, 
+        ease: "linear" 
+      }}
+    >
+      {[...logos, ...logos].map((logo, i) => (
+        <motion.div 
+          key={i}
+          style={{ 
+            flex: "0 0 320px", // Wider slot
+            height: "220px",  // Taller slot
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#FFFFFF", // PURE WHITE BACKGROUND FOR LOGO
+            borderRadius: "4px",    // Slight rounding to feel premium
+            cursor: "pointer",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.2)" // Lifted effect
+          }}
+          whileHover={{ 
+            y: -10,
+            boxShadow: `0 20px 40px ${C.acid}33`, // Acid glow on hover
+            borderColor: C.acid
+          }}
+        >
+          {/* THE LOGO - Big and Highlighted */}
+          <motion.img 
+            src={logo} 
+            alt="" 
+            initial={{ scale: 0.9 }}
+            whileHover={{ scale: 1.3 }} // Large Zoom
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            style={{ 
+              width: "220px",
+              height: "auto",
+              maxHeight: "320px", // Much larger
+              maxWidth: "85%",    // Filling more of the white box
+              objectFit: "contain",
+              zIndex: 2
+            }} 
+          />
 
+          {/* Bottom highlight bar */}
+          <motion.div 
+            initial={{ height: 0 }}
+            whileHover={{ height: "6px" }}
+            style={{ 
+              position: "absolute", bottom: 0, left: 0, right: 0, 
+              background: C.acid, zIndex: 3 
+            }}
+          />
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
         {/* ── DEVELOPMENT ── */}
         <section className="py-[12vh] px-[6vw] pb-[20vh] bg-transparent">
           <Reveal>
-            <h2 className="font-[Excon] text-[clamp(2.5rem,7vw,6rem)] font-normal leading-none mb-16 pt-4">
-              Website{" "}
-              <span className="italic text-[#c4ec0d]">Development</span>
-              <br />
-              for your business
+            <h2 className="font-[DM Serif Display] text-[clamp(2.5rem,7vw,6rem)] font-normal leading-none mb-16">
+              Website <span className="italic text-[#c4ec0d]">Development</span><br />for your business
             </h2>
           </Reveal>
-
-          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1 max-lg:grid-cols-2">
+          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
             {devCards.map((card, i) => (
               <Reveal key={i} delay={i * 0.12}>
-                <div className="p-[1px] bg-gradient-to-r from-[#c4ec0d] to-[#2b51b6] transition-all duration-300 hover:from-[#2b51b6] hover:to-[#c4ec0d] hover:scale-[1.02]">
-                  {/* Changed inner card background to subtle dark blur for readability over glass */}
+                <div className="p-[1px] bg-gradient-to-r from-[#c4ec0d] to-[#2b51b6] transition-all duration-300 hover:scale-[1.02]">
                   <div className="bg-black/40 backdrop-blur-md overflow-hidden">
                     <div className="h-[220px] flex items-center justify-center p-8">
-                      <img
-                        src={`/${card.img}`}
-                        alt=""
-                        className="h-20 object-contain opacity-90"
-                      />
+                      <img src={`/${card.img}`} alt="" className="h-20 object-contain opacity-90" />
                     </div>
-                    <div className="border-t border-white/10 px-6 py-4 flex justify-between items-center text-[0.75rem] tracking-[0.14em] uppercase text-[#f5f5f0]/60 transition-colors hover:text-white">
+                    <div className="border-t border-white/10 px-6 py-4 flex justify-between items-center text-[0.75rem] tracking-[0.14em] uppercase text-[#f5f5f0]/60">
                       <span>{card.label}</span>
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                      </span>
+                      <span>→</span>
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-﻿/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -82,7 +82,7 @@ const ObjectiveItem = ({ Icon, text, keyPoints }) => (
       <Icon className="text-xl text-[#c4ec0d]" />
     </div>
     <p className="text-sm md:text-base text-white/90">
-      {text} <strong className="text-[#c4ec0d]">{keyPoints}</strong>
+      {text} <span className="text-[#c4ec0d]">{keyPoints}</span>
     </p>
   </motion.div>
 );

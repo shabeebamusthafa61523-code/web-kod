@@ -65,42 +65,35 @@ const caseStudies = [
     name: "Paris Cafe",
     sector: "Food & Beverage",
     desc: "Paris Cafe is a cozy coffee shop in Malappuram serving delicious coffee, snacks, and refreshing beverages in a warm and relaxing atmosphere.",
+    images: ["/paris-2.jpeg", "/paris-3.jpeg", "/paris-4.jpeg"]
   },
   {
     logo: "/ipas-logo.png",
     name: "IPAS Advisory",
     sector: "Finance & Consultancy",
     desc: "IPAS Advisory is a trusted consultancy firm providing expert services in GST, Income Tax, Accounting, and Business Advisory. Serving clients across India and the UAE, they help businesses stay compliant and achieve sustainable growth.",
-  },
-  {
-    logo: "/brownie-bakes.png",
-    name: "Brownie Bakes",
-    sector: "Food & Bakery",
-    desc: "Placeholder — client to provide final copy.",
-  },
-  {
-    logo: "/razain.png",
-    name: "Razain",
-    sector: "TBD",
-    desc: "Placeholder — client to provide final copy.",
+    images: ["/ipas-3.jpeg", "/ipas-4.jpeg", "/ipas-5.jpeg"]
   },
   {
     logo: "/redpex.png",
     name: "Redpex",
-    sector: "TBD",
-    desc: "Placeholder — client to provide final copy.",
+    sector: "E-Commerce",
+    desc: "Redpex is a modern digital platform focused on delivering premium product experiences and streamlined retail solutions.",
+    images: ["/redpex-1.jpeg", "/redpex-2.png", "/redpex-3.jpeg"]
   },
   {
     logo: "/horizone.png",
     name: "Horizone Energy",
     sector: "Solar / Energy",
     desc: "Horizone Energy Malappuram provides reliable solar energy solutions designed to help homes and businesses switch to clean, sustainable, and cost-effective power.",
+    images: ["/horizone-1.jpeg", "/horizone-2.jpeg", "/horizone-3.jpeg"]
   },
   {
     logo: "/inkspire.png",
     name: "Inkspire Study Point",
     sector: "Education",
     desc: "Inkspire Study Point Tuition Centre, Malappuram, is a trusted learning center dedicated to helping students achieve academic excellence. With experienced tutors, personalized teaching methods, and both online and offline classes, the institute focuses on building strong fundamentals — covering CBSE and State syllabus subjects.",
+    images: ["/inkspire-1.jpeg", "/inkspire-2.jpeg", "/inkspire-3.jpeg"]
   },
 ];
 
@@ -164,16 +157,15 @@ export default function Portfolio() {
             border-radius: 20px;
           }
           .cs-img-grid {
-            display: flex;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 4rem;
-            min-height: 450px;
             padding-bottom: 2rem;
           }
           .cs-img-slot {
             flex: 1;
-            aspect-ratio: 16/10;
+            min-height: 400px;
             border: 1px solid rgba(245,245,240,0.15);
             border-radius: 12px;
             overflow: hidden;
@@ -181,17 +173,20 @@ export default function Portfolio() {
             backdrop-filter: blur(10px);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             position: relative;
           }
           .cs-img-slot::before {
             content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 24px;
+            display: block;
+            height: 32px;
+            width: 100%;
             background: rgba(255,255,255,0.05);
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
             z-index: 2;
           }
           .cs-img-slot:hover { 
@@ -200,9 +195,31 @@ export default function Portfolio() {
             box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 20px ${C.acid}22;
           }
           .cs-img-slot img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain;
             display: block;
-            opacity: 0.8;
+            opacity: 1;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.15);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .cs-img-slot:hover img {
+            transform: scale(1.02);
+          }
+          .mockup-controls {
+            position: absolute;
+            top: 12px;
+            left: 14px;
+            display: flex;
+            gap: 6px;
+            z-index: 3;
+          }
+          .mockup-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
           }
             margin-top: 2rem;
           }
@@ -210,12 +227,17 @@ export default function Portfolio() {
           @media (max-width: 1024px) {
             section { padding-left: 5vw !important; padding-right: 5vw !important; }
             .svc-row { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+            .cs-img-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .cs-img-slot { min-height: 350px; }
           }
           @media (max-width: 640px) {
-            .cs-img-grid { grid-template-columns: 1fr !important; }
+            .cs-img-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+            .cs-img-slot { min-height: 280px !important; transform: none !important; }
             .cs-block { padding: 1.5rem !important; }
-            .cs-header { flex-direction: column !important; align-items: flex-start !important; gap: 0.75rem !important; }
+            .cs-header { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+            .cs-logo-area { width: 140px; height: 140px; }
             .cs-sector { margin-left: 0 !important; }
+            .cs-img-slot img { padding: 1rem; }
           }
         `}</style>
 
@@ -416,7 +438,7 @@ export default function Portfolio() {
                   </p>
 
                   <div className="cs-img-grid">
-                    {["Work 1", "Work 2", "Work 3"].map((label, j) => {
+                    {client.images.map((imgSrc, j) => {
                       const offsets = [
                         { rotate: "-2deg", y: "0px" },
                         { rotate: "3deg", y: "40px" },
@@ -425,14 +447,18 @@ export default function Portfolio() {
                       return (
                         <div 
                           key={j} 
-                          className="cs-img-slot cs-img-slot-empty" 
-                          data-label={label}
+                          className="cs-img-slot" 
                           style={{ 
                             transform: `rotate(${offsets[j].rotate}) translateY(${offsets[j].y})`,
                             zIndex: j === 1 ? 5 : 1
                           }}
                         >
-                          <img src="" alt={`${client.name.toLowerCase().replace(/\s+/g, "-")}-work-${j + 1}`} />
+                          <div className="mockup-controls">
+                            <div className="mockup-dot" />
+                            <div className="mockup-dot" />
+                            <div className="mockup-dot" />
+                          </div>
+                          <img src={imgSrc} alt={`${client.name} work ${j + 1}`} />
                         </div>
                       );
                     })}
@@ -440,7 +466,6 @@ export default function Portfolio() {
 
                 </div>
               </Reveal>
-
               {i < caseStudies.length - 1 && (
                 <div className="rule" style={{ margin: "2.5rem 0" }} />
               )}
@@ -451,4 +476,4 @@ export default function Portfolio() {
       </div>
     </div>
   );
-}
+}     

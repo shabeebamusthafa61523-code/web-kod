@@ -26,7 +26,7 @@ const Reveal = ({ children, delay = 0, y = 48, className = "" }) => (
 
 // ── Ticker ───────────────────────────────────────────────────────────────────
 const Ticker = ({ items }) => (
-  <div className="overflow-hidden whitespace-nowrap border-y py-3 select-none" style={{ borderColor: "rgba(43,81,182,0.35)", background: "rgba(43,81,182,0.06)" }}>
+  <div className="overflow-hidden whitespace-nowrap border-y py-3 select-none" style={{ borderColor: "rgba(43,81,182,0.35)", background: "transparent" }}>
     <motion.div
       className="inline-flex gap-16"
       animate={{ x: ["0%", "-50%"] }}
@@ -50,7 +50,7 @@ const services = [
   { title: "Development", desc: "Cohesive visual identities — from logos to full brand systems — that communicate a clear, memorable, and lasting presence." },
 ];
 
-const logos = ["/razain.png", "/redpex.png", "/horizone.png","/inkspire.png", "/paris cafe.png",  "/ipas-logo.png", "/brownie-bakes.png"];
+const logos = ["/razain.png", "/redpex.png", "/horizone.png","/inkspire.png", "/paris cafe.png",  "/ipas-logo.png", "/brownie-bakes.png","LOGO 1.png","LOGO 4.png","LOGO 5.png","LOGO 2.png"];
 const tickerItems = ["Brand Strategy", "Visual Identity", "Motion Design", "Web Development", "3D Modeling", "Campaign Direction"];
 
 const devCards = [
@@ -63,7 +63,7 @@ export default function Portfolio() {
   return (
     <div className="relative z-10 bg-transparent">
       {/* <Navbart /> */}
-      <div style={{ color: C.white, fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif" }}>
+      <div style={{ color: C.white, fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif", background: "transparent" }}>
 
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,500;0,900;1,300&family=DM+Serif+Display:ital@0;1&display=swap');
@@ -83,13 +83,15 @@ export default function Portfolio() {
           @media (max-width: 1024px) {
             section { padding-left: 5vw !important; padding-right: 5vw !important; }
             .svc-row { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+            .trusted-layout { grid-template-columns: 1fr !important; gap: 3rem !important; }
+            .trusted-header { padding-right: 0 !important; border-right: none !important; border-bottom: 1px solid rgba(245,245,240,0.1) !important; padding-bottom: 2rem !important; }
           }
         `}</style>
 
         <div className="grain" />
 
         {/* ── HERO ── */}
-        <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 6vw 8vh", position: "relative" }}>
+        <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 6vw 8vh", position: "relative", background: "transparent" }}>
           <div style={{ position: "absolute", top: "30%", right: "10%", width: 560, height: 560, borderRadius: "50%", background: `radial-gradient(circle, ${C.blue}28 0%, transparent 70%)`, pointerEvents: "none" }} />
           
           <motion.h1
@@ -163,96 +165,91 @@ export default function Portfolio() {
           ))}
         </section>
 
-        {/* ── TRUSTED BY (UPDATED VERSION) ── */}
-     {/* ── TRUSTED BY (THEMED HIGH-CONTRAST SLIDER) ── */}
-<section style={{ 
-  padding: "12vh 0", 
-  background: "transparent", 
-  overflow: "hidden",
-  position: "relative"
-}}>
-  <div style={{ padding: "0 6vw", marginBottom: "4rem" }}>
-    <Reveal>
-      <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: C.acid, marginBottom: "1rem" }}>
-        Proven Results
-      </p>
-      <h2 style={{ 
-        fontFamily: "'DM Sans", 
-        fontSize: "clamp(2.5rem, 6vw, 5rem)", 
-        color: C.white,
-        lineHeight: 1,
-        fontWeight: 400 
-      }}>
-        Trusted by <span style={{ fontStyle: "italic", color: C.acid }}>Industry Leaders</span>
-      </h2>
-    </Reveal>
-  </div>
+        <div className="rule" />
 
-  {/* The Slider Container */}
-  <div style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%" }}>
-    <motion.div
-      style={{ display: "flex", gap: "2rem", padding: "20px 0" }}
-      animate={{ x: ["0%", "-50%"] }} 
-      transition={{ 
-        duration: 25, 
-        repeat: Infinity, 
-        ease: "linear" 
-      }}
-    >
-      {[...logos, ...logos].map((logo, i) => (
-        <motion.div 
-          key={i}
-          style={{ 
-            flex: "0 0 220px", // Wider slot
-            height: "150px",  // Taller slot
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-background: "#FFFFFF", 
-    // Added backdropBlur for a glassmorphism effect
-    backdropFilter: "blur(10px)",            borderRadius: "4px",    // Slight rounding to feel premium
-            cursor: "pointer",
-            position: "relative",
-            overflow: "hidden",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.2)" // Lifted effect
-          }}
-          whileHover={{ 
-            y: -10,
-            boxShadow: `0 20px 40px ${C.acid}33`, // Acid glow on hover
-            borderColor: C.acid
-          }}
-        >
-          {/* THE LOGO - Big and Highlighted */}
-          <motion.img 
-            src={logo} 
-            alt="" 
-            initial={{ scale: 0.9 }}
-            whileHover={{ scale: 1.3 }} // Large Zoom
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            style={{ 
-              width: "220px",
-              height: "auto",
-              maxHeight: "320px", // Much larger
-              maxWidth: "85%",    // Filling more of the white box
-              objectFit: "contain",
-              zIndex: 2
-            }} 
-          />
+        {/* ── TRUSTED BY (MINIMALIST WHITE LOGO TICKER) ── */}
+        <section style={{ padding: "14vh 0", background: "transparent", overflow: "hidden" }}>
+          <div className="trusted-layout" style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", alignItems: "center", width: "100%" }}>
+            
+            {/* Left Content Column */}
+            <div className="trusted-header" style={{ padding: "0 6vw", borderRight: "1px solid rgba(245,245,240,0.10)", background: "transparent" }}>
+              <Reveal>
+                <p style={{ fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase", color: C.acid, marginBottom: "1rem", fontWeight: 500 }}>
+                  Strategic Alliances
+                </p>
+                <h2 style={{ 
+                  fontFamily: "'DM Serif Display', serif", 
+                  fontSize: "clamp(2.5rem, 4.5vw, 4.5rem)", 
+                  color: C.white,
+                  lineHeight: 1.05,
+                  fontWeight: 400
+                }}>
+                  Trusted by <br />
+                  <span style={{ fontStyle: "italic", color: C.acid }}>Global Leaders</span>
+                </h2>
+                <p style={{ color: C.dim, fontSize: "0.9rem", marginTop: "1.5rem", lineHeight: 1.6, maxWidth: "340px" }}>
+                  Partnering with forward-thinking enterprises to deliver absolute distinction across digital footprints.
+                </p>
+              </Reveal>
+            </div>
 
-          {/* Bottom highlight bar */}
-          <motion.div 
-            initial={{ height: 0 }}
-            whileHover={{ height: "6px" }}
-            style={{ 
-              position: "absolute", bottom: 0, left: 0, right: 0, 
-              background: C.acid, zIndex: 3 
-            }}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</section>
+            {/* Right Infinite Ticker Column */}
+            <div style={{ position: "relative", width: "100%", overflow: "hidden", background: "transparent" }}>
+              
+              {/* Soft gradient edges to smoothly fade logos in and out on the sides */}
+              <div style={{
+                position: "absolute", inset: 0,
+                background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, transparent 100%)",
+                zIndex: 5, pointerEvents: "none"
+              }} />
+
+              {/* Transparent Ticker Runway */}
+              <div style={{ 
+                display: "flex", 
+                width: "100%",
+                background: "transparent", 
+                padding: "0" 
+              }}>
+                <motion.div
+                  style={{ display: "flex", gap: "8rem", padding: "0 4rem", alignItems: "center" }} 
+                  animate={{ x: ["0%", "-50%"] }} 
+                  transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+                >
+                  {[...logos, ...logos].map((logo, i) => (
+                    <div 
+                      key={i}
+                      style={{ 
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        cursor: "pointer", height: "200px", width: "160px", background: "transparent"
+                      }}
+                    >
+                      <motion.img 
+                        src={logo} 
+                        alt="" 
+                        initial={{ scale: 1, opacity: 0.4 }}
+                        whileHover={{ scale: 1.12, opacity: 0.95 }}
+                        transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                        style={{ 
+                          width: "auto", 
+                          maxHeight: (logo.includes("LOGO(1)") || logo.includes("LOGO (2)") || logo.includes("LOGO (4)") || logo.includes("LOGO 1") || logo.includes("LOGO 2") || logo.includes("LOGO 4")) ? "250px" : "200px", 
+                          maxWidth: "160px",
+                          objectFit: "contain", zIndex: 6,
+                          /* Forces any color logo into a pristine, solid white layout */
+                          filter: "brightness(0) invert(1)",
+                          WebkitFilter: "brightness(0) invert(1)"
+                        }} 
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <div className="rule" />
+
         {/* ── DEVELOPMENT ── */}
         <section className="py-[12vh] px-[6vw] pb-[20vh] bg-transparent">
           <Reveal>
@@ -264,7 +261,7 @@ background: "#FFFFFF",
             {devCards.map((card, i) => (
               <Reveal key={i} delay={i * 0.12}>
                 <div className="p-[1px] bg-gradient-to-r from-[#c4ec0d] to-[#2b51b6] transition-all duration-300 hover:scale-[1.02]">
-                  <div className="bg-black/40 backdrop-blur-md overflow-hidden">
+                  <div className="bg-transparent backdrop-blur-md overflow-hidden">
                     <div className="h-[220px] flex items-center justify-center p-8">
                       <img src={`/${card.img}`} alt="" className="h-20 object-contain opacity-90" />
                     </div>

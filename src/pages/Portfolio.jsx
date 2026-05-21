@@ -167,8 +167,7 @@ export default function Portfolio() {
 
         <div className="rule" />
 
-        {/* ── TRUSTED BY (MINIMALIST WHITE LOGO TICKER) ── */}
-        <section style={{ padding: "14vh 0", background: "transparent", overflow: "hidden" }}>
+       <section style={{ padding: "14vh 0", background: "transparent", overflow: "hidden" }}>
           <div className="trusted-layout" style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", alignItems: "center", width: "100%" }}>
             
             {/* Left Content Column */}
@@ -249,7 +248,6 @@ export default function Portfolio() {
         </section>
 
         <div className="rule" />
-
         {/* ── DEVELOPMENT ── */}
         <section className="py-[12vh] px-[6vw] pb-[20vh] bg-transparent">
           <Reveal>

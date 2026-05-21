@@ -327,92 +327,6 @@ export default function Portfolio() {
 
 
         {/* ── TRUSTED BY (UPDATED VERSION) ── */}
-        {/* ── TRUSTED BY (THEMED HIGH-CONTRAST SLIDER) ── */}
-        <section style={{
-          padding: "12vh 0",
-          background: "transparent",
-          overflow: "hidden",
-          position: "relative"
-        }}>
-          <div style={{ padding: "0 6vw", marginBottom: "4rem" }}>
-            <Reveal>
-              <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: C.acid, marginBottom: "1rem" }}>
-                Proven Results
-              </p>
-              <h2 style={{
-                fontFamily: "'DM Sans",
-                fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                color: C.white,
-                lineHeight: 1,
-                fontWeight: 400
-              }}>
-                Trusted by <span style={{ fontStyle: "italic", color: C.acid }}>Industry Leaders</span>
-              </h2>
-            </Reveal>
-          </div>
-
-          {/* The Slider Container */}
-          <div style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%" }}>
-            <motion.div
-              style={{ display: "flex", gap: "2rem", padding: "20px 0" }}
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                duration: 25,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            >
-              {[...logos, ...logos].map((logo, i) => (
-                <motion.div
-                  key={i}
-                  style={{
-                    flex: "0 0 220px",
-                    height: "150px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: "#FFFFFF",
-                    backdropFilter: "blur(10px)", borderRadius: "4px",
-                    cursor: "pointer",
-                    position: "relative",
-                    overflow: "hidden",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
-                  }}
-                  whileHover={{
-                    y: -10,
-                    boxShadow: `0 20px 40px ${C.acid}33`,
-                    borderColor: C.acid
-                  }}
-                >
-                  <motion.img
-                    src={logo}
-                    alt=""
-                    initial={{ scale: 0.9 }}
-                    whileHover={{ scale: 1.3 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                    style={{
-                      width: "220px",
-                      height: "auto",
-                      maxHeight: "320px",
-                      maxWidth: "85%",
-                      objectFit: "contain",
-                      zIndex: 2
-                    }}
-                  />
-
-                  <motion.div
-                    initial={{ height: 0 }}
-                    whileHover={{ height: "6px" }}
-                    style={{
-                      position: "absolute", bottom: 0, left: 0, right: 0,
-                      background: C.acid, zIndex: 3
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-
-        <div className="rule" />
 
         {/* ── TRUSTED BY (MINIMALIST WHITE LOGO TICKER) ── */}
         <section style={{ padding: "14vh 0", background: "transparent", overflow: "hidden" }}>
@@ -586,4 +500,3 @@ export default function Portfolio() {
       </div>
     </div>
   );
-

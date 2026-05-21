@@ -50,8 +50,7 @@ const services = [
   { title: "Development", desc: "Cohesive visual identities — from logos to full brand systems — that communicate a clear, memorable, and lasting presence." },
 ];
 
-
-const logos = ["/razain.png", "/redpex.png", "/horizone.png","/inkspire.png", "/paris cafe.png",  "/ipas-logo.png", "/brownie-bakes.png","LOGO 1.png","LOGO 4.png","LOGO 5.png","LOGO 2.png"];
+const logos = ["/razain.png", "/redpex.png", "/horizone.png", "/inkspire.png", "/paris cafe.png", "/ipas-logo.png", "/brownie-bakes.png", "LOGO 1.png", "LOGO 4.png", "LOGO 5.png", "LOGO 2.png"];
 
 const tickerItems = ["Brand Strategy", "Visual Identity", "Motion Design", "Web Development", "3D Modeling", "Campaign Direction"];
 
@@ -223,13 +222,10 @@ export default function Portfolio() {
             border-radius: 50%;
             background: rgba(255,255,255,0.2);
           }
-            margin-top: 2rem;
-          }
 
           @media (max-width: 1024px) {
             section { padding-left: 5vw !important; padding-right: 5vw !important; }
             .svc-row { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
-
             .cs-img-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
             .cs-img-slot { min-height: 350px; }
           }
@@ -241,10 +237,8 @@ export default function Portfolio() {
             .cs-logo-area { width: 140px; height: 140px; }
             .cs-sector { margin-left: 0 !important; }
             .cs-img-slot img { padding: 1rem; }
-
             .trusted-layout { grid-template-columns: 1fr !important; gap: 3rem !important; }
             .trusted-header { padding-right: 0 !important; border-right: none !important; border-bottom: 1px solid rgba(245,245,240,0.1) !important; padding-bottom: 2rem !important; }
-
           }
         `}</style>
 
@@ -325,26 +319,19 @@ export default function Portfolio() {
           ))}
         </section>
 
+        <div className="rule" />
 
-        {/* ── TRUSTED BY (UPDATED VERSION) ── */}
+      
 
         {/* ── TRUSTED BY (MINIMALIST WHITE LOGO TICKER) ── */}
         <section style={{ padding: "14vh 0", background: "transparent", overflow: "hidden" }}>
           <div className="trusted-layout" style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", alignItems: "center", width: "100%" }}>
-            
-            {/* Left Content Column */}
             <div className="trusted-header" style={{ padding: "0 6vw", borderRight: "1px solid rgba(245,245,240,0.10)", background: "transparent" }}>
               <Reveal>
                 <p style={{ fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase", color: C.acid, marginBottom: "1rem", fontWeight: 500 }}>
                   Strategic Alliances
                 </p>
-                <h2 style={{ 
-                  fontFamily: "'DM Serif Display', serif", 
-                  fontSize: "clamp(2.5rem, 4.5vw, 4.5rem)", 
-                  color: C.white,
-                  lineHeight: 1.05,
-                  fontWeight: 400
-                }}>
+                <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(2.5rem, 4.5vw, 4.5rem)", color: C.white, lineHeight: 1.05, fontWeight: 400 }}>
                   Trusted by <br />
                   <span style={{ fontStyle: "italic", color: C.acid }}>Global Leaders</span>
                 </h2>
@@ -354,109 +341,65 @@ export default function Portfolio() {
               </Reveal>
             </div>
 
-            {/* Right Infinite Ticker Column */}
             <div style={{ position: "relative", width: "100%", overflow: "hidden", background: "transparent" }}>
-              
-              {/* Soft gradient edges to smoothly fade logos in and out on the sides */}
-              <div style={{
-                position: "absolute", inset: 0,
-                background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, transparent 100%)",
-                zIndex: 5, pointerEvents: "none"
-              }} />
-
-              {/* Transparent Ticker Runway */}
-              <div style={{ 
-                display: "flex", 
-                width: "100%",
-                background: "transparent", 
-                padding: "0" 
-              }}>
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, transparent 100%)", zIndex: 5, pointerEvents: "none" }} />
+              <div style={{ display: "flex", width: "100%", background: "transparent", padding: "0" }}>
                 <motion.div
-                  style={{ display: "flex", gap: "8rem", padding: "0 4rem", alignItems: "center" }} 
-                  animate={{ x: ["0%", "-50%"] }} 
+                  style={{ display: "flex", gap: "8rem", padding: "0 4rem", alignItems: "center" }}
+                  animate={{ x: ["0%", "-50%"] }}
                   transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
                 >
                   {[...logos, ...logos].map((logo, i) => (
-                    <div 
-                      key={i}
-                      style={{ 
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        cursor: "pointer", height: "200px", width: "160px", background: "transparent"
-                      }}
-                    >
-                      <motion.img 
-                        src={logo} 
-                        alt="" 
+                    <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", height: "200px", width: "160px", background: "transparent" }}>
+                      <motion.img
+                        src={logo}
+                        alt=""
                         initial={{ scale: 1, opacity: 0.4 }}
                         whileHover={{ scale: 1.12, opacity: 0.95 }}
                         transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                        style={{ 
-                          width: "auto", 
-                          maxHeight: (logo.includes("LOGO(1)") || logo.includes("LOGO (2)") || logo.includes("LOGO (4)") || logo.includes("LOGO 1") || logo.includes("LOGO 2") || logo.includes("LOGO 4")) ? "250px" : "200px", 
+                        style={{
+                          width: "auto",
+                          maxHeight: (logo.includes("LOGO 1") || logo.includes("LOGO 2") || logo.includes("LOGO 4")) ? "250px" : "200px",
                           maxWidth: "160px",
-                          objectFit: "contain", zIndex: 6,
-                          /* Forces any color logo into a pristine, solid white layout */
+                          objectFit: "contain",
+                          zIndex: 6,
                           filter: "brightness(0) invert(1)",
                           WebkitFilter: "brightness(0) invert(1)"
-                        }} 
+                        }}
                       />
                     </div>
                   ))}
                 </motion.div>
               </div>
             </div>
-
-
           </div>
         </section>
 
         <div className="rule" />
 
-
         {/* ── VISUAL CAMPAIGNS / CLIENT CASE STUDIES ── */}
-        <section style={{ padding: "12vh 6vw 20vh", background: "transparent" }}>
-
-
-
-        {/* ── DEVELOPMENT ── */}
-        <section className="py-[12vh] px-[6vw] pb-[20vh] bg-transparent">
-
+        <section style={{ padding: "12vh 6vw", background: "transparent" }}>
           <Reveal>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(2.5rem,7vw,6rem)", fontWeight: 400, lineHeight: 0.95, marginBottom: "1rem", paddingTop: "1rem" }}>
-              Visual{" "}
-              <span style={{ fontStyle: "italic", color: C.acid }}>Campaigns</span>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(2.5rem,7vw,6rem)", fontWeight: 400, lineHeight: 0.95, marginBottom: "1rem" }}>
+              Visual <span style={{ fontStyle: "italic", color: C.acid }}>Campaigns</span>
             </h2>
             <p style={{ color: C.dim, fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, marginBottom: "5rem" }}>
               A curated selection of brand campaigns and visual identities crafted for clients across diverse industries.
             </p>
           </Reveal>
 
-
           {caseStudies.map((client, i) => (
             <div key={i}>
               <Reveal delay={i * 0.06}>
                 <div className="cs-block">
-
                   <div className="cs-header" style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
                     <div className="cs-logo-area">
                       <img src={client.logo} alt={client.name} />
-
-          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
-            {devCards.map((card, i) => (
-              <Reveal key={i} delay={i * 0.12}>
-                <div className="p-[1px] bg-gradient-to-r from-[#c4ec0d] to-[#2b51b6] transition-all duration-300 hover:scale-[1.02]">
-                  <div className="bg-transparent backdrop-blur-md overflow-hidden">
-                    <div className="h-[220px] flex items-center justify-center p-8">
-                      <img src={`/${card.img}`} alt="" className="h-20 object-contain opacity-90" />
                     </div>
-                    <div className="border-t border-white/10 px-6 py-4 flex justify-between items-center text-[0.75rem] tracking-[0.14em] uppercase text-[#f5f5f0]/60">
-                      <span>{card.label}</span>
-                      <span>→</span>
-
-                    </div>
-                    <span className="cs-sector">Sector&nbsp;:&nbsp;{client.sector}</span>
+                    <span className="cs-sector">Sector : {client.sector}</span>
                   </div>
 
+                  <h3 style={{ fontSize: "1.75rem", fontWeight: 500, marginBottom: "1rem", fontFamily: "'DM Serif Display', serif" }}>{client.name}</h3>
                   <p style={{ color: C.dim, fontSize: "0.95rem", lineHeight: 1.8, maxWidth: 700, marginBottom: "0.5rem" }}>
                     {client.desc}
                   </p>
@@ -469,10 +412,10 @@ export default function Portfolio() {
                         { rotate: "-1deg", y: "15px" }
                       ];
                       return (
-                        <div 
-                          key={j} 
-                          className="cs-img-slot" 
-                          style={{ 
+                        <div
+                          key={j}
+                          className="cs-img-slot"
+                          style={{
                             transform: `rotate(${offsets[j].rotate}) translateY(${offsets[j].y})`,
                             zIndex: j === 1 ? 5 : 1
                           }}
@@ -487,16 +430,21 @@ export default function Portfolio() {
                       );
                     })}
                   </div>
-
                 </div>
               </Reveal>
               {i < caseStudies.length - 1 && (
-                <div className="rule" style={{ margin: "2.5rem 0" }} />
+                <div className="rule" style={{ margin: "4rem 0" }} />
               )}
             </div>
           ))}
-
         </section>
+
+        <div className="rule" />
+
+        {/* ── DEVELOPMENT SECTION ── */}
+        
+
       </div>
     </div>
   );
+}

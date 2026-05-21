@@ -327,7 +327,6 @@ export default function Portfolio() {
 
 
         {/* ── TRUSTED BY (UPDATED VERSION) ── */}
-       
 
         {/* ── TRUSTED BY (MINIMALIST WHITE LOGO TICKER) ── */}
         <section style={{ padding: "14vh 0", background: "transparent", overflow: "hidden" }}>
@@ -406,6 +405,7 @@ export default function Portfolio() {
                 </motion.div>
               </div>
             </div>
+
 
           </div>
         </section>

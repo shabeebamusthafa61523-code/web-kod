@@ -67,9 +67,9 @@ export default function BoardMembers() {
                     </div>
                     
                     {/* The 01/02 Circle from Image */}
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#5b21b6] text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-xl group-hover:bg-[#c4ec0d] group-hover:text-black transition-colors duration-500">
+                    {/* <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#5b21b6] text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-xl group-hover:bg-[#c4ec0d] group-hover:text-black transition-colors duration-500">
                       {member.id}
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Text Section */}

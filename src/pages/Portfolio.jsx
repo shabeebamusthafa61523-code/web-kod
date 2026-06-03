@@ -282,14 +282,14 @@ export default function Portfolio() {
           <Reveal delay={0.15}>
             <div style={{ color: C.dim, lineHeight: 1.85, fontSize: "1.05rem" }}>
               <p>KOD.BRAND is a full-service digital marketing and branding agency committed to helping businesses build impactful, lasting connections with their audiences.</p>
-              <div style={{ marginTop: "2.5rem", display: "flex", gap: "3rem" }}>
+              {/* <div style={{ marginTop: "2.5rem", display: "flex", gap: "3rem" }}>
                 {[["120+", "Brands", C.acid], ["08", "Years", C.blue], ["4", "Studios", C.acid]].map(([num, label, clr]) => (
                   <div key={label}>
                     <div style={{ fontSize: "2.5rem", color: clr, fontWeight: 900 }}>{num}</div>
                     <div style={{ fontSize: "0.72rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.dim }}>{label}</div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </Reveal>
         </section>

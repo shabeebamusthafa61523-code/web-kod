@@ -33,7 +33,7 @@ export default function Homet() {
   const [isMobile, setIsMobile] = useState(false);
   
   // POPUP CONTROL
-  const [showContactPop, setShowContactPop] = useState(false);
+  // const [showContactPop, setShowContactPop] = useState(false);
   const [hasClosedContact, setHasClosedContact] = useState(false);
 
   const homeRef = useRef(null);
@@ -65,25 +65,25 @@ export default function Homet() {
 
       // 3. UPDATED: Contact Popup Logic (Trigger after 3-4 scrolls)
       // vh * 3.5 is the "sweet spot" for 3-4 scrolls.
-      if (!hasClosedContact && currentScrollY > vh * 3.5) {
-        setShowContactPop(true);
-      } 
+      // if (!hasClosedContact && currentScrollY > vh * 3.5) {
+      //   setShowContactPop(true);
+      // } 
       
       // Reset logic: if they scroll back to the very top, allow it to pop again later
-      if (currentScrollY < vh * 0.5) {
-        setHasClosedContact(false);
-        setShowContactPop(false);
-      }
+      // if (currentScrollY < vh * 0.5) {
+      //   setHasClosedContact(false);
+      //   setShowContactPop(false);
+      // }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, hasClosedContact]);
 
-  const closePopup = () => {
-    setShowContactPop(false);
-    setHasClosedContact(true);
-  };
+  // const closePopup = () => {
+  //   setShowContactPop(false);
+  //   setHasClosedContact(true);
+  // };
 
   return (
     <div className="text-white bg-black">
@@ -148,10 +148,9 @@ export default function Homet() {
       </div>
 
       {/* --- CENTER POPUP CONTACT --- */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showContactPop && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            {/* Backdrop */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -160,7 +159,6 @@ export default function Homet() {
               className="absolute inset-0 bg-black/80 backdrop-blur-md"
             />
             
-            {/* Contact Card */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -168,7 +166,6 @@ export default function Homet() {
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-zinc-950 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-12 z-10"
             >
-              {/* Close Button */}
               <button 
                 onClick={closePopup}
                 className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all z-50 text-xl"
@@ -195,7 +192,7 @@ export default function Homet() {
           0% { background-position: 300% center; }
           100% { background-position: -300% center; }
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 }

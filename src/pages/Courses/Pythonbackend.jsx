@@ -186,7 +186,36 @@ const Pythonbackend = () => {
           </div>
 
         </section>
+ {/* CTA */}
+      <section className="px-6 pb-24">
 
+        <div className="
+          bg-gradient-to-r from-[#5b21b6]/25 to-[#c4ec0d]/10
+          border border-white/10
+          rounded-[3rem] p-16 text-center
+          backdrop-blur-2xl
+        ">
+
+          <h2 className="text-5xl font-black mb-6">
+            Start Your Journey
+          </h2>
+
+          <p className="text-gray-400 mb-10">
+            Limited seats available for next batch
+          </p>
+
+      <button
+  onClick={handleApplyClick}
+  className="mt-6 mx-auto px-3 py-2 rounded-full border border-[#c4ec0d]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-sm font-semibold tracking-[0.25em] text-[#c4ec0d] hover:text-white hover:tracking-[0.35em] transition-all duration-500 hover:scale-105"
+>
+  <span>ENROLL NOW</span>
+  <span className="group-hover:translate-x-1 transition-transform duration-500">
+    →
+  </span>
+</button>
+        </div>
+
+      </section>
       </div>
     </div>
   );

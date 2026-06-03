@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { useNavigate, useLocation } from "react-router-dom"; // 1. Import useLocation
 
-const 
-
-Contact = () => {
+const Contact = () => {
+  const navigate = useNavigate();
+  const location = useLocation(); // 2. Get the current location object
   const formRef = useRef();
   const [form, setForm] = useState({
     from_name: "",
@@ -15,6 +16,9 @@ Contact = () => {
   });
 
   const [status, setStatus] = useState("idle");
+
+  // 3. Determine if the current page is the homepage
+  const isHomePage = location.pathname === "/";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -44,22 +48,41 @@ Contact = () => {
   return (
     <div className="relative z-10 pt-24 px-4 sm:px-6">
       
-      {/* SECTION HEADER */}
-      <div className="max-w-4xl mx-auto mb-12">
-        <motion.h2
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-white tracking-tighter"
-        >
-          Contact Us
-        </motion.h2>
-        <motion.div 
-          initial={{ width: 0 }}
-          whileInView={{ width: "80px" }}
-          viewport={{ once: true }}
-          className="h-[2px] mt-2 bg-gradient-to-r from-[#c4ec0d] to-transparent rounded-full" 
-        />
+      {/* BACK BUTTON & SECTION HEADER CONTAINER */}
+      <div className="max-w-4xl mx-auto mb-12 flex flex-col gap-4">
+        
+        {/* 4. CONDITIONAL RENDER: Only show if NOT on home page */}
+        {!isHomePage && (
+          <motion.button
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            onClick={() => navigate(-1)}
+            className="group/back self-start flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] font-bold text-gray-500 hover:text-[#c4ec0d] transition-colors duration-300"
+          >
+            <span className="text-sm group-hover/back:-translate-x-1 transition-transform duration-300">
+              ←
+            </span>
+            Go Back
+          </motion.button>
+        )}
+
+        {/* SECTION TITLE */}
+        <div>
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-white tracking-tighter"
+          >
+            Contact Us
+          </motion.h2>
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: "80px" }}
+            viewport={{ once: true }}
+            className="h-[2px] mt-2 bg-gradient-to-r from-[#c4ec0d] to-transparent rounded-full" 
+          />
+        </div>
       </div>
 
       <motion.div

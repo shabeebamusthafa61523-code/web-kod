@@ -282,8 +282,8 @@ const AppDevelopment = () => {
             Limited seats available for next batch
           </p>
 
-        <button
-  onClick={() => navigate(card.route)}
+      <button
+  onClick={handleApplyClick}
   className="mt-6 mx-auto px-3 py-2 rounded-full border border-[#c4ec0d]/40 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-3 text-sm font-semibold tracking-[0.25em] text-[#c4ec0d] hover:text-white hover:tracking-[0.35em] transition-all duration-500 hover:scale-105"
 >
   <span>ENROLL NOW</span>
@@ -291,7 +291,6 @@ const AppDevelopment = () => {
     →
   </span>
 </button>
-
         </div>
 
       </section>

@@ -1407,7 +1407,7 @@ const VisionPage = () => {
         {/* PROMOTIONAL BANNER: Stock Market Add-On Program */}
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mt-24 mb-10 w-full bg-black/40 backdrop-blur-xl rounded-[40px] overflow-hidden shadow-[0_0_50px_rgba(147,51,234,0.15)] relative flex flex-col md:flex-row border border-white/10">
           {/* Left Content */}
-          <div className="p-10 md:p-14 lg:w-[60%] relative z-10 flex flex-col justify-between pb-28 md:pb-14 items-center text-center md:items-start md:text-left">
+          <div className="p-10 md:p-14 md:w-[55%] lg:w-[60%] relative z-10 flex flex-col justify-start md:justify-between pb-10 md:pb-28 lg:pb-14 items-center text-center md:items-start md:text-left">
             <div>
               <div className="text-white font-black text-xl tracking-tighter mb-8">
                 KOD<span className="text-[#c4ec0d]">.</span>brand
@@ -1421,7 +1421,7 @@ const VisionPage = () => {
               </p>
 
               {/* Feature List */}
-              <div className="space-y-5 mb-10 w-full">
+              <div className="space-y-5 mb-8 md:mb-10 w-full">
                 {[
                   { icon: <CandlestickChart className="w-5 h-5 text-purple-400" />, text: "Swing Trading (NSE / BSE)" },
                   { icon: <Briefcase className="w-5 h-5 text-purple-400" />, text: "Zerodha Setup" },
@@ -1440,7 +1440,7 @@ const VisionPage = () => {
 
             {/* Call to Action */}
             <div className="flex justify-center md:justify-start w-full">
-              <div className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#c4ec0d] to-[#c4ec0d] text-black px-8 py-4 rounded-full font-black text-xl shadow-[0_10px_30px_rgba(196,236,13,0.2)] hover:scale-105 transition-transform cursor-pointer border border-[#c4ec0d]/50 text-center flex-col sm:flex-row w-full sm:w-auto">
+              <div className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#c4ec0d] to-[#c4ec0d] text-black px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-black text-lg sm:text-xl shadow-[0_10px_30px_rgba(196,236,13,0.2)] hover:scale-105 transition-transform cursor-pointer border border-[#c4ec0d]/50 text-center flex-row w-auto">
                 <Gift className="w-6 h-6 text-black sm:w-8 sm:h-8" />
                 <span>FREE for <span className="text-black underline decoration-4 underline-offset-4">Level 3</span></span>
               </div>
@@ -1448,7 +1448,7 @@ const VisionPage = () => {
           </div>
 
           {/* Right Visual Elements */}
-          <div className="lg:w-[40%] bg-gradient-to-br from-black to-purple-950/40 relative overflow-hidden hidden md:flex flex-col items-center justify-center min-h-[400px] border-l border-white/5">
+          <div className="md:w-[45%] lg:w-[40%] bg-gradient-to-br from-black to-purple-950/40 relative overflow-hidden hidden md:flex flex-col items-center justify-center min-h-[400px] border-l border-white/5">
             {/* Abstract Background */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#c4ec0d 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/20 blur-[80px] rounded-full pointer-events-none"></div>
@@ -1479,7 +1479,7 @@ const VisionPage = () => {
           </div>
 
           {/* Bottom Footer bar */}
-          <div className="absolute bottom-0 left-0 w-full bg-purple-900/40 backdrop-blur-md text-white flex flex-wrap justify-between items-center py-4 px-6 md:px-14 border-t border-purple-500/30 z-30">
+          <div className="relative md:absolute bottom-0 left-0 w-full bg-purple-900/40 backdrop-blur-md text-white flex flex-wrap justify-center md:justify-between items-center py-4 px-6 md:px-14 border-t border-purple-500/30 z-30 gap-y-2 gap-x-4 md:gap-x-0">
             {[
               { icon: <Target className="w-4 h-4 text-[#c4ec0d]" />, label: "Real Market Knowledge" },
               { icon: <LineChart className="w-4 h-4 text-[#c4ec0d]" />, label: "Practical Strategies" },

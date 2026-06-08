@@ -57,6 +57,7 @@ import {
   Target, Users, Zap, TrendingUp, ChevronRight, Code, Megaphone, PenTool, Monitor, Smartphone, Database, Server, Bot, ShieldCheck, Award, DollarSign, PieChart, Briefcase, Layers, Settings, Cpu, CheckCircle2, Trophy, ArrowRight, ArrowUp, Sparkles,
   Rocket, Clock, BarChart, FileText, CheckSquare, PhoneCall, RefreshCw, Handshake, Star, UserPlus, CreditCard, Gift, LineChart, CandlestickChart
 } from 'lucide-react';
+import VisionOverview from "../components/VisionOverview";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -393,38 +394,12 @@ const VisionPage = () => {
           />
           <div className="hidden md:block absolute bottom-10 left-[20%] md:left-[30%] w-[2px] h-[85%] bg-gradient-to-t from-purple-600 via-cyan-400 to-[#c4ec0d] rounded-full opacity-50" />
 
-          {[
-            { level: 1, title: "Basics & Foundation", color: "from-purple-700 to-purple-500", border: "border-purple-500/30", textClass: "text-white" },
-            { level: 2, title: "Kod.Pro Skills", color: "from-cyan-500 to-teal-500", border: "border-cyan-400/40", textClass: "text-white" },
-            { level: 3, title: "Agency Management System", color: "from-[#c4ec0d] to-[#c4ec0d]", border: "border-[#c4ec0d]", textClass: "text-black" }
-          ].map((step, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: 30, y: 30 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.18 }}
-              className={`relative md:absolute w-full md:w-[70%] p-5 md:p-6 rounded-2xl border ${step.border} bg-gradient-to-r ${step.color} shadow-[0_15px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl group hover:-translate-y-3 transition-all duration-300 md:bottom-[var(--stair-bottom)] md:left-[var(--stair-left)] z-10`}
-              style={{ '--stair-bottom': `${idx * 25 + 5}%`, '--stair-left': `${idx * 15}%` }}
-            >
-              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-5 text-center md:text-left">
-                <div className={`w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/20 shadow-inner font-black text-xl group-hover:scale-110 transition-transform flex-shrink-0 ${step.textClass ? 'bg-black/20 border-black/20 text-black' : 'text-white'}`}>
-                  0{step.level}
-                </div>
-                <div className="flex flex-col items-center md:items-start">
-                  <div className={`text-[10px] md:text-xs font-black uppercase tracking-widest opacity-70 mb-1 ${step.textClass || 'text-white'}`}>Level 0{step.level}</div>
-                  <div className={`font-bold text-lg md:text-xl leading-tight ${step.textClass || 'text-white'}`}>{step.title}</div>
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
-            </motion.div>
-          ))}
-
           {/* Target at Top */}
           <motion.div
             initial={{ opacity: 0, scale: 0, y: 50 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, type: "spring" }}
-            className="absolute top-[0%] left-[60%] md:left-[70%] z-50 flex flex-col items-center"
+            className="relative md:absolute top-auto md:top-[0%] left-auto md:left-[70%] z-50 flex flex-col items-center mb-8 md:mb-0"
           >
             <div className="relative group cursor-pointer">
               <div className="absolute inset-0 bg-[#c4ec0d] blur-2xl opacity-40 group-hover:opacity-70 group-hover:blur-3xl transition-all duration-500 animate-pulse" />
@@ -439,6 +414,32 @@ const VisionPage = () => {
               <ArrowUp className="text-[#c4ec0d] w-8 h-8 mt-4 drop-shadow-[0_0_10px_rgba(196,236,13,0.5)]" />
             </motion.div>
           </motion.div>
+
+          {[
+            { level: 1, title: "Basics & Foundation", color: "from-purple-700 to-purple-500", border: "border-purple-500/30", textClass: "text-white" },
+            { level: 2, title: "Kod.Pro Skills", color: "from-cyan-500 to-teal-500", border: "border-cyan-400/40", textClass: "text-white" },
+            { level: 3, title: "Agency Management System", color: "from-[#c4ec0d] to-[#c4ec0d]", border: "border-[#c4ec0d]", textClass: "text-black" }
+          ].map((step, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: 30, y: 30 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.18 }}
+              className={`relative md:absolute w-full md:w-[70%] p-5 md:p-6 rounded-2xl border ${step.border} bg-gradient-to-r ${step.color} shadow-[0_15px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl group hover:-translate-y-3 transition-all duration-300 md:bottom-[var(--stair-bottom)] md:left-[var(--stair-left)] z-10`}
+              style={{ '--stair-bottom': `${idx * 25 + 5}%`, '--stair-left': `${idx * 15}%` }}
+            >
+              <div className="flex flex-row items-center gap-4 md:gap-5 text-left">
+                <div className={`w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-md border border-white/20 shadow-inner font-black text-xl group-hover:scale-110 transition-transform flex-shrink-0 ${step.textClass ? 'bg-black/20 border-black/20 text-black' : 'text-white'}`}>
+                  0{step.level}
+                </div>
+                <div className="flex flex-col items-start">
+                  <div className={`text-[10px] md:text-xs font-black uppercase tracking-widest opacity-70 mb-1 ${step.textClass || 'text-white'}`}>Level 0{step.level}</div>
+                  <div className={`font-bold text-lg md:text-xl leading-tight ${step.textClass || 'text-white'}`}>{step.title}</div>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+            </motion.div>
+          ))}
 
           {/* Floating Particles */}
           {Array.from({ length: 8 }).map((_, i) => (
@@ -1042,97 +1043,14 @@ const VisionPage = () => {
 
         <div className="mt-10 py-4 text-center">
           <p className="text-white font-black tracking-widest text-xs italic">
-            â­ LEVEL UP YOUR CAREER WITH{" "}
+            â­  LEVEL UP YOUR CAREER WITH{" "}
             <span className="text-[#c4ec0d]">KOD.Pro</span> — POWERED BY
             KOD.brand
           </p>
         </div>
       </section>
-      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          SECTION 5 — LEVEL 3 DETAILED
-      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <VisionOverview />
       <section className="relative z-10 py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
-        <motion.div 
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-6 text-center md:text-left"
-        >
-          <div>
-            <span className="inline-block px-4 py-1 rounded-full bg-[#c4ec0d]/20 text-[#c4ec0d] text-xs font-bold mb-4 uppercase border border-[#c4ec0d]/30">Phase 03</span>
-            <h2 className="text-4xl md:text-5xl font-black text-white">LEVEL 3 - <span className="text-purple-500">AGENCY MANAGEMENT</span></h2>
-            <p className="text-xl text-gray-400 font-medium mt-4 max-w-3xl">Master the complete system to build, manage & scale your own agency with structure, automation & clarity.</p>
-          </div>
-          <div className="bg-[#c4ec0d] text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(196,236,13,0.4)] w-full md:w-auto">
-            <FaCalendarAlt className="text-2xl flex-shrink-0" />
-            <div className="text-left">
-              <p className="text-[10px] uppercase font-black leading-none">
-                Duration
-              </p>
-              <p className="text-xl font-bold">45 Days</p>
-            </div>
-          </div>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-3 gap-8 mb-16 items-stretch">
-          {/* Grid Column 1 (Focus Areas) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/10 lg:col-span-1 hover:border-[#c4ec0d]/30 transition-colors h-full">
-            <h3 className="text-xl font-black text-purple-400 mb-6 uppercase tracking-wider">Focus Areas</h3>
-            <ul className="space-y-6">
-              {[
-                { icon: <Layers className="text-[#c4ec0d]" />, title: "SOP & Documentation", desc: "Build structured processes & standard operating procedures." },
-                { icon: <Monitor className="text-[#c4ec0d]" />, title: "System Implementation", desc: "Implement end-to-end agency management systems." },
-                { icon: <Bot className="text-[#c4ec0d]" />, title: "Automation", desc: "Automate workflows, track performance & scale with efficiency." }
-              ].map((item, i) => (
-                <li key={i} className="flex gap-4">
-                  <div className="mt-1 bg-white/5 p-3 rounded-xl border border-white/10">{item.icon}</div>
-                  <div>
-                    <h4 className="font-bold text-white">{item.title}</h4>
-                    <p className="text-gray-400 text-sm mt-1">{item.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Grid Column 2 (Outcome) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-br from-purple-900/40 to-[#c4ec0d]/10 text-white p-8 rounded-3xl shadow-2xl lg:col-span-1 flex flex-col justify-center items-center text-center relative overflow-hidden border border-white/10 h-full">
-            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#c4ec0d]/20 blur-[50px] rounded-full" />
-            <div className="w-24 h-24 bg-black/40 border border-white/10 rounded-full flex items-center justify-center mb-6 backdrop-blur-md">
-              <Rocket className="w-12 h-12 text-[#c4ec0d]" />
-            </div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-[#c4ec0d] mb-2">Outcome</h3>
-            <h2 className="text-3xl font-black mb-4 leading-tight text-white">Run agency independently</h2>
-            <div className="inline-block bg-[#c4ec0d] text-black px-6 py-2 rounded-full font-black uppercase tracking-wider mb-6">
-              (30 Days)
-            </div>
-            <p className="text-white/80 font-medium">Build. Manage. Scale. Lead with Systems.</p>
-          </motion.div>
-
-          {/* Add-On Courses Section */}
-          <div className="lg:col-span-1 h-full flex flex-col">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-md p-6 rounded-3xl shadow-lg border border-purple-500/20 relative overflow-hidden group hover:border-purple-500/50 transition-colors flex-grow flex flex-col text-center md:text-left">
-              <div className="absolute top-0 left-0 w-1 h-full bg-purple-500 group-hover:w-2 transition-all"></div>
-              <div className="w-full">
-                <span className="text-[10px] font-black bg-purple-500/20 text-purple-300 px-3 py-1.5 rounded-md uppercase mb-4 inline-block mx-auto md:mx-0">15 Days - Add-on Course</span>
-              </div>
-              <h4 className="font-bold text-lg text-white mb-5">System Management Implementation</h4>
-              <div className="space-y-3 mt-auto">
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">What You'll Learn:</p>
-                <ul className="text-sm text-gray-300 space-y-3 flex flex-col items-center md:items-start">
-                  <li className="flex items-center gap-3 text-left"><CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0" /> Framework & Workflow</li>
-                  <li className="flex items-center gap-3 text-left"><CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0" /> Tools & Setup</li>
-                  <li className="flex items-center gap-3 text-left"><CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0" /> Team Management</li>
-                </ul>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-
-
-
         {/* PART B: Master & Lead Dashboard */}
         <div className="mt-24 mb-20">
           <div className="text-center mb-12">
@@ -1428,7 +1346,7 @@ const VisionPage = () => {
                   { icon: <TrendingUp className="w-5 h-5 text-purple-400" />, text: "VCP Strategy" },
                   { icon: <ShieldCheck className="w-5 h-5 text-purple-400" />, text: "Risk Awareness" },
                 ].map((feat, i) => (
-                  <div key={i} className="flex items-center gap-4 justify-center md:justify-start w-full">
+                  <div key={i} className="flex items-center gap-4 justify-start w-full max-w-[280px] mx-auto md:mx-0 md:max-w-none">
                     <div className="w-10 h-10 rounded-xl bg-purple-900/30 border border-purple-500/20 flex items-center justify-center shadow-md flex-shrink-0">
                       {feat.icon}
                     </div>

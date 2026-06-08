@@ -41,7 +41,7 @@ const Footert = () => {
           <ul className="space-y-2 text-sm">
             <li className="hover:text-white cursor-pointer">kod.brand@gmail.com</li>
             <li className="hover:text-white cursor-pointer">+91 9678007291</li>
-            <li className="hover:text-white cursor-pointer">Thamarakuzhi, Up Hill</li>
+            <li className="hover:text-white cursor-pointer">Thamarakuzhi Road, Up Hill</li>
             <li className="hover:text-white cursor-pointer">Malappuram, Kerala - 676504</li>
           </ul>
         </div>

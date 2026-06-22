@@ -89,7 +89,7 @@ export default function Homet() {
     <div className="text-white bg-black">
       {/* --- HERO VIDEO SECTION --- */}
       <div ref={homeRef} className="relative w-full h-[100svh] overflow-hidden bg-black z-[20]">
-        <div className="relative z-[21] w-full h-full overflow-hidden"> 
+        <div className="absolute inset-0 z-[21] w-full h-full overflow-hidden"> 
           <video
             autoPlay
             muted
@@ -110,15 +110,6 @@ export default function Homet() {
           />
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-[40]" 
-        >
-          <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent" />
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-semibold">Scroll</span>
-        </motion.div>
       </div>
 
       {/* --- MAIN CONTENT --- */}

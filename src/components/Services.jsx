@@ -97,20 +97,20 @@ export default function Services() {
             whileHover={{ y: -12, transition: { duration: 0.3 } }}
             className="group relative w-full sm:w-[calc(50%-2rem)] lg:max-w-[400px]"
           >
-            {/* Outer Border Glow */}
-            <div className={`absolute -inset-[1px] rounded-[2rem] bg-gradient-to-b ${card.gradient} opacity-20 group-hover:opacity-100 transition duration-500 blur-[2px]`} />
+            {/* Outer Border Glow - opacity increased to 45% default for better visibility */}
+            <div className={`absolute -inset-[1px] rounded-[2rem] bg-gradient-to-b ${card.gradient} opacity-45 group-hover:opacity-100 transition duration-500 blur-[2px]`} />
             
-            {/* Main Card Body */}
-            <div className="relative h-full min-h-[450px] md:h-[520px] bg-black/40 backdrop-blur-xl rounded-[2rem] p-8 md:p-10 flex flex-col justify-between border border-white/10 overflow-hidden shadow-2xl">
+            {/* Main Card Body - background opacity increased to bg-black/75, border brightened to border-white/20 */}
+            <div className="relative h-full min-h-[450px] md:h-[520px] bg-black/75 backdrop-blur-xl rounded-[2rem] p-8 md:p-10 flex flex-col justify-between border border-white/20 overflow-hidden shadow-2xl">
               
               {/* Internal Glassmorphism Detail */}
               <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/[0.05] to-transparent pointer-events-none" />
               
-              {/* Animated Accent Glow on Hover */}
+              {/* Animated Accent Glow - baseline opacity set to 20% for permanent visibility */}
               <div 
-                className="absolute bottom-0 left-0 right-0 h-64 opacity-0 group-hover:opacity-100 transition-all duration-1000 pointer-events-none"
+                className="absolute bottom-0 left-0 right-0 h-64 opacity-20 group-hover:opacity-100 transition-all duration-1000 pointer-events-none"
                 style={{
-                  background: `radial-gradient(circle at 50% 100%, ${card.accentColor}22 0%, transparent 70%)`
+                  background: `radial-gradient(circle at 50% 100%, ${card.accentColor}33 0%, transparent 70%)`
                 }}
               />
 
@@ -118,7 +118,7 @@ export default function Services() {
                 {/* Icon with float animation on hover */}
                 <motion.div 
                   whileHover={{ rotate: 5, scale: 1.1 }}
-                  className="mb-6 inline-flex items-center justify-center p-4 rounded-2xl border border-white/10 bg-white/5"
+                  className="mb-6 inline-flex items-center justify-center p-4 rounded-2xl border border-white/25 bg-white/5"
                   style={{ color: card.accentColor }}
                 >
                   {card.icon}
@@ -135,16 +135,17 @@ export default function Services() {
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 tracking-tight">
                   {card.title}
                 </h2>
-                <p className="text-gray-400 text-base md:text-lg leading-relaxed font-light">
+                {/* Description color brightened to text-zinc-300 for WCAG readability */}
+                <p className="text-zinc-300 text-base md:text-lg leading-relaxed font-light">
                   {card.description}
                 </p>
               </div>
 
-              {/* Action Button */}
+              {/* Action Button - border visibility increased */}
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate(card.path)}
-                className="relative z-10 w-fit group/btn flex items-center gap-4 py-3 px-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white transition-all duration-500 mt-8"
+                className="relative z-10 w-fit group/btn flex items-center gap-4 py-3 px-6 rounded-xl border border-white/20 bg-white/10 hover:bg-white transition-all duration-500 mt-8"
               >
                 <span className="text-white group-hover/btn:text-black font-bold tracking-widest text-[10px] uppercase transition-colors">
                   See More

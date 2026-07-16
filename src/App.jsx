@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import './App.css'
 
@@ -29,6 +30,8 @@ import Hero from "./pages/Hero";
 import Vision from "./pages/Vision";
 import Portfolio from "./pages/Portfolio";
 import Background from "./components/Background";
+import TermsConditions from "./pages/TermsConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 /* ✅ NEW: Layout component */
 function Layout() {
@@ -77,6 +80,8 @@ function Layout() {
         <Route path="/python" element={<Pythonbackend />} />
         <Route path="/hhh" element={<Homev />} />
         <Route path="/vision" element={<Vision />} />
+        <Route path="/terms" element={<TermsConditions />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
 
       <Footert />
@@ -85,11 +90,23 @@ function Layout() {
   );
 }
 
+/* ✅ ScrollToTop Component */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+
+  return null;
+}
+
 /* ✅ CLEAN App */
 function App() {
   return (
     
     <BrowserRouter>
+      <ScrollToTop />
       <Layout />
     </BrowserRouter>
   );
